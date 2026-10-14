@@ -301,8 +301,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
 <script>
 (function () {
   var NUM = '5549999037322'
-  // Links de checkout da Kiwify. Enquanto vazios, o botão de assinar vai pro WhatsApp.
-  var CHECKOUT = { 'Mensal (R$ 47/mês)': '', 'Anual (R$ 397/ano)': '' }
+  // Links de checkout da Kiwify (produto Consulta Cobertura by ISPAds). Vazio = botão vai pro WhatsApp.
+  var CHECKOUT = { 'Mensal (R$ 47/mês)': 'https://pay.kiwify.com.br/ymii0Zb', 'Anual (R$ 397/ano)': 'https://pay.kiwify.com.br/5qq1ooG' }
   var FEAT = ['Chat com a marca do seu provedor', 'Consulta no seu mapa de cobertura', 'Painel de atendimentos e exportação', 'Lista de interesse em expansão', 'Pixel da Meta e API de Conversões', 'Link pros anúncios e botão no site', 'Suporte pelo WhatsApp']
   document.querySelectorAll('.js-feat').forEach(function (ul) {
     FEAT.forEach(function (f) { var li = document.createElement('li'); li.textContent = f; ul.appendChild(li) })
