@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consulta Cobertura by ISPAds — só fale com quem você atende</title>
+<meta name="description" content="Chat no estilo WhatsApp que confere o endereço no mapa de cobertura do seu provedor antes de mandar o cliente pro comercial. Só quem tem cobertura chega no seu WhatsApp.">
+<meta property="og:title" content="Consulta Cobertura by ISPAds">
+<meta property="og:description" content="Seu comercial só fala com quem você consegue atender. Teste a demonstração ao vivo.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0e1629">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b1226'/%3E%3Cg fill='none' stroke='%2360a5fa' stroke-width='8' stroke-linecap='round'%3E%3Cpath d='M28 52a34 34 0 0 1 44 0'/%3E%3Cpath d='M40 64a16 16 0 0 1 20 0'/%3E%3C/g%3E%3Ccircle cx='50' cy='74' r='6' fill='%2360a5fa'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e1629;--bg2:#121c33;--bg3:#17233f;--line:#22304f;
+  --blue:#2563eb;--blue-l:#60a5fa;--cyan:#38bdf8;--green:#25d366;--wa:#00a884;
+  --white:#fff;--txt2:#b4c1d9;--txt3:#7887a6;
+  --display:'Sora',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:var(--body);-webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden}
+img,iframe{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;line-height:1.1}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 16px}
+section{padding:64px 0}
+.bgfx{position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(70% 50% at 85% 0%,rgba(37,99,235,.22),transparent 60%),radial-gradient(60% 50% at 0% 100%,rgba(56,189,248,.10),transparent 60%)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-l);margin-bottom:14px}
+.eyebrow::before{content:'';width:22px;height:1px;background:var(--blue-l)}
+h1{font-size:clamp(32px,7vw,58px);font-weight:800}
+h2{font-size:clamp(26px,5vw,42px);font-weight:800;margin-bottom:14px}
+h3{font-size:19px;font-weight:700;margin-bottom:6px}
+.grad{background:linear-gradient(90deg,var(--blue-l),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--txt2);font-size:clamp(16px,2.2vw,19px);max-width:620px}
+.muted{color:var(--txt3)}
+.center{text-align:center}.center .sub{margin:0 auto}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;font-weight:700;font-size:16px;transition:transform .15s,box-shadow .15s}
+.btn:active{transform:scale(.98)}
+.btn-wa{background:var(--green);color:#06210f;box-shadow:0 8px 28px rgba(37,211,102,.28)}
+.btn-wa:hover{box-shadow:0 10px 34px rgba(37,211,102,.4)}
+.btn-ghost{border:1px solid var(--line);color:var(--white);background:rgba(255,255,255,.03)}
+.btn svg{width:20px;height:20px;flex-shrink:0}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+/* topo */
+.nav{position:sticky;top:0;z-index:20;background:rgba(14,22,41,.82);backdrop-filter:blur(12px);border-bottom:1px solid rgba(34,48,79,.6)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:17px;line-height:1.1}
+.brand .mk{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:#0b1226;border:1px solid var(--line)}
+.brand small{display:block;font-family:var(--body);font-weight:600;font-size:11px;color:var(--txt3);letter-spacing:.04em}
+.nav .btn{min-height:42px;padding:0 16px;font-size:14px;display:none}
+@media(min-width:760px){.nav .btn{display:inline-flex}}
+
+/* hero */
+.hero{padding:40px 0 56px}
+.hero-grid{display:grid;gap:40px;align-items:center}
+@media(min-width:960px){.hero-grid{grid-template-columns:1.1fr .9fr}.hero{padding:72px 0}}
+.proof{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;color:var(--txt2);font-size:14px}
+.proof span::before{content:'✓ ';color:var(--green);font-weight:700}
+
+/* celular com o chat */
+.phone{width:min(100%,360px);margin:0 auto;border-radius:44px;padding:12px;background:linear-gradient(160deg,#1f2b47,#0b1226);box-shadow:0 30px 80px rgba(0,0,0,.45),inset 0 0 0 1px #2c3b5f;position:relative}
+.phone::before{content:'';position:absolute;top:20px;left:50%;transform:translateX(-50%);width:90px;height:22px;border-radius:12px;background:#05080f;z-index:2}
+.phone iframe{width:100%;height:640px;border:0;border-radius:34px;background:#efeae2}
+.try{max-width:360px;margin:16px auto 0;font-size:14px;color:var(--txt2);background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.try b{color:var(--white)}
+.try code{font-family:var(--body);background:#0b1226;border:1px solid var(--line);border-radius:6px;padding:1px 6px;color:var(--cyan);white-space:nowrap}
+
+/* cartões */
+.cards{display:grid;gap:14px;margin-top:32px}
+@media(min-width:760px){.cards.c3{grid-template-columns:repeat(3,1fr)}.cards.c2{grid-template-columns:repeat(2,1fr)}}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:22px}
+.card p{color:var(--txt2);font-size:15px}
+.ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:var(--bg3);border:1px solid var(--line);margin-bottom:14px}
+.pain .ico{background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.25)}
+
+/* passos */
+.steps{display:grid;gap:14px;margin-top:32px;counter-reset:s}
+@media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{position:relative;background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:22px 22px 22px 70px}
+.step::before{counter-increment:s;content:counter(s);position:absolute;left:20px;top:20px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;background:linear-gradient(135deg,var(--blue),var(--cyan))}
+.step p{color:var(--txt2);font-size:15px}
+
+/* destaque */
+.band{background:linear-gradient(135deg,rgba(37,99,235,.18),rgba(56,189,248,.08));border:1px solid var(--line);border-radius:24px;padding:28px 22px}
+@media(min-width:760px){.band{padding:40px}}
+.kpis{display:grid;gap:12px;margin-top:22px}
+@media(min-width:760px){.kpis{grid-template-columns:repeat(3,1fr)}}
+.kpi{background:rgba(14,22,41,.6);border:1px solid var(--line);border-radius:16px;padding:18px}
+.kpi b{display:block;font-family:var(--display);font-size:18px;margin-bottom:4px}
+.kpi span{color:var(--txt2);font-size:14px}
+
+/* planos */
+.plans{display:grid;gap:16px;margin-top:36px;align-items:stretch}
+@media(min-width:900px){.plans{grid-template-columns:repeat(3,1fr)}}
+.plan{display:flex;flex-direction:column;background:var(--bg2);border:1px solid var(--line);border-radius:22px;padding:26px 22px;position:relative}
+.plan.hl{border-color:var(--blue-l);box-shadow:0 0 0 1px var(--blue-l),0 20px 60px rgba(37,99,235,.25)}
+.tag{position:absolute;top:-12px;left:22px;background:linear-gradient(90deg,var(--blue),var(--cyan));color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px}
+.plan h3{font-size:21px}
+.plan .for{color:var(--txt3);font-size:14px;min-height:42px}
+.price{margin:16px 0 4px;font-family:var(--display);font-weight:800;font-size:38px;letter-spacing:-.02em}
+.price small{font-family:var(--body);font-size:15px;font-weight:600;color:var(--txt3)}
+.plan ul{list-style:none;margin:16px 0 22px;display:grid;gap:9px;flex:1}
+.plan li{color:var(--txt2);font-size:15px;padding-left:24px;position:relative}
+.plan li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:800}
+.plan .btn{width:100%}
+.setup{margin-top:18px;text-align:center;color:var(--txt2);font-size:15px}
+.setup b{color:var(--white)}
+
+/* faq */
+.faq{max-width:760px;margin:28px auto 0;display:grid;gap:10px}
+details{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:0 18px}
+summary{cursor:pointer;list-style:none;min-height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-weight:600}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';font-size:22px;color:var(--blue-l);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--txt2);padding-bottom:16px;font-size:15px}
+
+/* final */
+.final{text-align:center}
+.final .ctas{justify-content:center}
+footer{border-top:1px solid var(--line);padding:28px 0 96px;color:var(--txt3);font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+
+/* botão fixo no celular */
+.sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:30;display:flex;transform:translateY(140%);transition:transform .3s ease}
+.sticky.on{transform:none}
+.sticky .btn{flex:1}
+@media(min-width:760px){.sticky{display:none}footer{padding-bottom:28px}}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="bgfx"></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#" class="brand" aria-label="Consulta Cobertura by ISPAds">
+      <span class="mk"><svg viewBox="0 0 100 100" width="22" height="22" aria-hidden="true"><g fill="none" stroke="#60a5fa" stroke-width="9" stroke-linecap="round"><path d="M22 50a40 40 0 0 1 56 0"/><path d="M36 64a20 20 0 0 1 28 0"/></g><circle cx="50" cy="78" r="7" fill="#60a5fa"/></svg></span>
+      <span>Consulta Cobertura<small>by ISPAds</small></span>
+    </a>
+    <a class="btn btn-wa js-wa" href="#" target="_blank" rel="noopener">Quero no meu provedor</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Pré-atendimento para provedores</p>
+        <h1>Seu comercial só fala com quem <span class="grad">você consegue atender.</span></h1>
+        <p class="sub" style="margin-top:18px">Um chat igual ao WhatsApp que confere o endereço no <b>seu mapa de cobertura</b> antes de mandar o cliente pro seu time. Quem tem cobertura chega no seu WhatsApp com nome, telefone e endereço prontos. Quem não tem, fica registrado para quando a rede chegar.</p>
+        <div class="ctas">
+          <a class="btn btn-wa js-wa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.1.2.6 1 1.4 1.7 1 .9 1.8 1.2 2 1.3.3.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4Z"/></svg>Quero no meu provedor</a>
+          <a class="btn btn-ghost" href="#demo">Testar agora</a>
+        </div>
+        <div class="proof"><span>Usa o mapa que você já tem (Google Earth)</span><span>Com a marca do seu provedor</span><span>No ar em poucos dias</span></div>
+      </div>
+      <div id="demo">
+        <div class="phone"><iframe src="https://consulta-cobertura.vercel.app/p/demo?utm_source=pagina-vendas" title="Demonstração do chat de consulta de cobertura" allow="geolocation"></iframe></div>
+        <p class="try"><b>Teste aqui mesmo.</b> Digite <code>Rua Lamenha Lins, 190, Curitiba</code> pra ver um endereço com cobertura. Depois tente o CEP da sua casa.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMA -->
+  <section>
+    <div class="wrap reveal">
+      <p class="eyebrow">O problema</p>
+      <h2>Todo clique de quem você não atende custa igual.</h2>
+      <p class="sub">Anúncio que leva direto pro WhatsApp traz gente de todo lado. Seu time descobre que não tem cobertura só depois de conversar.</p>
+      <div class="cards c3 pain">
+        <div class="card"><div class="ico">💸</div><h3>Verba no lugar errado</h3><p>Você paga a conversa de quem mora fora da área. E o Meta aprende a trazer mais gente parecida.</p></div>
+        <div class="card"><div class="ico">⏳</div><h3>Time conferindo endereço</h3><p>O vendedor perde tempo abrindo mapa, perguntando rua e número, enquanto o cliente bom espera na fila.</p></div>
+        <div class="card"><div class="ico">🥶</div><h3>Cliente esfria</h3><p>Quem pergunta "chega aí?" quer resposta na hora. Se demora, ele fecha com o concorrente.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section>
+    <div class="wrap reveal">
+      <p class="eyebrow">Como funciona</p>
+      <h2>Em menos de 1 minuto, sem ninguém do seu time.</h2>
+      <div class="steps">
+        <div class="step"><h3>O cliente manda o CEP</h3><p>No chat com a cara do WhatsApp: ele digita o CEP, confirma o número e marca o ponto no mapa.</p></div>
+        <div class="step"><h3>O sistema confere no seu mapa</h3><p>A consulta é feita no servidor, na área que você publicou. Endereço na beirada da área vai pra análise, não é aprovado no chute.</p></div>
+        <div class="step"><h3>Só quem tem cobertura chega no WhatsApp</h3><p>Com nome, telefone, endereço e protocolo já na mensagem. Seu vendedor só precisa falar de plano.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE VEM -->
+  <section>
+    <div class="wrap reveal">
+      <p class="eyebrow">O que vem junto</p>
+      <h2>Tudo que o seu comercial precisa, nada que ele tenha que aprender.</h2>
+      <div class="cards c3">
+        <div class="card"><div class="ico">🗺️</div><h3>Seu mapa, do jeito que está</h3><p>Importa o arquivo KML/KMZ do Google Earth. Também dá pra desenhar a área ou gerar por distância das caixas.</p></div>
+        <div class="card"><div class="ico">💬</div><h3>Chat com a sua marca</h3><p>Foto de perfil, cores e textos do seu provedor. Igualzinho ao WhatsApp, que o cliente já sabe usar.</p></div>
+        <div class="card"><div class="ico">📋</div><h3>Painel de atendimentos</h3><p>Cada conversa completa, com o resultado da consulta. Exporta em planilha quando quiser.</p></div>
+        <div class="card"><div class="ico">📍</div><h3>Mapa de expansão</h3><p>Quem pediu e não tem cobertura fica registrado, com bairro e cidade. Ótimo pra decidir onde levar a rede.</p></div>
+        <div class="card"><div class="ico">📈</div><h3>Medição de anúncios</h3><p>Pixel da Meta e API de Conversões prontos. A campanha aprende com quem foi aprovado, não com qualquer clique.</p></div>
+        <div class="card"><div class="ico">🔒</div><h3>Dados protegidos</h3><p>Seu WhatsApp nunca aparece na página e os dados do cliente seguem a LGPD, com prazo de exclusão automático.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTADO -->
+  <section>
+    <div class="wrap reveal">
+      <div class="band">
+        <p class="eyebrow">O que muda no seu tráfego pago</p>
+        <h2>Você passa a medir o que importa: <span class="grad">custo por contato com cobertura.</span></h2>
+        <p class="sub">O link do anúncio vai pro chat. O Meta recebe um aviso a cada cliente aprovado e otimiza a entrega pra trazer mais gente dentro da sua área.</p>
+        <div class="kpis">
+          <div class="kpi"><b>Contato que vale</b><span>Seu WhatsApp recebe só quem pode virar cliente.</span></div>
+          <div class="kpi"><b>Campanha mais esperta</b><span>A otimização usa o aprovado como conversão, não a conversa genérica.</span></div>
+          <div class="kpi"><b>Origem de cada venda</b><span>Cada contato chega com a campanha e o anúncio que trouxeram.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANOS -->
+  <section id="planos">
+    <div class="wrap reveal">
+      <div class="center">
+        <p class="eyebrow">Planos</p>
+        <h2>Escolha quanto você quer que a gente cuide.</h2>
+        <p class="sub">O sistema é o mesmo em todos os planos. Muda o quanto a ISPAds trabalha por você.</p>
+      </div>
+      <div class="plans">
+        <div class="plan">
+          <h3>Essencial</h3>
+          <p class="for">Pra quem tem equipe que cuida do próprio mapa.</p>
+          <p class="price">R$ 197<small>/mês</small></p>
+          <ul>
+            <li>Chat com a marca do seu provedor</li>
+            <li>Consulta no seu mapa de cobertura</li>
+            <li>Painel de atendimentos e exportação</li>
+            <li>Lista de interesse em expansão</li>
+            <li>Link pros anúncios e botão no site</li>
+          </ul>
+          <a class="btn btn-ghost js-wa" data-plano="Essencial" href="#" target="_blank" rel="noopener">Quero o Essencial</a>
+        </div>
+        <div class="plan hl">
+          <span class="tag">Recomendado</span>
+          <h3>Gerenciado</h3>
+          <p class="for">A ISPAds cuida do mapa e te entrega os números.</p>
+          <p class="price">R$ 347<small>/mês</small></p>
+          <ul>
+            <li>Tudo do Essencial</li>
+            <li>A ISPAds atualiza o mapa quando a rede crescer</li>
+            <li>Relatório mensal: onde pediram e não tem cobertura</li>
+            <li>Ajuste de textos e perguntas do chat</li>
+            <li>Pixel e API de Conversões configurados</li>
+          </ul>
+          <a class="btn btn-wa js-wa" data-plano="Gerenciado" href="#" target="_blank" rel="noopener">Quero o Gerenciado</a>
+        </div>
+        <div class="plan">
+          <h3>Cliente de tráfego ISPAds</h3>
+          <p class="for">Pra quem já roda anúncios com a ISPAds.</p>
+          <p class="price">R$ 147<small>/mês</small></p>
+          <ul>
+            <li>Tudo do Gerenciado</li>
+            <li>Chat ligado direto nas suas campanhas</li>
+            <li>Campanhas otimizadas pelo contato aprovado</li>
+            <li>Resultado do chat no relatório de tráfego</li>
+          </ul>
+          <a class="btn btn-ghost js-wa" data-plano="Cliente de tráfego ISPAds" href="#" target="_blank" rel="noopener">Quero esse plano</a>
+        </div>
+      </div>
+      <p class="setup">Implantação: <b>R$ 497</b>, uma vez só. A gente sobe seu mapa, configura a marca e entrega o chat funcionando.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="wrap reveal">
+      <div class="center"><p class="eyebrow">Dúvidas</p><h2>Perguntas frequentes</h2></div>
+      <div class="faq">
+        <details><summary>Preciso trocar meu WhatsApp ou meu sistema?</summary><p>Não. O cliente aprovado cai no WhatsApp que você já usa, com a mensagem pronta. O chat fica antes dele, filtrando.</p></details>
+        <details><summary>Funciona com o mapa que eu já tenho?</summary><p>Sim. Se você tem a área no Google Earth (KML ou KMZ), a gente importa. Se só tem o traçado da fibra ou as caixas, dá pra gerar a área por distância e revisar antes de publicar.</p></details>
+        <details><summary>E se o endereço ficar bem na beirada da área?</summary><p>O chat não aprova no chute. Endereço perto da borda vira "análise": o cliente deixa o contato e seu time confere.</p></details>
+        <details><summary>Integra com IXC, SGP ou MK?</summary><p>Ainda não. Hoje o sistema confere a área do mapa, não as portas livres da caixa. Se você precisa validar capacidade, dá pra ligar a opção que manda os aprovados pra conferência do time antes.</p></details>
+        <details><summary>Em quanto tempo fica pronto?</summary><p>Com o mapa em mãos, poucos dias: importação, marca, textos e testes. Você recebe o link pros anúncios e o código do botão pro site.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="final">
+    <div class="wrap reveal">
+      <h2>Bora parar de pagar conversa <span class="grad">de quem você não atende?</span></h2>
+      <p class="sub">Chama no WhatsApp, manda o seu mapa e a gente te mostra o chat funcionando com a cara do seu provedor.</p>
+      <div class="ctas"><a class="btn btn-wa js-wa" href="#" target="_blank" rel="noopener">Quero no meu provedor</a></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Consulta Cobertura · um produto ISPAds, marketing e vendas para provedores</span>
+    <span>(49) 99903-7322</span>
+  </div>
+</footer>
+
+<div class="sticky"><a class="btn btn-wa js-wa" href="#" target="_blank" rel="noopener">Quero no meu provedor</a></div>
+
+<script>
+(function () {
+  var NUM = '5549999037322'
+  var base = 'Olá! Vi o Consulta Cobertura e quero colocar no meu provedor.'
+  document.querySelectorAll('.js-wa').forEach(function (a) {
+    var plano = a.getAttribute('data-plano')
+    var msg = plano ? base + ' Tenho interesse no plano ' + plano + '.' : base
+    a.href = 'https://wa.me/' + NUM + '?text=' + encodeURIComponent(msg)
+  })
+  var sticky = document.querySelector('.sticky')
+  var onScroll = function () { sticky.classList.toggle('on', window.scrollY > 700) }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll()
+  var els = document.querySelectorAll('.reveal')
+  if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in') }); return }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target) } })
+  }, { threshold: 0.12 })
+  els.forEach(function (e) { io.observe(e) })
+})()
+</script>
+</body>
+</html>
