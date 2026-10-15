@@ -115,7 +115,7 @@ h3{font-size:19px;font-weight:700;margin-bottom:6px}
 .hero-meta svg{width:20px;height:20px;color:var(--txt3)}
 .hero-meta .sep{width:1px;height:26px;background:var(--line);display:none}
 @media(min-width:560px){.hero-ctas{display:flex;flex-wrap:wrap}.hero-meta .sep{display:block}}
-@media(min-width:1000px){.hero .wrap,.nav .wrap{max-width:1320px}.hero-grid{grid-template-columns:1.12fr .88fr;gap:44px}.hero{padding:56px 0 88px}.hero h1{font-size:clamp(56px,5.3vw,78px)}}
+@media(min-width:1000px){.wrap{max-width:1320px}.hero-grid{grid-template-columns:1.12fr .88fr;gap:44px}.hero{padding:56px 0 88px}.hero h1{font-size:clamp(56px,5.3vw,78px)}}
 
 .hero-visual{position:relative;aspect-ratio:1/1.02;border-radius:28px;overflow:hidden;background:var(--deep);box-shadow:0 40px 90px rgba(11,45,34,.28)}
 .hv-map{position:absolute;inset:0;background:url('hero-mapa.webp') center/cover no-repeat}
@@ -158,6 +158,74 @@ h3{font-size:19px;font-weight:700;margin-bottom:6px}
 @media(min-width:980px){.demo-grid{grid-template-columns:1fr 400px;gap:64px}}
 .code{font-family:var(--body);background:#d9fdd3;border-radius:6px;padding:2px 7px;color:var(--green-d);font-weight:600}
 .chips-row.static{display:flex;justify-content:flex-start;margin-top:22px}
+
+/* ===== seções enxutas (identidade nova) ===== */
+.btn{border-radius:10px}
+.btn-wa{background:#18a957;color:#fff}.btn-wa:hover{background:#12924a}
+.btn-ghost{border-color:#0f8a5f;color:#0b6b48}
+.sec-head{max-width:760px;margin-bottom:36px}
+.sec-head h2,.cmp2 h2,.how h2,.setup5 h2,.track2 h2{font-size:clamp(30px,5vw,48px);letter-spacing:-.035em;line-height:1.05}
+.h-green{color:#0f7a52}
+.kicker.light{color:#8ff0b4}
+section{padding:64px 0}
+@media(min-width:900px){section{padding:88px 0}}
+
+.cmp2-grid{display:grid;gap:18px}
+@media(min-width:960px){.cmp2-grid{grid-template-columns:1fr 1fr;gap:24px}}
+.side{min-width:0;border-radius:24px;padding:24px 20px;display:flex;flex-direction:column;gap:18px}
+@media(min-width:600px){.side{padding:30px 28px}}
+.side.bad{background:#fff;border:1px solid var(--line)}
+.side.good{background:var(--deep);color:#eef6f1;box-shadow:0 30px 70px rgba(11,45,34,.25)}
+.side-tag{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.bad .side-tag{color:#b4412f}.good .side-tag{color:#8ff0b4}
+.pipe{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font-size:13.5px;font-weight:600}
+.pipe span{padding:7px 11px;border-radius:999px;background:var(--bg3);color:var(--txt2)}
+.good .pipe span{background:#13402f;color:#cfe9da}
+.good .pipe span.hl{background:#25d366;color:#0b2d22}
+.pipe i{width:14px;height:2px;background:currentColor;opacity:.35}
+.ib{border-radius:16px;overflow:hidden;background:#111b21;color:#e9edef}
+.good .ib{background:#0a241c;border:1px solid #1f4a3b}
+.ib-row{display:flex;align-items:center;gap:10px;padding:11px 14px;border-top:1px solid #222d34}
+.ib-row:first-child{border-top:0}
+.good .ib-row{border-color:#173d30}
+.ib-av{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:14px;color:#fff;flex-shrink:0}
+.ib-t{flex:1;min-width:0}.ib-t b{display:block;font-size:14px}.ib-t small{display:block;font-size:12.5px;color:#8696a0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tg{flex-shrink:0;font-size:11px;font-weight:700;padding:4px 8px;border-radius:999px}
+.tg.no{background:rgba(217,63,63,.16);color:#ff8a7a}.tg.ok{background:rgba(37,211,102,.16);color:#5ee59a}
+.ib-note{padding:12px 14px;font-size:12.5px;color:#94b8a7;border-top:1px dashed #1f4a3b}
+.pts{list-style:none;display:grid;gap:10px}
+.pts li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;line-height:1.45}
+.pts svg{width:20px;height:20px;flex-shrink:0;margin-top:1px;padding:3px;border-radius:50%}
+.bad .pts svg{background:#fde2e2;color:#c0392b}.good .pts svg{background:#25d366;color:#0b2d22}
+.bad .pts li{color:var(--txt2)}
+.side-win{margin-top:auto;padding-top:18px;border-top:1px solid #1f4a3b;font-family:var(--display);font-weight:800;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.03em;line-height:1.1;color:#fff}.side-win span{color:#25d366}
+
+.how{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.steps3{list-style:none;display:grid;gap:14px}
+@media(min-width:860px){.steps3{grid-template-columns:repeat(3,1fr);gap:20px}}
+.steps3 li{padding:24px;border-radius:20px;background:var(--bg);border:1px solid var(--line)}
+.steps3 .n,.steps4 .n{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:#18a957;color:#fff;font-family:var(--display);font-weight:800;font-size:18px;margin-bottom:14px}
+.steps3 p{color:var(--txt2);font-size:15.5px}
+.demo-sec{background:var(--bg);border:0;overflow:hidden}
+
+.setup5-box{border-radius:28px;padding:36px 22px;background:var(--deep) url('hero-mapa.webp') right -120px center/auto 140% no-repeat;color:#eef6f1;position:relative;overflow:hidden}
+.setup5-box::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#0b2d22 45%,rgba(11,45,34,.75))}
+.setup5-box>*{position:relative}
+.setup5 h2{color:#fff}
+@media(min-width:700px){.setup5-box{padding:52px 48px}}
+.steps4{list-style:none;display:grid;gap:12px}
+@media(min-width:700px){.steps4{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1040px){.steps4{grid-template-columns:repeat(4,1fr)}}
+.steps4 li{display:flex;flex-direction:column;gap:4px;padding:20px;border-radius:18px;background:rgba(15,51,40,.85);border:1px solid #1f4a3b}
+.steps4 b{font-family:var(--display);font-size:18px;color:#fff}
+.steps4 li>span:last-child{color:#a9cbbb;font-size:14.5px}
+.setup5-foot{margin-top:22px;color:#a9cbbb;font-size:14.5px}
+
+.track2-grid{display:grid;gap:26px;align-items:center}
+@media(min-width:900px){.track2-grid{grid-template-columns:1.1fr .9fr;gap:48px}}
+.evs{display:flex;flex-wrap:wrap;gap:10px}
+.evs span{padding:10px 14px;border-radius:12px;background:#fff;border:1px solid var(--line);font-family:ui-monospace,Menlo,monospace;font-size:13.5px;color:var(--txt2)}
+.evs span.hl{background:#0b2d22;border-color:#0b2d22;color:#8ff0b4;font-weight:700}
 
 /* problema (o mock do WhatsApp do comercial fica no modo escuro do app) */
 .problem-grid{display:grid;gap:28px;align-items:center;margin-top:12px}
@@ -354,6 +422,51 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
     </div>
   </section>
 
+  <!-- COMPARATIVO -->
+  <section class="cmp2" id="resolve">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="kicker">O que resolve</p>
+        <h2>Campanha boa gera muita mensagem. <span class="h-green">O problema é que a maioria está fora da sua área.</span></h2>
+      </div>
+      <div class="cmp2-grid">
+        <div class="side bad reveal">
+          <p class="side-tag">Sem o Consulta Cobertura</p>
+          <div class="pipe"><span>Anúncio</span><i></i><span>Muitas mensagens</span><i></i><span>WhatsApp do comercial</span></div>
+          <div class="ib" aria-label="Ilustração do WhatsApp do comercial lotado"><div class="ib-row"><span class="ib-av" style="background:#7c3aed">C</span><div class="ib-t"><b>Carlos</b><small>Chega internet no Jd. Palmeiras?</small></div><span class="tg no">Fora da área</span></div><div class="ib-row"><span class="ib-av" style="background:#0891b2">A</span><div class="ib-t"><b>Ana Paula</b><small>Moro no sítio depois da ponte</small></div><span class="tg no">Fora da área</span></div><div class="ib-row"><span class="ib-av" style="background:#16a34a">J</span><div class="ib-t"><b>Juliana</b><small>Rua das Flores, 120. Atendem?</small></div><span class="tg ok">Com viabilidade</span></div><div class="ib-row"><span class="ib-av" style="background:#ea580c">P</span><div class="ib-t"><b>Pedro</b><small>Quanto é o de 500 mega?</small></div><span class="tg no">Fora da área</span></div><div class="ib-row"><span class="ib-av" style="background:#db2777">M</span><div class="ib-t"><b>Marcos</b><small>Atendem do outro lado da cidade?</small></div><span class="tg no">Fora da área</span></div></div>
+          <ul class="pts">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>O vendedor pede endereço e confere no mapa, um por um.</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>O lead que pode instalar esfria na fila.</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>O Meta aprende a trazer mais gente fora da área.</li>
+          </ul>
+        </div>
+        <div class="side good reveal">
+          <p class="side-tag">Com o Consulta Cobertura</p>
+          <div class="pipe"><span>Anúncio</span><i></i><span class="hl">Chat consulta no seu KML</span><i></i><span>Só quem tem viabilidade</span></div>
+          <div class="ib" aria-label="Ilustração do WhatsApp do comercial só com leads com viabilidade"><div class="ib-row"><span class="ib-av" style="background:#16a34a">J</span><div class="ib-t"><b>Juliana</b><small>Rua das Flores, 120 · Centro</small></div><span class="tg ok">Com viabilidade</span></div><div class="ib-row"><span class="ib-av" style="background:#0f8a5f">R</span><div class="ib-t"><b>Roberto</b><small>Av. Brasil, 845 · Vila Nova</small></div><span class="tg ok">Com viabilidade</span></div><div class="ib-note">Os fora da área ficaram no chat e entraram na sua lista de expansão.</div></div>
+          <ul class="pts">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 12.5 4 4 8-9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>A consulta é automática, no mapa de cobertura que você já tem.</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 12.5 4 4 8-9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>O comercial só fala com quem pode instalar. Sem fila inflada.</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 12.5 4 4 8-9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>O Meta otimiza pelo lead com viabilidade.</li>
+          </ul>
+          <p class="side-win">Mesma verba de anúncio. <span>Mais instalações.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="how" id="como">
+    <div class="wrap">
+      <div class="sec-head reveal"><p class="kicker">Como funciona</p><h2>Do anúncio ao WhatsApp em menos de 1 minuto.</h2></div>
+      <ol class="steps3 reveal">
+        <li><span class="n">1</span><h3>O lead clica no anúncio</h3><p>Abre um chat igual ao WhatsApp, com a marca do seu provedor.</p></li>
+        <li><span class="n">2</span><h3>Manda o CEP e o número</h3><p>O chat confere o endereço no seu mapa de cobertura na hora. Ponto na divisa vai pra análise, nada no chute.</p></li>
+        <li><span class="n">3</span><h3>Só o que tem viabilidade segue</h3><p>Vai pro WhatsApp do comercial com nome, endereço e protocolo prontos. Fora da área fica no chat.</p></li>
+      </ol>
+    </div>
+  </section>
+
   <!-- DEMONSTRAÇÃO AO VIVO -->
   <section class="demo-sec" id="demo">
     <div class="wrap demo-grid">
@@ -370,102 +483,32 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
     </div>
   </section>
 
-  <!-- PROBLEMA -->
-  <section>
+  <!-- ATIVA EM 5 MINUTOS -->
+  <section class="setup5">
     <div class="wrap">
-      <div class="reveal">
-        <p class="eyebrow">O problema de todo provedor que faz tráfego</p>
-        <h2>Seu tráfego gera lead.<br>Só que muito lead <span class="grad">não tem viabilidade.</span></h2>
-      </div>
-      <div class="problem-grid">
-        <div class="inbox reveal" aria-label="Ilustração do WhatsApp do comercial cheio de leads fora de área">
-          <div class="inbox-top">WhatsApp do comercial <span>hoje, 14:32</span></div>
-          <div class="row"><div class="av" style="background:#7c3aed">C</div><div class="t"><b>Carlos</b><small>Oi, chega internet no Jardim das Palmeiras?</small></div><span class="tag no">Fora de área</span></div>
-          <div class="row"><div class="av" style="background:#0891b2">A</div><div class="t"><b>Ana Paula</b><small>Quero contratar, moro no sítio depois da ponte</small></div><span class="tag no">Sem viabilidade</span></div>
-          <div class="row"><div class="av" style="background:#ea580c">P</div><div class="t"><b>Pedro</b><small>Quanto custa o de 500 mega?</small></div><span class="tag no">Fora de área</span></div>
-          <div class="row"><div class="av" style="background:#16a34a">J</div><div class="t"><b>Juliana</b><small>Rua das Flores, 120. Atendem aqui?</small></div><span class="tag ok">✓ Viabilidade</span></div>
-          <div class="row"><div class="av" style="background:#db2777">M</div><div class="t"><b>Marcos</b><small>Vcs atendem no outro lado da cidade?</small></div><span class="tag no">Fora de área</span></div>
-          <div class="inbox-foot">Ilustração. Cada conversa dessas ocupou um vendedor.</div>
-        </div>
-        <div class="pains">
-          <div class="pain reveal"><div class="ic"><svg><use href="#i-money"/></svg></div><div><h3>Custo por lead que engana</h3><p>A campanha mostra custo por conversa. Mas conversa de quem está fora de área não vira cliente, e você paga igual.</p></div></div>
-          <div class="pain reveal"><div class="ic"><svg><use href="#i-chat"/></svg></div><div><h3>Comercial perdendo tempo</h3><p>O vendedor pede endereço, abre o mapa, confere a viabilidade e descobre que não atende. Enquanto isso, o lead bom esfria na fila.</p></div></div>
-          <div class="pain reveal"><div class="ic"><svg><use href="#i-loop"/></svg></div><div><h3>Campanha aprendendo errado</h3><p>O Meta otimiza pra quem inicia conversa. Se metade do WhatsApp é lead fora de área, ele aprende a trazer mais gente fora de área.</p></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COMO RESOLVE -->
-  <section id="como">
-    <div class="wrap reveal">
-      <p class="eyebrow">Como o chat resolve</p>
-      <h2>A viabilidade é confirmada <span class="grad">antes do primeiro “oi” pro vendedor.</span></h2>
-      <div class="flow">
-        <div class="fstep"><div class="n">1</div><h3>O lead clica no anúncio</h3><p>Cai num chat com a cara do WhatsApp e a marca do seu provedor. Nada de formulário chato.</p></div>
-        <div class="fstep"><div class="n">2</div><h3>Manda o CEP e o número</h3><p>O chat acha a rua sozinho, mostra o ponto no mapa e o lead confirma onde quer instalar.</p></div>
-        <div class="fstep"><div class="n">3</div><h3>Viabilidade conferida no seu mapa</h3><p>A consulta roda no servidor, na área que você publicou. Endereço na beirada da área vai pra análise, sem aprovar no chute.</p></div>
-      </div>
-      <div class="split">
-        <div class="branch ok"><h3><span class="b">✓</span>Com viabilidade</h3><p>O chat pede nome e WhatsApp e encaminha pro comercial com endereço, protocolo e tudo pronto na mensagem. Seu vendedor só fala de plano.</p></div>
-        <div class="branch no"><h3><span class="b">✕</span>Fora de área</h3><p>O lead fica no chat e entra na lista de interesse por bairro. Não ocupa seu vendedor e vira mapa de expansão pra rede.</p></div>
+      <div class="setup5-box reveal">
+        <div class="sec-head"><p class="kicker light">Sem instalação, sem técnico</p><h2>Ativa em 5 minutos.</h2></div>
+        <ol class="steps4">
+          <li><span class="n">1</span><b>Assine</b><span>Cartão ou Pix, pela Kiwify.</span></li>
+          <li><span class="n">2</span><b>Ative a conta</b><span>Com o e-mail da compra.</span></li>
+          <li><span class="n">3</span><b>Suba o seu KML ou KMZ</b><span>O mapa do Google Earth que você já usa.</span></li>
+          <li><span class="n">4</span><b>Cole o link nos anúncios</b><span>Pronto. O chat já está filtrando.</span></li>
+        </ol>
+        <p class="setup5-foot">Só tem as caixas ou a rede, sem a área desenhada? O suporte monta a área pra você.</p>
       </div>
     </div>
   </section>
 
   <!-- TRACKEAMENTO -->
-  <section>
-    <div class="wrap reveal">
-      <div class="track">
-        <div class="track-grid">
-          <div>
-            <p class="eyebrow">Trackeamento</p>
-            <h2>O Meta passa a otimizar pelo <span class="gradg">lead com viabilidade.</span></h2>
-            <p class="sub">Cada etapa do chat vira evento no seu Pixel e na API de Conversões. O evento de <b>Lead só dispara quando o endereço tem viabilidade</b>. A campanha aprende quem é o seu cliente de verdade, e o seu custo por lead vira custo por lead com viabilidade.</p>
-            <p class="quote">Você para de pagar pra campanha aprender com lead fora de área.</p>
-          </div>
-          <div class="events" aria-label="Eventos enviados ao Meta">
-            <div class="ev"><code>PageView</code><span>Abriu o chat pelo anúncio</span></div>
-            <div class="ev"><code>CoberturaConsultada</code><span>Mandou o CEP e confirmou o ponto</span></div>
-            <div class="ev"><code>CoberturaAprovada</code><span>O endereço tem viabilidade</span></div>
-            <div class="ev hl"><code>Lead</code><span>Com viabilidade, deixou nome e WhatsApp</span><span class="k">A campanha otimiza aqui</span></div>
-            <div class="ev"><code>Contact</code><span>Tocou em “Continuar no WhatsApp”</span></div>
-          </div>
-        </div>
+  <section class="track2">
+    <div class="wrap track2-grid reveal">
+      <div>
+        <p class="kicker">Trackeamento pronto</p>
+        <h2>O Meta aprende com o lead certo.</h2>
+        <p class="sub">O evento <b>Lead</b> só dispara quando o endereço tem viabilidade. Pixel e API de Conversões já vêm prontos: é só colar o ID do pixel e o token no painel.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- ANTES X DEPOIS -->
-  <section>
-    <div class="wrap reveal">
-      <div class="center">
-        <p class="eyebrow">Antes e depois</p>
-        <h2>O que muda no seu comercial</h2>
-      </div>
-      <div class="cmp">
-        <div class="cmp-row cmp-head"><div class="lab"></div><div class="bef">Sem o chat</div><div class="aft">Com o Consulta Cobertura</div></div>
-        <div class="cmp-row"><div class="lab">WhatsApp do comercial</div><div class="bef">Cheio de lead fora de área</div><div class="aft">Só lead com viabilidade</div></div>
-        <div class="cmp-row"><div class="lab">Quem confere a viabilidade</div><div class="bef">O vendedor, um por um</div><div class="aft">O chat, sozinho, em menos de 1 minuto</div></div>
-        <div class="cmp-row"><div class="lab">O que a campanha otimiza</div><div class="bef">Conversa iniciada</div><div class="aft">Lead com viabilidade</div></div>
-        <div class="cmp-row"><div class="lab">Métrica que importa</div><div class="bef">Custo por conversa</div><div class="aft">Custo por lead com viabilidade</div></div>
-        <div class="cmp-row"><div class="lab">Lead fora de área</div><div class="bef">Some depois do “não atendemos”</div><div class="aft">Vira lista de expansão por bairro</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RECURSOS -->
-  <section>
-    <div class="wrap reveal">
-      <p class="eyebrow">O que vem junto</p>
-      <h2>Tudo pronto pra rodar <span class="grad">nos seus anúncios.</span></h2>
-      <div class="feats">
-        <div class="feat"><div class="ic"><svg><use href="#i-map"/></svg></div><h3>Seu mapa, do jeito que está</h3><p>Sobe o KML/KMZ do Google Earth com a área atendida e o chat já começa a responder. Só tem as caixas? O suporte monta a área pra você.</p></div>
-        <div class="feat"><div class="ic"><svg><use href="#i-brush"/></svg></div><h3>Chat com a sua marca</h3><p>Foto de perfil, cores e textos do seu provedor. Igual ao WhatsApp, que o cliente já sabe usar.</p></div>
-        <div class="feat"><div class="ic"><svg><use href="#i-target"/></svg></div><h3>Trackeamento pronto</h3><p>Pixel da Meta e API de Conversões com os eventos acima. É só colar o ID do pixel e o token no painel.</p></div>
-        <div class="feat"><div class="ic"><svg><use href="#i-list"/></svg></div><h3>Painel de atendimentos</h3><p>Cada conversa completa, com o resultado da consulta e a campanha de origem. Exporta em planilha.</p></div>
-        <div class="feat"><div class="ic"><svg><use href="#i-pin"/></svg></div><h3>Mapa de expansão</h3><p>Lead fora de área fica registrado com bairro e cidade. Mostra onde vale levar a rede.</p></div>
-        <div class="feat"><div class="ic"><svg><use href="#i-shield"/></svg></div><h3>Seu WhatsApp protegido</h3><p>O número do comercial nunca aparece na página. Os dados do lead seguem a LGPD, com exclusão automática.</p></div>
+      <div class="evs" aria-label="Eventos enviados ao Meta">
+        <span>PageView</span><span>CoberturaConsultada</span><span>CoberturaAprovada</span><span class="hl">Lead · a campanha otimiza aqui</span><span>Contact</span>
       </div>
     </div>
   </section>
@@ -508,10 +551,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
       <div class="center"><p class="eyebrow">Dúvidas de dono de provedor</p><h2>Perguntas frequentes</h2></div>
       <div class="faq">
         <details><summary>O chat confere porta livre na CTO?</summary><p>Ainda não. Ele confere a viabilidade pela área do seu mapa de cobertura. Se você precisa validar capacidade antes, liga a opção que manda todo aprovado pra conferência do time.</p></details>
-        <details><summary>Integra com IXC, SGP ou MK?</summary><p>Ainda não. O chat fica antes do seu sistema: filtra a viabilidade e entrega o lead pronto no WhatsApp que você já usa.</p></details>
         <details><summary>Como liga o trackeamento nas minhas campanhas?</summary><p>No painel, você cola o ID do pixel e o token da API de Conversões. No anúncio, usa o link do chat. Na campanha, escolhe o evento Lead como conversão.</p></details>
         <details><summary>Funciona com o mapa que eu já tenho?</summary><p>Sim. Se a área atendida está desenhada no Google Earth (KML ou KMZ), é só subir no painel. Se você só tem o traçado da fibra ou as caixas, chama o nosso suporte no WhatsApp que a gente monta a área com você.</p></details>
-        <details><summary>E endereço bem na divisa da área?</summary><p>O chat não aprova no chute. Ponto perto da borda vira “análise”: o lead deixa o contato e seu time confere.</p></details>
         <details><summary>Como recebo o acesso depois de assinar?</summary><p>Na hora. Assim que o pagamento é aprovado, sua conta é criada. Entre em <a href="https://consulta-cobertura.vercel.app/ativar" style="color:var(--green-d);font-weight:600;text-decoration:underline">consulta-cobertura.vercel.app/ativar</a> com o e-mail da compra e os 4 últimos dígitos do celular. Um assistente de 4 passos te guia: marca, mapa, WhatsApp e o link pros anúncios. Uns 5 minutos.</p></details>
       </div>
     </div>

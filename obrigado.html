@@ -5,36 +5,70 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Assinatura confirmada — Consulta Cobertura</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#008069">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23008069'/%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='8' stroke-linecap='round'%3E%3Cpath d='M28 52a34 34 0 0 1 44 0'/%3E%3Cpath d='M40 64a16 16 0 0 1 20 0'/%3E%3C/g%3E%3Ccircle cx='50' cy='74' r='6' fill='%23ffffff'/%3E%3C/svg%3E">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#0b2d22">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230f8a5f'/%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='8' stroke-linecap='round'%3E%3Cpath d='M28 52a34 34 0 0 1 44 0'/%3E%3Cpath d='M40 64a16 16 0 0 1 20 0'/%3E%3C/g%3E%3Ccircle cx='50' cy='74' r='6' fill='%23ffffff'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fcf5eb;--bg2:#fff;--line:#e6ddd0;--ink:#111b21;--txt2:#3b4a54;--green:#25d366;--green-d:#008069}
+/* Mesma identidade do login do painel: verde-escuro do mapa + creme. */
+:root{--deep:#0b2d22;--cream:#fcf5eb;--ink:#111b21;--muted:#54656f;--green:#25d366;--btn:#18a957;--line:#e6ddd0}
 *{margin:0;padding:0;box-sizing:border-box}
-body{min-height:100dvh;display:grid;place-items:center;padding:24px 16px;background:radial-gradient(60% 45% at 85% 0%,rgba(37,211,102,.16),transparent 60%),var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.55}
-.box{width:100%;max-width:520px;background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:32px 24px;text-align:center;box-shadow:0 24px 60px rgba(11,45,34,.08)}
-.ok{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;margin:0 auto 18px;background:#d9fdd3;font-size:30px}
-h1{font-family:Sora,sans-serif;font-size:28px;letter-spacing:-.02em;line-height:1.15;margin-bottom:12px}
-p{color:var(--txt2)}
-ol{text-align:left;margin:22px 0;display:grid;gap:10px;padding-left:20px;color:var(--txt2)}
-ol b{color:var(--ink)}
-.btn{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:999px;background:var(--green);color:var(--ink);font-weight:700;text-decoration:none;margin-top:8px}
-.back{display:inline-block;margin-top:16px;color:var(--green-d);font-size:14px;font-weight:600}
+body{min-height:100dvh;display:grid;background:var(--cream);color:var(--ink);font-family:Figtree,system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.hero{position:relative;overflow:hidden;background:var(--deep) url('mapa-cobertura.webp') center 55%/cover no-repeat;color:#fff;padding:22px 20px 30px}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,45,34,.92),rgba(11,45,34,.55) 60%,rgba(11,45,34,.8))}
+.hero>*{position:relative}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px}
+.logo i{width:34px;height:34px;border-radius:9px;background:#0f8a5f;display:grid;place-items:center}
+.done{display:inline-flex;align-items:center;gap:10px;margin-top:34px;padding:10px 16px;border-radius:999px;background:#fff;color:var(--ink);font-weight:600;font-size:15px;box-shadow:0 12px 30px rgba(0,0,0,.3)}
+.done svg{width:24px;height:24px}
+.hero h1{margin-top:18px;font-size:clamp(34px,8vw,64px);font-weight:800;line-height:1.02;letter-spacing:-.04em}
+.hero p{margin-top:12px;color:#a9e9c3;font-size:clamp(16px,2vw,21px);max-width:520px}
+.panel{display:flex;justify-content:center;padding:30px 20px 44px}
+.box{width:100%;max-width:460px}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#0f7a52}
+h2{margin-top:10px;font-size:clamp(26px,3vw,36px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+ol{list-style:none;display:grid;gap:12px;margin:24px 0}
+li{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border-radius:14px;background:#fff;border:1px solid var(--line);color:var(--muted);font-size:15.5px}
+li b{display:block;color:var(--ink);font-size:16px}
+.n{flex-shrink:0;display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--btn);color:#fff;font-weight:800}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;border-radius:12px;background:var(--btn);color:#fff;font-weight:700;font-size:18px;text-decoration:none;transition:background .15s}
+.btn:hover{background:#12924a}
+.btn svg{width:20px;height:20px}
+.fav{margin-top:16px;font-size:14.5px;color:var(--muted);text-align:center}
+.fav a{color:#0b6b48;font-weight:700}
+.help{display:flex;align-items:center;gap:14px;margin-top:28px;font-size:14.5px;color:var(--muted)}
+.help::before,.help::after{content:'';flex:1;height:1px;background:var(--line)}
+.help a{color:#0b6b48;font-weight:600;text-underline-offset:3px}
+@media(min-width:900px){
+  body{grid-template-columns:56fr 44fr}
+  .hero{min-height:100dvh;padding:48px 56px;display:flex;flex-direction:column}
+  .hero::before{background:linear-gradient(180deg,rgba(11,45,34,.95) 0%,rgba(11,45,34,.6) 45%,rgba(11,45,34,.2) 75%,rgba(11,45,34,.6))}
+  .done{margin-top:auto;align-self:flex-start}
+  .hero h1{margin-top:20px}
+  .panel{align-items:center;padding:48px 56px}
+}
 </style>
 </head>
 <body>
-  <main class="box">
-    <div class="ok" aria-hidden="true">✓</div>
+  <aside class="hero">
+    <div class="logo"><i><svg viewBox="0 0 100 100" width="20" height="20" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"><path d="M22 50a40 40 0 0 1 56 0"/><path d="M36 64a20 20 0 0 1 28 0"/></g><circle cx="50" cy="78" r="7" fill="#fff"/></svg></i>Consulta Cobertura</div>
+    <span class="done"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#25d366"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Pagamento aprovado</span>
     <h1>Assinatura confirmada!</h1>
     <p>Bem-vindo ao Consulta Cobertura. Sua conta já foi criada: falta só ativar.</p>
-    <ol>
-      <li><b>Ative sua conta agora:</b> toque no botão abaixo e use o e-mail da compra e os 4 últimos dígitos do telefone que você colocou no checkout.</li>
-      <li>Crie sua senha e siga o assistente: marca, mapa (o KMZ do Google Earth) e WhatsApp do comercial. Uns 5 minutos.</li>
-      <li>Pegue o link do chat e coloque nos seus anúncios. Depois é só acompanhar os leads com viabilidade no painel.</li>
-    </ol>
-    <a class="btn" href="https://consulta-cobertura.vercel.app/ativar">Ativar minha conta</a>
-    <p style="margin-top:14px;font-size:14px">Depois, o painel fica sempre em <a href="https://consulta-cobertura.vercel.app/admin" style="color:#008069;font-weight:700">consulta-cobertura.vercel.app/admin</a>. Guarde nos favoritos.</p>
-    <a class="back" href="https://wa.me/5549999037322?text=Ol%C3%A1!%20Assinei%20o%20Consulta%20Cobertura%20e%20preciso%20de%20ajuda%20para%20ativar." target="_blank" rel="noopener">Precisa de ajuda? Fale com a ISPAds no WhatsApp</a>
+  </aside>
+  <main class="panel">
+    <div class="box">
+      <p class="kicker">Próximo passo</p>
+      <h2>Seu chat no ar em 5 minutos</h2>
+      <ol>
+        <li><span class="n">1</span><div><b>Ative sua conta</b>Use o e-mail da compra e os 4 últimos dígitos do celular que você colocou no checkout.</div></li>
+        <li><span class="n">2</span><div><b>Siga o assistente</b>Sua marca, o mapa de cobertura (KML ou KMZ do Google Earth) e o WhatsApp do comercial.</div></li>
+        <li><span class="n">3</span><div><b>Coloque o link nos anúncios</b>O chat já começa a filtrar quem tem viabilidade.</div></li>
+      </ol>
+      <a class="btn" href="https://consulta-cobertura.vercel.app/ativar">Ativar minha conta <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="fav">Depois, o painel fica sempre em <a href="https://consulta-cobertura.vercel.app/admin">consulta-cobertura.vercel.app/admin</a>. Guarde nos favoritos.</p>
+      <p class="help"><span>Precisa de ajuda? <a href="https://wa.me/5549999037322?text=Ol%C3%A1!%20Assinei%20o%20Consulta%20Cobertura%20e%20preciso%20de%20ajuda%20para%20ativar." target="_blank" rel="noopener">Fale com o suporte</a></span></p>
+    </div>
   </main>
 </body>
 </html>
