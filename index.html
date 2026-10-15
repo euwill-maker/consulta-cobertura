@@ -85,30 +85,10 @@ section{padding:64px 0;position:relative}
 @media(max-width:979px){.stage .chip{display:none}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
-/* problema x solução */
-.cmp2-grid{display:grid;gap:18px}
-@media(min-width:960px){.cmp2-grid{grid-template-columns:1fr 1fr;gap:24px}}
-.side{min-width:0;border-radius:24px;padding:24px 20px;display:flex;flex-direction:column;gap:18px}
-@media(min-width:600px){.side{padding:30px 28px}}
-.side.bad{background:#fff;border:1px solid var(--line)}
-.side.good{background:var(--deep);color:#eef6f1;box-shadow:0 30px 70px rgba(11,45,34,.25)}
-.side-tag{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
-.bad .side-tag{color:#b4412f}.good .side-tag{color:#8ff0b4}
-.ib{border-radius:16px;overflow:hidden;background:#111b21;color:#e9edef}
-.good .ib{background:#0a241c;border:1px solid #1f4a3b}
-.ib-row{display:flex;align-items:center;gap:10px;padding:11px 14px;border-top:1px solid #222d34}
-.ib-row:first-child{border-top:0}.good .ib-row{border-color:#173d30}
-.ib-av{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:14px;color:#fff;flex-shrink:0}
-.ib-t{flex:1;min-width:0}.ib-t b{display:block;font-size:14px}.ib-t small{display:block;font-size:12.5px;color:#8696a0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tg{flex-shrink:0;font-size:11px;font-weight:700;padding:4px 8px;border-radius:999px}
-.tg.no{background:rgba(217,63,63,.16);color:#ff8a7a}.tg.ok{background:rgba(37,211,102,.16);color:#5ee59a}
-.ib-note{padding:12px 14px;font-size:12.5px;color:#94b8a7;border-top:1px dashed #1f4a3b}
+/* listas com ✓ (usadas nos cartões e no WhatsApp) */
 .pts{list-style:none;display:grid;gap:10px}
 .pts li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;line-height:1.45}
 .pts svg{width:20px;height:20px;flex-shrink:0;margin-top:1px;padding:3px;border-radius:50%}
-.bad .pts svg{background:#fde2e2;color:var(--red)}.good .pts svg{background:var(--green);color:var(--deep)}
-.bad .pts li{color:var(--txt2)}
-.side-win{margin-top:auto;padding-top:18px;border-top:1px solid #1f4a3b;font-family:var(--display);font-weight:800;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.03em;line-height:1.1;color:#fff}.side-win span{color:var(--green)}
 
 /* como funciona: 3 passos com a tela real */
 .how{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -312,37 +292,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
         <span class="chip c1"><i>✓</i>Cobertura confirmada no seu mapa</span>
         <span class="chip c2"><i>📅</i>Instalação: Sáb · Tarde</span>
         <span class="chip c3"><i>↗</i>Lead enviado ao Meta</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- O QUE RESOLVE -->
-  <section id="resolve">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <p class="kicker">O que resolve</p>
-        <h2>Campanha boa gera muita mensagem. <span class="h-green">O problema é que a maioria está fora da sua área.</span></h2>
-      </div>
-      <div class="cmp2-grid">
-        <div class="side bad reveal">
-          <p class="side-tag">Hoje, sem a consulta</p>
-          <div class="ib" aria-label="Ilustração: WhatsApp do comercial lotado de gente fora da área"><div class="ib-row"><span class="ib-av" style="background:#7c3aed">C</span><div class="ib-t"><b>Carlos</b><small>Chega internet no Jd. Palmeiras?</small></div><span class="tg no">Fora da área</span></div><div class="ib-row"><span class="ib-av" style="background:#0891b2">A</span><div class="ib-t"><b>Ana Paula</b><small>Moro no sítio depois da ponte</small></div><span class="tg no">Fora da área</span></div><div class="ib-row"><span class="ib-av" style="background:#16a34a">J</span><div class="ib-t"><b>Juliana</b><small>Rua das Flores, 120. Atendem?</small></div><span class="tg ok">Tem cobertura</span></div><div class="ib-row"><span class="ib-av" style="background:#ea580c">P</span><div class="ib-t"><b>Pedro</b><small>Quanto é o de 500 mega?</small></div><span class="tg no">Fora da área</span></div></div>
-          <ul class="pts">
-            <li><svg aria-hidden="true"><use href="#i-x"/></svg>O vendedor pede endereço e confere no mapa, um por um.</li>
-            <li><svg aria-hidden="true"><use href="#i-x"/></svg>Quem pode instalar esfria na fila.</li>
-            <li><svg aria-hidden="true"><use href="#i-x"/></svg>O Meta aprende a trazer mais gente fora da área.</li>
-          </ul>
-        </div>
-        <div class="side good reveal">
-          <p class="side-tag">Com o Consulta Cobertura</p>
-          <div class="ib" aria-label="Ilustração: WhatsApp do comercial só com quem tem cobertura"><div class="ib-row"><span class="ib-av" style="background:#16a34a">J</span><div class="ib-t"><b>Juliana · Sáb, tarde</b><small>Rua das Flores, 120 · Centro</small></div><span class="tg ok">Tem cobertura</span></div><div class="ib-row"><span class="ib-av" style="background:#0f8a5f">R</span><div class="ib-t"><b>Roberto · Seg, manhã</b><small>Av. Brasil, 845 · Vila Nova</small></div><span class="tg ok">Tem cobertura</span></div><div class="ib-note">Quem estava fora da área pediu aviso e entrou na sua lista de expansão.</div></div>
-          <ul class="pts">
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>A consulta é automática, no mapa de cobertura que você já tem.</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>O vendedor recebe nome, endereço e o dia da instalação.</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>O Meta passa a buscar quem tem cobertura.</li>
-          </ul>
-          <p class="side-win">Mesma verba de anúncio. <span>Mais instalações.</span></p>
-        </div>
       </div>
     </div>
   </section>
