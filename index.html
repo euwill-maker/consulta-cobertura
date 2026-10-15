@@ -406,6 +406,29 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.chip{animation:none}html{scroll-behavior:auto}}
+
+/* Telas do sistema: carrossel no celular, grade no computador */
+.shots-sec{background:var(--deep);color:#eef6f1}
+.shots-sec h2{color:#fff;font-size:clamp(30px,5vw,48px);letter-spacing:-.035em;line-height:1.05}
+.shots-sec .sub{color:#a9cbbb}
+.shots{display:grid;grid-auto-flow:column;grid-auto-columns:78%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:16px;padding:4px 16px 18px;margin:0 -16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.shots::-webkit-scrollbar{display:none}
+@media(min-width:620px){.shots{grid-auto-columns:46%}}
+@media(min-width:1000px){.shots{grid-auto-flow:row;grid-template-columns:repeat(4,1fr);overflow:visible;margin:0;padding:0}}
+.shot{scroll-snap-align:start;margin:0;display:flex;flex-direction:column;gap:12px}
+.shot a{display:block;border-radius:22px;overflow:hidden;background:#0e2a21;border:1px solid #1f4a3b;aspect-ratio:3/4;box-shadow:0 18px 40px -22px rgba(0,0,0,.6)}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.shot img.fit{object-fit:contain;object-position:center}
+.shot b{display:block;font-family:var(--display);font-size:17px;color:#fff}
+.shot figcaption{color:#a9cbbb;font-size:14.5px;line-height:1.45}
+.shots-hint{margin-top:4px;color:#7fa898;font-size:13px}
+@media(min-width:1000px){.shots-hint{display:none}}
+.shot-cta{text-decoration:none}
+.shot-cta .sc-in{aspect-ratio:3/4;border-radius:22px;border:1.5px dashed #2f6b55;display:flex;flex-direction:column;justify-content:center;gap:12px;padding:26px;color:#a9cbbb;font-size:15px}
+.shot-cta .sc-ic{font-size:34px}
+.shot-cta b{font-size:22px}
+.shot-cta .btn{align-self:flex-start;margin-top:6px}
+.shots-note{margin-top:22px;color:#7fa898;font-size:13px}
 </style>
 </head>
 <body>
@@ -432,6 +455,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
     </a>
     <nav class="nav-links" aria-label="Menu">
       <a href="#como">Como funciona</a>
+      <a href="#telas">Por dentro</a>
       <a href="#planos">Planos</a>
       <a href="https://consulta-cobertura.vercel.app/admin/login">Entrar</a>
       <a class="btn btn-go" href="#planos">Começar agora</a>
@@ -521,7 +545,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
       <ol class="steps3 reveal">
         <li><span class="n">1</span><h3>O lead clica no anúncio</h3><p>Abre um chat igual ao WhatsApp, com a marca do seu provedor.</p></li>
         <li><span class="n">2</span><h3>Manda o CEP e o número</h3><p>O chat confere o endereço no seu mapa de cobertura na hora. Ponto na divisa vai pra análise, nada no chute.</p></li>
-        <li><span class="n">3</span><h3>Só o que tem viabilidade segue</h3><p>Vai pro WhatsApp do comercial com nome, endereço e protocolo prontos. Fora da área fica no chat.</p></li>
+        <li><span class="n">3</span><h3>Só o que tem viabilidade segue</h3><p>Já escolhe o dia da instalação e chega no WhatsApp do comercial com nome, endereço e horário. Fora da área fica no chat.</p></li>
       </ol>
     </div>
   </section>
@@ -572,6 +596,25 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
     </div>
   </section>
 
+  <!-- TELAS DO SISTEMA -->
+  <section class="shots-sec" id="telas">
+    <div class="wrap">
+      <div class="sec-head reveal"><p class="kicker light">Por dentro do sistema</p><h2>Do chat ao resultado, tudo num painel só.</h2></div>
+      <div class="shots">
+        <figure class="shot"><a href="prints/conversa.webp" target="_blank" rel="noopener"><img src="prints/conversa.webp" alt="O cliente consulta pelo chat" loading="lazy" width="760"></a><figcaption><b>O cliente consulta pelo chat</b>CEP, número, nome e WhatsApp. Menos de 1 minuto, com a marca do seu provedor.</figcaption></figure>
+        <figure class="shot"><a href="prints/funil.webp" target="_blank" rel="noopener"><img src="prints/funil.webp" alt="Funil do atendimento" loading="lazy" width="760"></a><figcaption><b>Funil do atendimento</b>Quantos consultaram, quantos têm cobertura e quantos chegaram no seu WhatsApp.</figcaption></figure>
+        <figure class="shot"><a href="prints/resultado.webp" target="_blank" rel="noopener"><img src="prints/resultado.webp" alt="Com e sem cobertura" loading="lazy" width="760"></a><figcaption><b>Com e sem cobertura</b>Fora da área não ocupa o comercial: pede aviso pra quando a rede chegar.</figcaption></figure>
+        <figure class="shot"><a href="prints/bairros.webp" target="_blank" rel="noopener"><img src="prints/bairros.webp" alt="Bairros que mais procuram" loading="lazy" width="760"></a><figcaption><b>Bairros que mais procuram</b>Onde vender mais e onde vale levar a rede. Com alerta de bairro sem atendimento.</figcaption></figure>
+        <figure class="shot"><a href="prints/por-dia.webp" target="_blank" rel="noopener"><img src="prints/por-dia.webp" alt="Consultas e leads por dia" loading="lazy" width="760" class="fit"></a><figcaption><b>Consultas e leads por dia</b>Veja o efeito de cada campanha, dia a dia.</figcaption></figure>
+        <figure class="shot"><a href="prints/mapa-painel.webp" target="_blank" rel="noopener"><img src="prints/mapa-painel.webp" alt="Seu mapa no painel" loading="lazy" width="760"></a><figcaption><b>Seu mapa no painel</b>Sobe o KML ou KMZ e confere a área antes de publicar.</figcaption></figure>
+        <figure class="shot"><a href="prints/mapa-kmz.webp" target="_blank" rel="noopener"><img src="prints/mapa-kmz.webp" alt="Mapa grande? Sem problema" loading="lazy" width="760"></a><figcaption><b>Mapa grande? Sem problema</b>Importa o arquivo do Google Earth como está, com relatório do que entrou.</figcaption></figure>
+        <a class="shot shot-cta" href="https://consulta-cobertura.vercel.app/p/demo?utm_source=pagina-vendas" target="_blank" rel="noopener"><span class="sc-in"><span class="sc-ic" aria-hidden="true">💬</span><b>Teste o chat de verdade</b><span>Consulte um endereço como se fosse o seu cliente. Leva 30 segundos.</span><span class="btn btn-go">Abrir a demonstração ↗</span></span></a>
+      </div>
+      <p class="shots-hint">Arraste pro lado pra ver mais telas →</p>
+      <p class="shots-note">Telas reais do sistema, com números de um provedor de demonstração. Dados pessoais borrados.</p>
+    </div>
+  </section>
+
   <!-- ATIVA EM 5 MINUTOS -->
   <section class="setup5">
     <div class="wrap">
@@ -597,7 +640,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
         <p class="sub">O evento <b>Lead</b> só dispara quando o endereço tem viabilidade. Pixel e API de Conversões já vêm prontos: é só colar o ID do pixel e o token no painel.</p>
       </div>
       <div class="evs" aria-label="Eventos enviados ao Meta">
-        <span>PageView</span><span>CoberturaConsultada</span><span>CoberturaAprovada</span><span class="hl">Lead · a campanha otimiza aqui</span><span>Contact</span>
+        <span>PageView</span><span>CoberturaConsultada</span><span>CoberturaAprovada</span><span>Schedule · escolheu o dia</span><span class="hl">Lead · a campanha otimiza aqui</span><span>Contact</span>
       </div>
     </div>
   </section>
@@ -639,10 +682,16 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
     <div class="wrap reveal">
       <div class="center"><p class="eyebrow">Dúvidas de dono de provedor</p><h2>Perguntas frequentes</h2></div>
       <div class="faq">
-        <details><summary>O chat confere porta livre na CTO?</summary><p>Ainda não. Ele confere a viabilidade pela área do seu mapa de cobertura. Se você precisa validar capacidade antes, liga a opção que manda todo aprovado pra conferência do time.</p></details>
-        <details><summary>Como liga o trackeamento nas minhas campanhas?</summary><p>No painel, você cola o ID do pixel e o token da API de Conversões. No anúncio, usa o link do chat. Na campanha, escolhe o evento Lead como conversão.</p></details>
-        <details><summary>Funciona com o mapa que eu já tenho?</summary><p>Sim. Se a área atendida está desenhada no Google Earth (KML ou KMZ), é só subir no painel. Se você só tem o traçado da fibra ou as caixas, chama o nosso suporte no WhatsApp que a gente monta a área com você.</p></details>
-        <details><summary>Como recebo o acesso depois de assinar?</summary><p>Na hora. Assim que o pagamento é aprovado, sua conta é criada. Entre em <a href="https://consulta-cobertura.vercel.app/ativar" style="color:var(--green-d);font-weight:600;text-decoration:underline">consulta-cobertura.vercel.app/ativar</a> com o e-mail da compra e os 4 últimos dígitos do celular. Um assistente de 4 passos te guia: marca, mapa, WhatsApp e o link pros anúncios. Uns 5 minutos.</p></details>
+        <details><summary>Meu cliente precisa baixar algum aplicativo?</summary><p>Não. O chat abre no navegador do celular, com a cara do WhatsApp e a marca do seu provedor.</p></details>
+        <details><summary>E se o cliente não souber o CEP?</summary><p>Ele toca em “Usar minha localização” ou marca a casa no mapa. Se a rua não aparecer no mapa, o chat chega perto pelo bairro e ele só ajusta o pino.</p></details>
+        <details><summary>Quanto tempo o cliente leva?</summary><p>Menos de 1 minuto: endereço, nome e WhatsApp. Com cobertura, ele já escolhe o dia da instalação.</p></details>
+        <details><summary>O que acontece com quem está fora da área?</summary><p>Nada chega no seu WhatsApp. A pessoa pode pedir aviso pra quando a rede chegar, e o contato fica guardado por bairro no painel.</p></details>
+        <details><summary>Onde eu vejo os resultados?</summary><p>No painel: funil do atendimento, consultas e leads por dia, bairros que mais procuram e de qual anúncio veio cada lead. Dá pra filtrar por período, cidade e bairro.</p></details>
+        <details><summary>Dá pra deixar o chat com a cara do meu provedor?</summary><p>Sim. Logo, cores, a mensagem de abertura com a sua oferta, os textos e as perguntas. Tudo pelo painel, sem programador.</p></details>
+        <details><summary>Funciona com o mapa que eu já tenho?</summary><p>Sim. Se a área está desenhada no Google Earth (KML ou KMZ), é só subir no painel. Só tem as caixas ou a rede? O suporte monta a área com você.</p></details>
+        <details><summary>Serve só pra anúncio do Instagram e Facebook?</summary><p>Não. É um link: vale pra Google, bio do Instagram, status do WhatsApp e site do provedor (tem um botão pronto pra colar).</p></details>
+        <details><summary>Posso testar antes de assinar?</summary><p>Pode. Teste a demonstração aqui na página. Depois de assinar, você ainda tem 7 dias de garantia pela Kiwify.</p></details>
+        <details><summary>Como recebo o acesso depois de assinar?</summary><p>Na hora. Entre em <a href="https://consulta-cobertura.vercel.app/ativar" style="color:var(--green-d);font-weight:600;text-decoration:underline">consulta-cobertura.vercel.app/ativar</a> com o e-mail da compra. Um passo a passo te guia em uns 5 minutos.</p></details>
       </div>
     </div>
   </section>
