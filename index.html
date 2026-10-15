@@ -227,6 +227,65 @@ section{padding:64px 0}
 .evs span{padding:10px 14px;border-radius:12px;background:#fff;border:1px solid var(--line);font-family:ui-monospace,Menlo,monospace;font-size:13.5px;color:var(--txt2)}
 .evs span.hl{background:#0b2d22;border-color:#0b2d22;color:#8ff0b4;font-weight:700}
 
+/* ===== simulação com e sem cobertura ===== */
+.sim-result [hidden]{display:none!important}
+.sim-sec{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+.sim-grid{display:grid;gap:36px;align-items:center}
+@media(min-width:980px){.sim-grid{grid-template-columns:1fr 380px;gap:72px}}
+.sim-copy h2{font-size:clamp(30px,4.6vw,46px);letter-spacing:-.035em;line-height:1.05}
+.sim-tabs{display:grid;gap:10px;margin-top:26px}
+@media(min-width:560px){.sim-tabs{grid-template-columns:1fr 1fr}}
+.sim-tab{display:flex;align-items:center;gap:10px;min-height:56px;padding:0 16px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg);font:600 16px var(--body);color:var(--ink);cursor:pointer;text-align:left;transition:border-color .15s,background .15s}
+.sim-tab[aria-selected="true"]{border-color:#0f8a5f;background:#eafaf0}
+.sim-tab[data-sim="nao"][aria-selected="true"]{border-color:#d0806f;background:#fdf0ed}
+.sim-tab .d{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;font-size:13px;font-weight:800;flex-shrink:0}
+.d.ok{background:#25d366;color:#0b2d22}.d.no{background:#f3b6a8;color:#8a1c0f}
+.sim-result{margin-top:16px;padding:20px;border-radius:18px;background:var(--deep);color:#eef6f1}
+.sr-wait{display:flex;align-items:center;gap:12px;color:#94b8a7;font-size:15px;min-height:120px;justify-content:center}
+.sr-dots{display:inline-flex;gap:4px}.sr-dots i{width:7px;height:7px;border-radius:50%;background:#25d366;animation:blink 1.2s infinite}
+.sr-dots i:nth-child(2){animation-delay:.2s}.sr-dots i:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+.sr-body{animation:srin .5s ease}
+@keyframes srin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.sr-title{font-family:var(--display);font-weight:800;font-size:20px;margin-bottom:12px}
+.sr-title.ok{color:#25d366}.sr-title.no{color:#ffab9b}
+.sr-wa,.sr-list{border-radius:14px;background:#0a241c;border:1px solid #1f4a3b;padding:12px}
+.sr-wa-head{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#94b8a7;margin-bottom:8px}
+.sr-wa-msg{position:relative;max-width:95%;margin-left:auto;padding:10px 12px 20px;border-radius:10px 2px 10px 10px;background:#005c4b;color:#e9edef;font-size:14.5px;line-height:1.45}
+.sr-wa-msg span{position:absolute;right:8px;bottom:4px;font-size:10.5px;color:#9fd8c9}
+.sr-li{padding:10px 12px;border-radius:10px;background:#13402f;font-size:14.5px}
+.sr-note{margin-top:12px;color:#a9cbbb;font-size:14.5px}
+.sim-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.sim-actions .btn{min-height:50px;font-size:16px;padding:0 20px}
+.sim-replay{cursor:pointer;font:700 16px var(--body)}
+.sim-tip{margin-top:12px;font-size:14px;color:var(--txt3)}
+.sim-phone{width:min(100%,360px);height:680px;margin:0 auto;padding:9px;border-radius:46px;background:#1c1f22;box-shadow:0 40px 80px rgba(11,45,34,.28),inset 0 0 0 2px #3a3f44}
+.sim-phone .hv-screen{border-radius:38px}
+.sim-phone .hv-head b{font-size:15px}.sim-phone .hv-head small{font-size:12px}
+.sim-chat{flex:1;display:flex;flex-direction:column;gap:8px;padding:12px 10px;overflow-y:auto;scroll-behavior:smooth;scrollbar-width:none}
+.sim-chat::-webkit-scrollbar{display:none}
+.sim-chat .msg{font-size:14px;white-space:pre-line;animation:pop .25s ease}
+@keyframes pop{from{opacity:0;transform:translateY(6px) scale(.98)}to{opacity:1;transform:none}}
+.sim-chat .msg.card{background:#fff;align-self:flex-start;max-width:88%;padding:8px 10px 20px}
+.sim-chat .card-res{display:block;margin-top:6px;padding:8px 10px;border-left:3px solid;border-radius:6px;background:#f5f6f6;font-weight:700}
+.sim-chat .card-res small{display:block;font-weight:500;color:#667781;font-size:12px}
+.sim-chat .res-ok{border-color:#25d366}.sim-chat .res-no{border-color:#e06c5a}
+.sim-chat .mapthumb{display:block;height:110px;margin:-2px -4px 8px;border-radius:8px;background:#0b2d22 url('hero-mapa.webp') center/260% no-repeat;position:relative}
+.sim-chat .mapthumb::after{content:'';position:absolute;left:50%;top:50%;width:26px;height:34px;transform:translate(-50%,-100%);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 48'%3E%3Cpath d='M18 0C8 0 0 8 0 18c0 13 18 30 18 30s18-17 18-30C36 8 28 0 18 0z' fill='%23e11d48'/%3E%3Ccircle cx='18' cy='18' r='7' fill='%23fff'/%3E%3C/svg%3E") center/contain no-repeat}
+.sim-chat .typing{align-self:flex-start;background:#fff;border-radius:10px;padding:10px 12px;display:flex;gap:4px;box-shadow:0 1px 1px rgba(11,20,26,.1)}
+.sim-chat .typing i{width:7px;height:7px;border-radius:50%;background:#8696a0;animation:blink 1.2s infinite}
+.sim-chat .typing i:nth-child(2){animation-delay:.2s}.sim-chat .typing i:nth-child(3){animation-delay:.4s}
+.sim-chat .cta{align-self:stretch;display:flex;align-items:center;justify-content:center;min-height:44px;border-radius:10px;background:#18a957;color:#fff;font-weight:700;font-size:14px;animation:pop .25s ease}
+.sim-input{display:flex;align-items:center;gap:8px;padding:8px 10px 12px}
+.sim-input span{flex:1;padding:10px 14px;border-radius:22px;background:#fff;color:#8696a0;font-size:14px}
+.sim-input i{width:40px;height:40px;border-radius:50%;background:#18a957}
+@media(max-width:979px){
+  .sim-grid{display:flex;flex-direction:column;align-items:stretch;gap:0}
+  .sim-copy{display:contents}
+  .sim-copy>.kicker{order:1}.sim-copy>h2{order:2}.sim-tabs{order:3}.sim-phone{order:4;margin-top:18px}.sim-result{order:5}.sim-actions{order:6}.sim-tip{order:7}
+  .sim-phone{height:540px}
+}
+
 /* problema (o mock do WhatsApp do comercial fica no modo escuro do app) */
 .problem-grid{display:grid;gap:28px;align-items:center;margin-top:12px}
 @media(min-width:900px){.problem-grid{grid-template-columns:1fr 1fr}}
@@ -467,18 +526,48 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
     </div>
   </section>
 
-  <!-- DEMONSTRAÇÃO AO VIVO -->
-  <section class="demo-sec" id="demo">
-    <div class="wrap demo-grid">
-      <div>
-        <p class="eyebrow"><span class="dot"></span>Teste agora</p>
-        <h2>Faça a consulta como o seu cliente faria.</h2>
-        <p class="sub">É o chat de verdade, rodando no mapa de um provedor de demonstração. Digite <code class="code">Rua Lamenha Lins, 190, Curitiba</code> (tem cobertura) e depois o CEP da sua casa.</p>
-        <div class="chips-row static"><div class="chip ok"><i>✓</i>Viabilidade confirmada</div><div class="chip no"><i>✕</i>Fora de área: fica no chat</div><div class="chip px"><i>↗</i>Lead enviado ao Pixel</div></div>
+  <!-- SIMULAÇÃO (com e sem cobertura) -->
+  <section class="sim-sec" id="demo">
+    <div class="wrap sim-grid">
+      <div class="sim-copy">
+        <p class="kicker">Veja funcionando</p>
+        <h2>O que o seu cliente vê. E o que chega no seu comercial.</h2>
+        <div class="sim-tabs" role="tablist" aria-label="Escolha o cenário">
+          <button type="button" role="tab" class="sim-tab" data-sim="sim" aria-selected="true"><span class="d ok">✓</span>Endereço com cobertura</button>
+          <button type="button" role="tab" class="sim-tab" data-sim="nao" aria-selected="false"><span class="d no">✕</span>Endereço sem cobertura</button>
+        </div>
+        <div class="sim-result" aria-live="polite">
+          <div class="sr-wait"><span class="sr-dots"><i></i><i></i><i></i></span>Acompanhe a conversa no celular…</div>
+          <div class="sr-body" data-for="sim" hidden>
+            <p class="sr-title ok">✓ Vai pro WhatsApp do comercial</p>
+            <div class="sr-wa">
+              <p class="sr-wa-head">WhatsApp do comercial</p>
+              <p class="sr-wa-msg">Olá! Sou a <b>Juliana</b> e quero contratar internet.<br>📍 Rua das Flores, 120 – Centro<br>✅ Endereço com cobertura · Nº CC-7K2M9P<span>agora ✓✓</span></p>
+            </div>
+            <p class="sr-note">Seu vendedor já recebe nome, endereço e a confirmação. É só falar dos planos. E o evento <b>Lead</b> vai pro seu Pixel.</p>
+          </div>
+          <div class="sr-body" data-for="nao" hidden>
+            <p class="sr-title no">✕ Não ocupa o seu comercial</p>
+            <div class="sr-list">
+              <p class="sr-wa-head">Lista de expansão · Linha Bonita</p>
+              <p class="sr-li"><b>Carlos</b> quer ser avisado quando a rede chegar</p>
+            </div>
+            <p class="sr-note">Nenhuma mensagem vai pro seu WhatsApp. O contato fica guardado por bairro e mostra onde vale levar a rede.</p>
+          </div>
+        </div>
+        <div class="sim-actions">
+          <button type="button" class="btn btn-line sim-replay">↻ Ver de novo</button>
+          <a class="btn btn-go" href="https://consulta-cobertura.vercel.app/p/demo?utm_source=pagina-vendas" target="_blank" rel="noopener">Abrir o chat de verdade ↗</a>
+        </div>
+        <p class="sim-tip">No chat de verdade, teste <b>Rua Lamenha Lins, 190, Curitiba</b> (tem cobertura) e depois o CEP da sua casa.</p>
       </div>
-      <div class="stage">
-        <div class="glow"></div>
-        <div class="phone"><iframe src="https://consulta-cobertura.vercel.app/p/demo?utm_source=pagina-vendas" title="Demonstração do chat de consulta de viabilidade" allow="geolocation" loading="lazy"></iframe></div>
+      <div class="sim-phone" aria-hidden="true">
+        <div class="hv-screen">
+          <div class="hv-status"><span>9:41</span><i class="hv-island"></i><span class="hv-icons"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2" width="3" height="10" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 26 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor"/><rect x="2.5" y="2.5" width="18" height="7" rx="1.5"/><rect x="24" y="4" width="2" height="4" rx="1"/></svg></span></div>
+          <div class="hv-head"><span class="hv-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="4" fill="#fff"/><path d="M4 21a8 8 0 0 1 16 0" fill="#fff"/></svg></span><div><b>Sua Internet</b><small class="sim-state">online</small></div><span class="hv-dots">⋮</span></div>
+          <div class="sim-chat"></div>
+          <div class="sim-input"><span>Mensagem</span><i></i></div>
+        </div>
       </div>
     </div>
   </section>
@@ -598,6 +687,80 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
     var msg = 'Olá! Vi o Consulta Cobertura e quero gerar leads com viabilidade no meu provedor.' + (plano ? ' Tenho interesse em: ' + plano + '.' : '')
     a.href = 'https://wa.me/' + NUM + '?text=' + encodeURIComponent(msg)
   })
+  // Simulação: a conversa roda sozinha, com e sem cobertura (textos iguais aos do chat real).
+  var SIM = {
+    sim: [
+      ['in', 'Oi! 👋 Em menos de 1 minuto eu confirmo se a nossa internet chega na sua casa. Me manda seu CEP 👇'],
+      ['out', '89990-000'],
+      ['in', 'Achei! 📍 Rua das Flores – Centro, Sua Cidade/SC.\nQual é o número da casa?'],
+      ['out', '120'],
+      ['map', 'É aqui que vai ser a instalação? Se não for, é só arrastar o pino pro lugar certo.'],
+      ['out', 'Sim, é aqui'],
+      ['res', 'Boa notícia! 🎉 Nossa internet chega no seu endereço. Falta pouco: só preciso do seu nome e WhatsApp.', 'ok', '✅ Endereço com cobertura', 'Nº do atendimento CC-7K2M9P'],
+      ['in', 'Como posso te chamar?'],
+      ['out', 'Juliana'],
+      ['in', 'Prazer, Juliana! 😊 Qual é o seu WhatsApp com DDD?'],
+      ['out', '(49) 99999-1234'],
+      ['in', 'Perfeito, Juliana! Já estou agilizando seu pedido por aqui 🙌'],
+      ['cta', 'Continuar no WhatsApp →']
+    ],
+    nao: [
+      ['in', 'Oi! 👋 Em menos de 1 minuto eu confirmo se a nossa internet chega na sua casa. Me manda seu CEP 👇'],
+      ['out', '89995-000'],
+      ['in', 'Achei! 📍 Estrada Geral – Linha Bonita, Sua Cidade/SC.\nQual é o número da casa?'],
+      ['out', 'Sem número'],
+      ['map', 'É aqui que vai ser a instalação? Se não for, é só arrastar o pino pro lugar certo.'],
+      ['out', 'Sim, é aqui'],
+      ['res', 'Poxa, ainda não chegamos no seu endereço 😕 Mas a nossa rede está crescendo! Quer que a gente te avise assim que a internet chegar aí?', 'no', '📍 Sem cobertura neste endereço', 'Nº do atendimento CC-FGBP6Y'],
+      ['out', '🔔 Me avise quando chegar'],
+      ['in', 'Para registrar seu interesse, qual é o seu nome?'],
+      ['out', 'Carlos'],
+      ['in', 'Combinado! Anotei seu contato aqui. Assim que a fibra chegar aí, a gente te chama 😉']
+    ]
+  }
+  var simChat = document.querySelector('.sim-chat'), simState = document.querySelector('.sim-state')
+  var tabs = document.querySelectorAll('.sim-tab'), wait = document.querySelector('.sr-wait'), bodies = document.querySelectorAll('.sr-body')
+  var run = 0, current = 'sim', still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches
+  function el(cls, html) { var d = document.createElement('div'); d.className = cls; d.innerHTML = html; return d }
+  function esc(t) { return t.replace(/&/g, '&amp;').replace(/</g, '&lt;') }
+  function bubble(step) {
+    var k = step[0], t = '<time>agora</time>'
+    if (k === 'out') return el('msg out', esc(step[1]) + '<time>agora ✓✓</time>')
+    if (k === 'map') return el('msg card', '<span class="mapthumb"></span>' + esc(step[1]) + t)
+    if (k === 'res') return el('msg card', esc(step[1]) + '<span class="card-res res-' + step[2] + '">' + step[3] + '<small>' + step[4] + '</small></span>' + t)
+    if (k === 'cta') return el('cta', esc(step[1]))
+    return el('msg in', esc(step[1]) + t)
+  }
+  function show(id) {
+    wait.hidden = !!id
+    bodies.forEach(function (b) { b.hidden = b.getAttribute('data-for') !== id })
+  }
+  function play(id) {
+    var me = ++run; current = id; simChat.innerHTML = ''; show(null)
+    tabs.forEach(function (t) { t.setAttribute('aria-selected', String(t.getAttribute('data-sim') === id)) })
+    var steps = SIM[id], i = 0
+    if (still) { steps.forEach(function (s) { simChat.appendChild(bubble(s)) }); simChat.scrollTop = simChat.scrollHeight; show(id); return }
+    function next() {
+      if (me !== run) return
+      if (i >= steps.length) { simState.textContent = 'online'; setTimeout(function () { if (me === run) show(id) }, 400); return }
+      var step = steps[i++], bot = step[0] !== 'out'
+      if (bot) {
+        simState.textContent = 'digitando…'
+        var ty = el('typing', '<i></i><i></i><i></i>'); simChat.appendChild(ty); simChat.scrollTop = simChat.scrollHeight
+        setTimeout(function () { if (me !== run) return; ty.remove(); simState.textContent = 'online'; simChat.appendChild(bubble(step)); simChat.scrollTop = simChat.scrollHeight; setTimeout(next, 450) }, step[0] === 'res' ? 1100 : 650)
+      } else {
+        setTimeout(function () { if (me !== run) return; simChat.appendChild(bubble(step)); simChat.scrollTop = simChat.scrollHeight; setTimeout(next, 350) }, 500)
+      }
+    }
+    next()
+  }
+  tabs.forEach(function (t) { t.addEventListener('click', function () { play(t.getAttribute('data-sim')) }) })
+  document.querySelector('.sim-replay').addEventListener('click', function () { play(current) })
+  var simSec = document.getElementById('demo'), started = false
+  if ('IntersectionObserver' in window) {
+    var so = new IntersectionObserver(function (en) { if (en[0].isIntersecting && !started) { started = true; play('sim'); so.disconnect() } }, { threshold: 0.35 })
+    so.observe(simSec)
+  } else play('sim')
   var sticky = document.querySelector('.sticky')
   var onScroll = function () { sticky.classList.toggle('on', window.scrollY > 700) }
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll()
