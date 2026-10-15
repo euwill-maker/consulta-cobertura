@@ -12,14 +12,14 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23008069'/%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='8' stroke-linecap='round'%3E%3Cpath d='M28 52a34 34 0 0 1 44 0'/%3E%3Cpath d='M40 64a16 16 0 0 1 20 0'/%3E%3C/g%3E%3Ccircle cx='50' cy='74' r='6' fill='%23ffffff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* Visual inspirado no site oficial do WhatsApp: creme, texto grafite e verdes da marca. */
 :root{
   --bg:#fcf5eb;--bg2:#ffffff;--bg3:#f0f2f5;--line:#e6ddd0;--line2:#efe6d9;
   --ink:#111b21;--txt2:#3b4a54;--txt3:#667781;
   --green:#25d366;--green-d:#008069;--teal:#00a884;--deep:#0b2d22;--red:#d93f3f;
-  --display:'Sora',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;
+  --display:'Figtree',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;
   --r:20px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -88,6 +88,76 @@ h3{font-size:19px;font-weight:700;margin-bottom:6px}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 .try{max-width:380px;margin:18px auto 0;font-size:14px;color:var(--txt2);text-align:center}
 .try code{font-family:var(--body);background:#d9fdd3;border-radius:6px;padding:2px 7px;color:var(--green-d);font-weight:600;white-space:nowrap}
+
+/* ===== topo novo (menu + hero com mapa e celular) ===== */
+.brand{font-size:19px}.brand .mk{width:40px;height:40px;border-radius:11px;background:#0f8a5f}
+.nav .wrap{height:72px}
+.nav-links{display:none;align-items:center;gap:34px;font-weight:500;font-size:16px;color:var(--ink)}
+.nav-links a:not(.btn):hover{color:var(--green-d)}
+.nav-login{font-weight:600;font-size:15px;padding:10px 4px;color:var(--ink)}
+@media(min-width:900px){.nav-links{display:flex}.nav-login{display:none}.nav .nav-links .btn{display:inline-flex}}
+.btn-go{background:#18a957;color:#fff;border-radius:10px}
+.btn-go:hover{background:#12924a}
+.btn-line{border:1.5px solid #0f8a5f;color:#0b6b48;border-radius:10px;background:transparent}
+.btn-line:hover{background:rgba(15,138,95,.06)}
+.nav .btn-go{min-height:48px;padding:0 24px;font-size:16px}
+.hero{padding:36px 0 56px}
+.hero-grid{display:grid;gap:40px;align-items:center}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--txt2);margin-bottom:18px}
+.hero h1{font-size:clamp(42px,10.5vw,60px);font-weight:800;line-height:.98;letter-spacing:-.045em}
+.h1-green{color:#0f7a52;display:block}
+.hero-sub{margin-top:22px;color:var(--txt2);font-size:clamp(17px,2.2vw,22px);line-height:1.5;max-width:560px}
+.hero-ctas{display:grid;gap:12px;margin-top:30px}
+.hero-ctas .btn{min-height:58px;font-size:18px;padding:0 30px}
+.hero-ctas .btn svg{width:22px;height:22px}
+.hero-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:24px;color:var(--txt3);font-size:15px}
+.hero-meta span{display:inline-flex;align-items:center;gap:9px}
+.hero-meta svg{width:20px;height:20px;color:var(--txt3)}
+.hero-meta .sep{width:1px;height:26px;background:var(--line);display:none}
+@media(min-width:560px){.hero-ctas{display:flex;flex-wrap:wrap}.hero-meta .sep{display:block}}
+@media(min-width:1000px){.hero .wrap,.nav .wrap{max-width:1320px}.hero-grid{grid-template-columns:1.12fr .88fr;gap:44px}.hero{padding:56px 0 88px}.hero h1{font-size:clamp(56px,5.3vw,78px)}}
+
+.hero-visual{position:relative;aspect-ratio:1/1.02;border-radius:28px;overflow:hidden;background:var(--deep);box-shadow:0 40px 90px rgba(11,45,34,.28)}
+.hv-map{position:absolute;inset:0;background:url('hero-mapa.webp') center/cover no-repeat}
+.hv-map::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 90% at 30% 45%,transparent 45%,rgba(7,29,22,.55))}
+.hv-card{position:absolute;left:6.5%;bottom:6%;z-index:2;display:flex;gap:14px;align-items:flex-start;width:min(51%,340px);padding:16px 18px;background:#fff;border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.hv-card b{display:block;font-family:var(--display);font-size:clamp(14px,1.6vw,19px);color:var(--ink);line-height:1.2}
+.hv-card span:not(.hv-ok){display:block;margin-top:4px;font-size:clamp(11px,1.15vw,14px);line-height:1.4;color:var(--txt3)}
+.hv-ok{flex-shrink:0;display:grid;place-items:center;width:clamp(30px,3.4vw,48px);height:clamp(30px,3.4vw,48px);border-radius:50%;background:#18a957}
+.hv-ok svg{width:58%;height:58%}
+.hv-ok.sm{width:24px;height:24px}
+.hv-phone{position:absolute;z-index:3;right:1.2%;top:7%;bottom:5%;aspect-ratio:9/19.5;max-width:42%;padding:7px;border-radius:38px;background:#1c1f22;box-shadow:0 30px 60px rgba(0,0,0,.5),inset 0 0 0 2px #3a3f44}
+.hv-screen{position:relative;height:100%;display:flex;flex-direction:column;border-radius:31px;overflow:hidden;background:#efeae2 url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22%3E%3Cg fill=%22none%22 stroke=%22%23e2dbcf%22 stroke-width=%221%22%3E%3Ccircle cx=%2215%22 cy=%2215%22 r=%225%22/%3E%3Cpath d=%22M40 40l8 8M48 40l-8 8%22/%3E%3C/g%3E%3C/svg%3E')}
+.hv-status{display:flex;align-items:center;justify-content:space-between;padding:12px 18px 6px;background:#fff;font-size:12px;font-weight:700;color:var(--ink)}
+.hv-island{width:34%;height:20px;border-radius:12px;background:#111}
+.hv-icons{display:flex;gap:4px;align-items:center}.hv-icons svg{height:9px;width:auto;fill:currentColor}
+.hv-head{display:flex;align-items:center;gap:9px;padding:8px 12px 10px;background:#fff;border-bottom:1px solid #ece5da}
+.hv-av{width:34px;height:34px;border-radius:50%;background:#0f8a5f;display:grid;place-items:center;flex-shrink:0}.hv-av svg{width:22px;height:22px}
+.hv-head b{display:block;font-size:13px;line-height:1.2}.hv-head small{font-size:10.5px;color:var(--txt3)}
+.hv-dots{margin-left:auto;font-size:18px;color:var(--txt2)}
+.hv-chat{flex:1;display:flex;flex-direction:column;gap:9px;padding:12px 10px;overflow:hidden}
+.msg{position:relative;max-width:88%;padding:8px 10px 18px;border-radius:10px;font-size:clamp(11px,1.05vw,14px);line-height:1.35;color:var(--ink);box-shadow:0 1px 1px rgba(11,20,26,.1)}
+.msg time{position:absolute;right:8px;bottom:4px;display:flex;align-items:center;gap:3px;font-size:9.5px;color:#667781}
+.msg time svg{width:13px;height:9px}
+.msg.in{background:#fff;align-self:flex-start;border-top-left-radius:2px}
+.msg.out{background:#d9fdd3;align-self:flex-end;border-top-right-radius:2px}
+.msg.ok{display:flex;align-items:center;gap:8px;background:#e7fbe9;border:1px solid #bfeccb;font-weight:700;color:#0b6b48;align-self:stretch;max-width:100%;padding:11px 10px 20px}
+.hv-cta{display:flex;align-items:center;justify-content:center;gap:6px;margin:0 10px 12px;min-height:42px;padding:0 8px;border-radius:10px;background:#18a957;color:#fff;font-weight:700;white-space:nowrap;font-size:clamp(10.5px,.95vw,13.5px)}
+.hv-cta svg{width:16px;height:16px}
+@media(max-width:560px){
+  .hero-visual{aspect-ratio:auto;height:520px}
+  .hv-phone{max-width:58%;right:3%;top:5%;bottom:auto;height:72%}
+  .hv-card{left:4%;right:4%;bottom:4%;width:auto;padding:14px}
+  .hv-card b{font-size:16px}.hv-card span:not(.hv-ok){font-size:13px}
+  .msg,.hv-cta{font-size:12px}
+}
+
+/* demonstração ao vivo (desceu do topo) */
+.demo-sec{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.demo-grid{display:grid;gap:40px;align-items:center}
+@media(min-width:980px){.demo-grid{grid-template-columns:1fr 400px;gap:64px}}
+.code{font-family:var(--body);background:#d9fdd3;border-radius:6px;padding:2px 7px;color:var(--green-d);font-weight:600}
+.chips-row.static{display:flex;justify-content:flex-start;margin-top:22px}
 
 /* problema (o mock do WhatsApp do comercial fica no modo escuro do app) */
 .problem-grid{display:grid;gap:28px;align-items:center;margin-top:12px}
@@ -230,42 +300,72 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
 <header class="nav">
   <div class="wrap">
     <a href="#" class="brand" aria-label="Consulta Cobertura">
-      <span class="mk"><svg viewBox="0 0 100 100" width="22" height="22" aria-hidden="true"><g fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round"><path d="M22 50a40 40 0 0 1 56 0"/><path d="M36 64a20 20 0 0 1 28 0"/></g><circle cx="50" cy="78" r="7" fill="#ffffff"/></svg></span>
+      <span class="mk"><svg viewBox="0 0 100 100" width="24" height="24" aria-hidden="true"><g fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round"><path d="M22 50a40 40 0 0 1 56 0"/><path d="M36 64a20 20 0 0 1 28 0"/></g><circle cx="50" cy="78" r="7" fill="#ffffff"/></svg></span>
       <span>Consulta Cobertura</span>
     </a>
-    <a class="btn btn-wa" href="#planos">Começar agora</a>
+    <nav class="nav-links" aria-label="Menu">
+      <a href="#como">Como funciona</a>
+      <a href="#planos">Planos</a>
+      <a href="https://consulta-cobertura.vercel.app/admin/login">Entrar</a>
+      <a class="btn btn-go" href="#planos">Começar agora</a>
+    </nav>
+    <a class="nav-login" href="https://consulta-cobertura.vercel.app/admin/login">Entrar</a>
   </div>
 </header>
 
 <main>
   <!-- HERO -->
   <section class="hero">
-    <div class="grid-bg"></div>
     <div class="wrap hero-grid">
-      <div>
-        <p class="eyebrow"><span class="dot"></span>Para provedores que anunciam no Facebook e no Instagram</p>
-        <h1>Mais instalações com a <span class="gradg">mesma verba de anúncio.</span></h1>
-        <p class="sub" style="margin-top:20px">Quem chama o seu provedor já chega com o <b>endereço conferido no seu mapa de cobertura</b>. Seu vendedor para de perder tempo com quem está fora da área e fecha mais com quem pode virar cliente. E o Meta aprende a trazer <b>mais gente da sua região</b>.</p>
-        <div class="ctas">
-          <a class="btn btn-wa" href="#planos">Começar agora</a>
-          <a class="btn btn-ghost" href="#demo">Ver funcionando</a>
+      <div class="hero-copy">
+        <p class="kicker">Para provedores de internet</p>
+        <h1><span class="h1-green">Mais instalações</span> com a mesma verba de anúncio.</h1>
+        <p class="hero-sub">Confira a cobertura antes de encaminhar o lead ao WhatsApp. Seu comercial recebe quem está dentro da sua área de atendimento.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-go" href="#planos">Começar agora <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-line" href="#demo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg> Testar demonstração</a>
         </div>
-        <div class="trust">
-          <span class="pill"><svg><use href="#i-check"/></svg>Usa o seu KMZ do Google Earth</span>
-          <span class="pill"><svg><use href="#i-check"/></svg>Pixel + API de Conversões</span>
-          <span class="pill"><svg><use href="#i-check"/></svg>A partir de R$ 33/mês</span>
+        <div class="hero-meta">
+          <span><svg aria-hidden="true"><use href="#i-map"/></svg>Seu mapa KMZ · Pixel + API de Conversões</span>
+          <span class="sep" aria-hidden="true"></span>
+          <span><svg aria-hidden="true"><use href="#i-money"/></svg>A partir de R$ 33/mês</span>
         </div>
       </div>
-      <div id="demo">
-        <div class="stage">
-          <div class="glow"></div>
-          <div class="chip ok c1"><i>✓</i>Viabilidade confirmada</div>
-          <div class="chip no c2"><i>✕</i>Fora de área: fica no chat</div>
-          <div class="chip px c3"><i>↗</i>Lead enviado ao Pixel</div>
-          <div class="phone"><iframe src="https://consulta-cobertura.vercel.app/p/demo?utm_source=pagina-vendas" title="Demonstração do chat de consulta de viabilidade" allow="geolocation"></iframe></div>
+
+      <div class="hero-visual" aria-label="Exemplo: o chat confere o endereço no mapa de cobertura e libera o WhatsApp">
+        <div class="hv-map"></div>
+        <div class="hv-card">
+          <span class="hv-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 12.5 4 4 8-9" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div><b>Cobertura confirmada</b><span>Este endereço está dentro da sua área de atendimento.</span></div>
         </div>
-        <div class="chips-row" aria-hidden="true"><div class="chip ok"><i>✓</i>Viabilidade confirmada</div><div class="chip no"><i>✕</i>Fora de área: fica no chat</div><div class="chip px"><i>↗</i>Lead enviado ao Pixel</div></div>
-        <p class="try">Teste: digite <code>Rua Lamenha Lins, 190, Curitiba</code> (tem viabilidade) e depois o CEP da sua casa.</p>
+        <div class="hv-phone" aria-hidden="true">
+          <div class="hv-screen">
+            <div class="hv-status"><span>9:41</span><i class="hv-island"></i><span class="hv-icons"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2" width="3" height="10" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 26 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor"/><rect x="2.5" y="2.5" width="18" height="7" rx="1.5"/><rect x="24" y="4" width="2" height="4" rx="1"/></svg></span></div>
+            <div class="hv-head"><span class="hv-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="4" fill="#fff"/><path d="M4 21a8 8 0 0 1 16 0" fill="#fff"/></svg></span><div><b>Sua Internet</b><small>Demonstração</small></div><span class="hv-dots">⋮</span></div>
+            <div class="hv-chat">
+              <p class="msg in">Olá! Vamos conferir sua cobertura?<time>09:41</time></p>
+              <p class="msg out">Quero consultar meu endereço.<time>09:41 <svg viewBox="0 0 18 11"><path d="m1 6 3 3 6-7M7 9l1 0 6-7" fill="none" stroke="#53bdeb" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></time></p>
+              <p class="msg ok"><span class="hv-ok sm"><svg viewBox="0 0 24 24"><path d="m6 12.5 4 4 8-9" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Endereço com cobertura<time>09:41</time></p>
+            </div>
+            <div class="hv-cta">Continuar no WhatsApp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMONSTRAÇÃO AO VIVO -->
+  <section class="demo-sec" id="demo">
+    <div class="wrap demo-grid">
+      <div>
+        <p class="eyebrow"><span class="dot"></span>Teste agora</p>
+        <h2>Faça a consulta como o seu cliente faria.</h2>
+        <p class="sub">É o chat de verdade, rodando no mapa de um provedor de demonstração. Digite <code class="code">Rua Lamenha Lins, 190, Curitiba</code> (tem cobertura) e depois o CEP da sua casa.</p>
+        <div class="chips-row static"><div class="chip ok"><i>✓</i>Viabilidade confirmada</div><div class="chip no"><i>✕</i>Fora de área: fica no chat</div><div class="chip px"><i>↗</i>Lead enviado ao Pixel</div></div>
+      </div>
+      <div class="stage">
+        <div class="glow"></div>
+        <div class="phone"><iframe src="https://consulta-cobertura.vercel.app/p/demo?utm_source=pagina-vendas" title="Demonstração do chat de consulta de viabilidade" allow="geolocation" loading="lazy"></iframe></div>
       </div>
     </div>
   </section>
@@ -297,7 +397,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
   </section>
 
   <!-- COMO RESOLVE -->
-  <section>
+  <section id="como">
     <div class="wrap reveal">
       <p class="eyebrow">Como o chat resolve</p>
       <h2>A viabilidade é confirmada <span class="grad">antes do primeiro “oi” pro vendedor.</span></h2>
