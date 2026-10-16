@@ -148,6 +148,7 @@ section{padding:64px 0;position:relative}
 .panel{background:var(--deep);color:#eef6f1}
 .panel h2{color:#fff}.panel .sub{color:#a9cbbb}
 .feat-shot{border-radius:22px;overflow:hidden;border:1px solid #1f4a3b;box-shadow:0 30px 70px -30px rgba(0,0,0,.7);background:#0e2a21}
+.feat-shot{display:block}.feat-shot img{width:100%;height:auto}
 .feat-cap{display:grid;gap:12px;margin:18px 0 34px}
 @media(min-width:900px){.feat-cap{grid-template-columns:repeat(3,1fr)}}
 .legend{display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border-radius:14px;background:var(--deep2);border:1px solid #1f4a3b;font-size:14.5px;color:#cfe3d8}
@@ -394,7 +395,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
   <section class="panel" id="painel">
     <div class="wrap">
       <div class="sec-head reveal"><p class="kicker light">Por dentro do painel</p><h2>Veja quem consultou, onde, e o que fazer.</h2><p class="sub">Cada consulta vira um ponto no mapa. Você enxerga onde vender mais e onde vale expandir.</p></div>
-      <a class="feat-shot reveal" href="prints/mapa-clientes.webp" target="_blank" rel="noopener"><img src="prints/mapa-clientes.webp" alt="Mapa de clientes: cada pessoa que consultou é um bonequinho no mapa, com cor por situação" loading="lazy" width="1400" height="875"></a>
+      <a class="feat-shot reveal" href="prints/mapa-clientes.webp" target="_blank" rel="noopener"><picture><source media="(max-width: 640px)" srcset="prints/mapa-clientes-celular.webp" width="810" height="720"><img src="prints/mapa-clientes.webp" alt="Mapa de clientes: cada pessoa que consultou é um bonequinho no mapa, com cor por situação" loading="lazy" width="1400" height="875"></picture></a>
       <div class="feat-cap">
         <p class="legend reveal"><i style="background:#3b82f6"></i><span><b>Azul e verde:</b> deixaram o contato. O azul já escolheu o dia da instalação.</span></p>
         <p class="legend reveal"><i style="background:#94a3b8"></i><span><b>Cinza:</b> tem rede e saiu sem deixar contato. É o seu público de remarketing.</span></p>
