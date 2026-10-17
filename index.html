@@ -175,6 +175,38 @@ section{padding:64px 0;position:relative}
 .evs span{padding:10px 14px;border-radius:12px;background:#fff;border:1px solid var(--line);font-family:ui-monospace,Menlo,monospace;font-size:13.5px;color:var(--txt2)}
 .evs span.hl{background:var(--deep);border-color:var(--deep);color:#8ff0b4;font-weight:700}
 
+/* depoimento: áudio no formato do WhatsApp + prints */
+.depo{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.depo-top{display:grid;gap:26px;align-items:center}
+@media(min-width:900px){.depo-top{grid-template-columns:1fr 1fr;gap:56px}}
+.depo .wa-mock{max-width:520px;width:100%;justify-self:center}
+.depo .wa-top .av{background:#fff center/cover no-repeat;border:1px solid #e7e1d6}
+.depo .wa-body{padding:22px 12px 24px}
+.vn{justify-self:start;display:flex;align-items:center;gap:10px;width:min(100%,360px);padding:8px 12px 8px 8px;border-radius:2px 14px 14px 14px;background:#fff;box-shadow:0 1px 1px rgba(11,20,26,.1)}
+.vn-av{position:relative;width:52px;height:52px;flex-shrink:0;border-radius:50%;background:#fff center/cover no-repeat;border:1px solid #e7e1d6}
+.vn-av i{position:absolute;right:-3px;bottom:-2px;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--go)}
+.vn-av i svg{width:14px;height:14px}
+.vn-play{width:44px;height:44px;flex-shrink:0;border:0;border-radius:50%;background:transparent;color:#54656f;cursor:pointer;display:grid;place-items:center}
+.vn-play svg{width:26px;height:26px}
+.vn-play .pause{display:none}.vn.on .vn-play .play{display:none}.vn.on .vn-play .pause{display:block}
+.vn-mid{flex:1;min-width:0}
+.vn-wave{position:relative;display:flex;align-items:center;gap:2px;height:30px;cursor:pointer;touch-action:none}
+.vn-wave span{flex:1;min-width:2px;border-radius:2px;background:#c5ced3;transition:background .15s}
+.vn-wave span.p{background:var(--go)}
+.vn-knob{position:absolute;top:50%;left:0;width:13px;height:13px;margin:-6.5px 0 0 -6.5px;border-radius:50%;background:var(--go);pointer-events:none}
+.vn-meta{display:flex;justify-content:space-between;margin-top:3px;font-size:11.5px;color:#667781}
+.depo-who{margin-top:12px;text-align:center;color:var(--txt2);font-size:14.5px}
+.depo-who b{color:var(--ink)}
+.zaps{display:grid;grid-auto-flow:column;grid-auto-columns:86%;align-items:start;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:44px -16px 0;padding:4px 16px 14px;scrollbar-width:none}
+.zaps::-webkit-scrollbar{display:none}
+@media(min-width:760px){.zaps{display:block;column-count:2;column-gap:18px;overflow:visible;margin:52px 0 0;padding:0}}
+@media(min-width:1000px){.zaps{column-count:3}}
+.zap{scroll-snap-align:start;break-inside:avoid;margin:0 0 18px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--bg)}
+.zap img{width:100%;height:auto}
+.zap figcaption{display:flex;align-items:center;gap:10px;padding:13px 15px;font-weight:600;font-size:14.5px;line-height:1.35;background:#fff;border-top:1px solid var(--line)}
+.zap figcaption svg{width:20px;height:20px;flex-shrink:0;padding:3px;border-radius:50%;background:var(--green);color:var(--deep)}
+.depo .note-d{margin-top:6px;color:var(--txt3);font-size:13px}
+
 /* ativa em 5 minutos */
 .setup5-box{border-radius:28px;padding:34px 22px;background:var(--deep) url('hero-mapa.webp') right -120px center/auto 140% no-repeat;color:#eef6f1;position:relative;overflow:hidden}
 .setup5-box::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#0b2d22 45%,rgba(11,45,34,.78))}
@@ -322,6 +354,20 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
     </div>
   </section>
 
+  <!-- TRACKEAMENTO -->
+  <section style="padding-bottom:0">
+    <div class="wrap track2-grid reveal">
+      <div>
+        <p class="kicker">Anúncios mais baratos</p>
+        <h2>O Meta aprende com o lead certo.</h2>
+        <p class="sub">O evento <b>Lead</b> só dispara quando o endereço tem cobertura. Assim a campanha passa a buscar gente que pode instalar. Pixel e API de Conversões já vêm prontos: é só colar o ID do pixel e o token no painel.</p>
+      </div>
+      <div class="evs" aria-label="Eventos enviados ao Meta">
+        <span>PageView</span><span>CoberturaConsultada</span><span>CoberturaAprovada</span><span>Schedule · escolheu o dia</span><span class="hl">Lead · a campanha otimiza aqui</span><span>Contact · abriu o WhatsApp</span>
+      </div>
+    </div>
+  </section>
+
   <!-- COM X SEM COBERTURA + DEMONSTRAÇÃO -->
   <section id="demo">
     <div class="wrap">
@@ -412,22 +458,51 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
     </div>
   </section>
 
-  <!-- TRACKEAMENTO -->
-  <section>
-    <div class="wrap track2-grid reveal">
-      <div>
-        <p class="kicker">Anúncios mais baratos</p>
-        <h2>O Meta aprende com o lead certo.</h2>
-        <p class="sub">O evento <b>Lead</b> só dispara quando o endereço tem cobertura. Assim a campanha passa a buscar gente que pode instalar. Pixel e API de Conversões já vêm prontos: é só colar o ID do pixel e o token no painel.</p>
+  <!-- DEPOIMENTO (áudio da Portal Net + prints de clientes da ISPAds) -->
+  <section class="depo" id="depoimentos">
+    <div class="wrap">
+      <div class="depo-top">
+        <div class="reveal">
+          <p class="kicker">Quem está por trás</p>
+          <h2>Feito por quem já cuida dos anúncios <span class="h-green">de vários provedores.</span></h2>
+          <p class="sub">O Consulta Cobertura é da ISPAds, que faz o tráfego pago de provedores de internet. Dá o play e ouve a Thays, da Portal Net, cliente da ISPAds.</p>
+        </div>
+        <div class="reveal">
+          <div class="wa-mock" aria-label="Depoimento em áudio da Thays Freitas, da Portal Net">
+            <div class="wa-top"><span class="av" style="background-image:url('media/portal-net.webp')"></span><div><b>Thays Freitas</b><small>Portal Net</small></div></div>
+            <div class="wa-body">
+              <div class="vn" id="vn">
+                <span class="vn-av" style="background-image:url('media/portal-net.webp')"><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z"/></svg></i></span>
+                <button type="button" class="vn-play" aria-label="Ouvir o depoimento da Thays">
+                  <svg class="play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>
+                  <svg class="pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.5h4v15h-4zM13.5 4.5h4v15h-4z" fill="currentColor"/></svg>
+                </button>
+                <div class="vn-mid">
+                  <div class="vn-wave" aria-hidden="true"><b class="vn-knob"></b></div>
+                  <div class="vn-meta"><span class="vn-time">0:32</span><span>09:17</span></div>
+                </div>
+                <audio src="media/depoimento-portal-net.m4a" preload="metadata"></audio>
+              </div>
+            </div>
+          </div>
+          <p class="depo-who"><b>Thays Freitas</b> · Portal Net, Aparecida de Goiânia (GO)</p>
+        </div>
       </div>
-      <div class="evs" aria-label="Eventos enviados ao Meta">
-        <span>PageView</span><span>CoberturaConsultada</span><span>CoberturaAprovada</span><span>Schedule · escolheu o dia</span><span class="hl">Lead · a campanha otimiza aqui</span><span>Contact · abriu o WhatsApp</span>
+      <div class="zaps">
+        <figure class="zap reveal"><img src="prints/depoimento-1.webp" alt="Cliente no WhatsApp: depois das campanhas, 11 vendas num dia, antes a média era 4 a 5" loading="lazy" width="714" height="607"><figcaption><svg aria-hidden="true"><use href="#i-check"/></svg>11 vendas num dia só. Antes eram 4 a 5.</figcaption></figure>
+        <figure class="zap reveal"><img src="prints/depoimento-2.webp" alt="Cliente no WhatsApp: total de 45 vendas pela etiqueta do tráfego pago" loading="lazy" width="797" height="485"><figcaption><svg aria-hidden="true"><use href="#i-check"/></svg>45 vendas fechadas pelo tráfego pago</figcaption></figure>
+        <figure class="zap reveal"><img src="prints/depoimento-3.webp" alt="Planilha de canal de venda do cliente: 77 vendas fechadas pelo tráfego" loading="lazy" width="948" height="863"><figcaption><svg aria-hidden="true"><use href="#i-check"/></svg>77 vendas fechadas pelo tráfego</figcaption></figure>
+        <figure class="zap reveal"><img src="prints/depoimento-4.webp" alt="Thays, da Portal Net: muitas vendas fechadas vindo pelo Google e Instagram" loading="lazy" width="750" height="650"><figcaption><svg aria-hidden="true"><use href="#i-check"/></svg>Muitas vendas vindo do Google e do Instagram</figcaption></figure>
+        <figure class="zap reveal"><img src="prints/depoimento-5.webp" alt="Cliente no WhatsApp: chegaram umas 10 pessoas no fim de semana, interessadas mesmo" loading="lazy" width="698" height="607"><figcaption><svg aria-hidden="true"><use href="#i-check"/></svg>10 pessoas certas num fim de semana</figcaption></figure>
+        <figure class="zap reveal"><img src="prints/depoimento-6.webp" alt="Thays, da Portal Net: meta de 10 instalações por dia, já estão com 8" loading="lazy" width="820" height="684"><figcaption><svg aria-hidden="true"><use href="#i-check"/></svg>8 de 10 instalações antes do meio-dia</figcaption></figure>
       </div>
+      <p class="swipe">Arraste pro lado pra ver mais conversas →</p>
+      <p class="note-d">Conversas reais com clientes da ISPAds, direto do WhatsApp.</p>
     </div>
   </section>
 
   <!-- ATIVA EM 5 MINUTOS -->
-  <section style="padding-top:0">
+  <section>
     <div class="wrap">
       <div class="setup5-box reveal">
         <div class="sec-head"><p class="kicker light">Sem instalação, sem técnico</p><h2>Ativa em 5 minutos.</h2></div>
@@ -541,6 +616,31 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
   else if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (en) { if (en[0].isIntersecting) playVideo(); else video.pause() }, { threshold: 0.1 }).observe(frame)
   } else playVideo()
+
+  // Depoimento em áudio: barras com a forma de onda real do áudio, igual mensagem de voz do WhatsApp.
+  var WAVE = [.12,.6,.66,.73,.75,.81,.48,.76,.78,.82,.86,.76,.74,.58,.12,.75,.84,.79,.72,.48,1,.85,.61,.78,.69,.66,.82,.99,.64,.49,.56,.34,.12,.32,.87,.48,.59,.58,.49,.23]
+  var vn = document.getElementById('vn'), audio = vn.querySelector('audio'), wave = vn.querySelector('.vn-wave')
+  var knob = vn.querySelector('.vn-knob'), vtime = vn.querySelector('.vn-time'), vbtn = vn.querySelector('.vn-play')
+  var bars = WAVE.map(function (h) { var s = document.createElement('span'); s.style.height = Math.round(4 + h * 22) + 'px'; wave.insertBefore(s, knob); return s })
+  var fmt = function (s) { s = Math.max(0, Math.round(s)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0') }
+  function paint() {
+    var d = audio.duration || 0, c = audio.currentTime || 0, f = d ? c / d : 0
+    bars.forEach(function (b, i) { b.classList.toggle('p', (i + 0.5) / bars.length <= f) })
+    knob.style.left = (f * 100) + '%'
+    vtime.textContent = fmt(audio.paused && !c ? d || 32 : c)
+  }
+  audio.addEventListener('loadedmetadata', paint)
+  audio.addEventListener('timeupdate', paint)
+  audio.addEventListener('play', function () { vn.classList.add('on'); vbtn.setAttribute('aria-label', 'Pausar o depoimento') })
+  audio.addEventListener('pause', function () { vn.classList.remove('on'); vbtn.setAttribute('aria-label', 'Ouvir o depoimento da Thays') })
+  audio.addEventListener('ended', function () { audio.currentTime = 0; paint() })
+  vbtn.addEventListener('click', function () { if (audio.paused) audio.play(); else audio.pause() })
+  wave.addEventListener('click', function (e) {
+    var r = wave.getBoundingClientRect(), d = audio.duration
+    if (!d) return
+    audio.currentTime = Math.min(Math.max((e.clientX - r.left) / r.width, 0), 1) * d
+    if (audio.paused) audio.play()
+  })
 
   var sticky = document.querySelector('.sticky')
   var onScroll = function () { sticky.classList.toggle('on', window.scrollY > 700) }
