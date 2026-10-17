@@ -223,21 +223,36 @@ section{padding:64px 0;position:relative}
 .setup5-foot{margin-top:22px;color:#a9cbbb;font-size:14.5px}
 
 /* planos */
-.plans{display:grid;gap:16px;margin:38px auto 0;align-items:stretch;max-width:860px}
-@media(min-width:760px){.plans{grid-template-columns:repeat(2,1fr)}}
-.plan{display:flex;flex-direction:column;background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:28px 24px;position:relative}
-.plan.hl{border:2px solid var(--green);box-shadow:0 24px 60px rgba(37,211,102,.16)}
-.plan .tagp{position:absolute;top:-13px;left:24px;background:var(--green);color:var(--ink);font-size:12px;font-weight:800;padding:5px 12px;border-radius:999px}
-.plan h3{font-size:22px}
+.plans{display:grid;gap:22px;margin:40px auto 0;max-width:780px}
+@media(min-width:700px){.plans{grid-template-columns:1fr 1fr;gap:18px}}
+.plan{display:flex;flex-direction:column;background:var(--bg2);border:1px solid var(--line);border-radius:22px;padding:24px 22px 22px;position:relative}
+.plan h3{font-size:20px;margin:0}
 .plan .for{color:var(--txt3);font-size:14px}
-.price{margin:18px 0 4px;font-family:var(--display);font-weight:800;font-size:44px;letter-spacing:-.03em}
-.price small{font-family:var(--body);font-size:15px;font-weight:600;color:var(--txt3)}
-.note{color:var(--txt2);font-size:14px}.note b{color:var(--ink)}
-.plan ul{list-style:none;margin:18px 0 24px;display:grid;gap:10px;flex:1}
-.plan li{color:var(--txt2);font-size:15px;padding-left:26px;position:relative}
-.plan li::before{content:'';position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;background:#d9fdd3 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23008069' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5L20 7'/%3E%3C/svg%3E") center/10px no-repeat}
-.plan .btn{width:100%}
-.plan .btn-ghost{border:1.5px solid #0f8a5f;color:#0b6b48}
+.price{display:flex;align-items:flex-start;margin:16px 0 4px;font-family:var(--display);font-weight:800;font-size:54px;line-height:1;letter-spacing:-.04em}
+.price .cur{font-size:20px;letter-spacing:0;margin:7px 5px 0 0}
+.price small{align-self:flex-end;margin:0 0 7px 4px;font-family:var(--body);font-size:15px;font-weight:600;letter-spacing:0;color:var(--txt3)}
+.note{color:var(--txt2);font-size:14px;margin-bottom:20px}.note b{color:var(--ink)}
+.plan .btn{width:100%;margin-top:auto}
+.plan.hl{border:0;color:#eef6f1;background:radial-gradient(120% 90% at 100% 0%,rgba(37,211,102,.3),transparent 62%),var(--deep);box-shadow:0 28px 60px -22px rgba(11,45,34,.6)}
+.plan.hl h3,.plan.hl .price{color:#fff}
+.plan.hl .for,.plan.hl .price small{color:#a9cbbb}
+.plan.hl .note{color:#cfe3d8}.plan.hl .note b{color:#8ff0b4}
+.plan .tagp{position:absolute;top:-13px;right:20px;background:var(--green);color:var(--deep);font-size:12.5px;font-weight:800;padding:5px 12px;border-radius:999px;box-shadow:0 8px 18px -6px rgba(37,211,102,.7)}
+@media(max-width:699px){
+  .plan.hl{order:-1}
+  .plan{display:grid;grid-template-columns:1fr auto;column-gap:12px;align-items:center;padding:22px 18px 18px}
+  .plan .price{grid-column:2;grid-row:1/span 2;margin:0;font-size:44px}
+  .plan .price .cur{font-size:17px;margin-top:5px}
+  .plan .note,.plan .btn{grid-column:1/-1}
+  .plan .note{margin:12px 0 14px}
+}
+/* o que vem nos dois planos (uma lista só) */
+.incl{max-width:780px;margin:18px auto 0;padding:20px 22px;border-radius:22px;background:#fff;border:1px solid var(--line)}
+.incl-t{font-family:var(--display);font-weight:800;font-size:17px;margin-bottom:12px}
+.incl ul{list-style:none;display:grid;gap:9px 26px}
+@media(min-width:620px){.incl ul{grid-template-columns:1fr 1fr}}
+.incl li{display:flex;gap:9px;align-items:flex-start;color:var(--txt2);font-size:14.5px;line-height:1.4}
+.incl li::before{content:'';flex-shrink:0;width:18px;height:18px;margin-top:1px;border-radius:50%;background:#d9fdd3 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23008069' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5L20 7'/%3E%3C/svg%3E") center/11px no-repeat}
 .guar{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:20px;color:var(--txt2);font-size:14px;text-align:center}
 .guar svg{width:18px;height:18px;color:var(--green-d);flex-shrink:0}
 .setup{margin-top:10px;text-align:center;color:var(--txt2);font-size:15px}
@@ -458,14 +473,14 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
     </div>
   </section>
 
-  <!-- DEPOIMENTO (áudio da Portal Net + prints de clientes da ISPAds) -->
+  <!-- DEPOIMENTO (áudio da Portal Net + prints de provedores atendidos no tráfego pago) -->
   <section class="depo" id="depoimentos">
     <div class="wrap">
       <div class="depo-top">
         <div class="reveal">
           <p class="kicker">Quem está por trás</p>
           <h2>Feito por quem já cuida dos anúncios <span class="h-green">de vários provedores.</span></h2>
-          <p class="sub">O Consulta Cobertura é da ISPAds, que faz o tráfego pago de provedores de internet. Dá o play e ouve a Thays, da Portal Net, cliente da ISPAds.</p>
+          <p class="sub">O Consulta Cobertura foi criado pela mesma equipe que faz o tráfego pago de provedores de internet. Dá o play e ouve a Thays, da Portal Net.</p>
         </div>
         <div class="reveal">
           <div class="wa-mock" aria-label="Depoimento em áudio da Thays Freitas, da Portal Net">
@@ -497,7 +512,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
         <figure class="zap reveal"><img src="prints/depoimento-6.webp" alt="Thays, da Portal Net: meta de 10 instalações por dia, já estão com 8" loading="lazy" width="820" height="684"><figcaption><svg aria-hidden="true"><use href="#i-check"/></svg>8 de 10 instalações antes do meio-dia</figcaption></figure>
       </div>
       <p class="swipe">Arraste pro lado pra ver mais conversas →</p>
-      <p class="note-d">Conversas reais com clientes da ISPAds, direto do WhatsApp.</p>
+      <p class="note-d">Conversas reais com provedores que a nossa equipe atende no tráfego pago.</p>
     </div>
   </section>
 
@@ -507,7 +522,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
       <div class="setup5-box reveal">
         <div class="sec-head"><p class="kicker light">Sem instalação, sem técnico</p><h2>Ativa em 5 minutos.</h2></div>
         <ol class="steps4">
-          <li><span class="n">1</span><b>Assine</b><span>Cartão ou Pix, pela Kiwify.</span></li>
+          <li><span class="n">1</span><b>Assine</b><span>Cartão ou Pix.</span></li>
           <li><span class="n">2</span><b>Ative a conta</b><span>Com o e-mail da compra.</span></li>
           <li><span class="n">3</span><b>Suba o seu mapa</b><span>O KML ou KMZ do Google Earth que você já usa.</span></li>
           <li><span class="n">4</span><b>Cole o link nos anúncios</b><span>Pronto: só quem tem cobertura chega no WhatsApp.</span></li>
@@ -528,24 +543,26 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
       <div class="plans">
         <div class="plan">
           <h3>Mensal</h3>
-          <p class="for">Pra começar sem compromisso longo.</p>
-          <p class="price">R$ 47<small>/mês</small></p>
+          <p class="for">Sem compromisso longo.</p>
+          <p class="price"><span class="cur">R$</span>47<small>/mês</small></p>
           <p class="note">Cobrado todo mês no cartão ou Pix.</p>
-          <ul class="js-feat"></ul>
-          <a class="btn btn-ghost js-buy" data-plano="Mensal (R$ 47/mês)" href="#" target="_blank" rel="noopener">Assinar o mensal</a>
+          <a class="btn btn-line js-buy" data-plano="Mensal (R$ 47/mês)" href="#" target="_blank" rel="noopener">Assinar o mensal</a>
         </div>
         <div class="plan hl">
           <span class="tagp">Economize R$ 167</span>
           <h3>Anual</h3>
-          <p class="for">O melhor preço, pra quem anuncia todo mês.</p>
-          <p class="price">R$ 397<small>/ano</small></p>
-          <p class="note"><b>Sai R$ 33 por mês</b>, 30% a menos que o mensal.</p>
-          <ul class="js-feat"></ul>
+          <p class="for">Pra quem anuncia todo mês.</p>
+          <p class="price"><span class="cur">R$</span>397<small>/ano</small></p>
+          <p class="note"><b>Sai R$ 33 por mês</b>, 30% a menos.</p>
           <a class="btn btn-go js-buy" data-plano="Anual (R$ 397/ano)" href="#" target="_blank" rel="noopener">Assinar o anual</a>
         </div>
       </div>
-      <p class="guar"><svg><use href="#i-shield"/></svg>Garantia de 7 dias pela Kiwify. Não gostou, pede o dinheiro de volta.</p>
-      <p class="setup">Prefere que a gente configure tudo e cuide do mapa por você? <a class="js-wa" data-plano="configuração feita pela ISPAds" href="#" target="_blank" rel="noopener">Fale com a ISPAds</a></p>
+      <div class="incl">
+        <p class="incl-t">Tudo incluso nos dois planos</p>
+        <ul class="js-feat"></ul>
+      </div>
+      <p class="guar"><svg><use href="#i-shield"/></svg>Garantia de 7 dias. Não gostou, pede o dinheiro de volta.</p>
+      <p class="setup">Prefere que a gente configure tudo e cuide do mapa por você? <a class="js-wa" data-plano="configuração feita pela equipe" href="#" target="_blank" rel="noopener">Fale com a gente</a></p>
     </div>
   </section>
 
@@ -579,7 +596,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
 
 <footer>
   <div class="wrap">
-    <span>Consulta Cobertura · um produto ISPAds, marketing e vendas para provedores</span>
+    <span>Consulta Cobertura · só chega no WhatsApp do provedor quem pode instalar</span>
     <a href="https://consulta-cobertura.vercel.app/ativar" style="color:inherit;font-weight:600;text-decoration:underline">Já assinou? Ative sua conta</a>
     <span>(49) 99903-7322</span>
   </div>
@@ -591,7 +608,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
 (function () {
   var NUM = '5549999037322'
   var CHECKOUT = { 'Mensal (R$ 47/mês)': 'https://pay.kiwify.com.br/ymii0Zb', 'Anual (R$ 397/ano)': 'https://pay.kiwify.com.br/5qq1ooG' }
-  var FEAT = ['Página de consulta com a sua marca e a sua oferta', 'Cobertura conferida no seu mapa', 'Dia da instalação escolhido pelo cliente', 'Pixel + API de Conversões prontos', 'Painel com mapa de clientes e funil', 'Lista de expansão com quem está fora da área', 'Link pros anúncios e botão no site', 'Suporte pelo WhatsApp']
+  var FEAT = ['Página com a sua marca e a sua oferta', 'Cobertura conferida no seu mapa', 'Cliente escolhe o dia da instalação', 'Pixel + API de Conversões prontos', 'Painel com mapa de clientes e funil', 'Lista de quem está fora da área', 'Link pros anúncios e botão no site', 'Suporte pelo WhatsApp']
   document.querySelectorAll('.js-feat').forEach(function (ul) {
     FEAT.forEach(function (f) { var li = document.createElement('li'); li.textContent = f; ul.appendChild(li) })
   })
