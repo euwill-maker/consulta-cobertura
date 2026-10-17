@@ -194,10 +194,10 @@ section{padding:64px 0;position:relative}
 .depo-top{display:grid;gap:26px;align-items:center}
 @media(min-width:900px){.depo-top{grid-template-columns:1fr 1fr;gap:56px}}
 .depo .wa-mock{max-width:520px;width:100%;justify-self:center}
-.depo .wa-top .av{background:#fff center/cover no-repeat;border:1px solid #e7e1d6}
+.depo .wa-top .av,.vn-av{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23dfe5e7'/%3E%3Ccircle cx='20' cy='15.5' r='7' fill='%23fff'/%3E%3Cpath d='M6 37c1.2-7.6 7-12 14-12s12.8 4.4 14 12z' fill='%23fff'/%3E%3C/svg%3E") center/cover no-repeat}
 .depo .wa-body{padding:22px 12px 24px}
 .vn{justify-self:start;display:flex;align-items:center;gap:10px;width:min(100%,360px);padding:8px 12px 8px 8px;border-radius:2px 14px 14px 14px;background:#fff;box-shadow:0 1px 1px rgba(11,20,26,.1)}
-.vn-av{position:relative;width:52px;height:52px;flex-shrink:0;border-radius:50%;background:#fff center/cover no-repeat;border:1px solid #e7e1d6}
+.vn-av{position:relative;width:52px;height:52px;flex-shrink:0;border-radius:50%}
 .vn-av i{position:absolute;right:-3px;bottom:-2px;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--go)}
 .vn-av i svg{width:14px;height:14px}
 .vn-play{width:44px;height:44px;flex-shrink:0;border:0;border-radius:50%;background:transparent;color:#54656f;cursor:pointer;display:grid;place-items:center}
@@ -209,8 +209,6 @@ section{padding:64px 0;position:relative}
 .vn-wave span.p{background:var(--go)}
 .vn-knob{position:absolute;top:50%;left:0;width:13px;height:13px;margin:-6.5px 0 0 -6.5px;border-radius:50%;background:var(--go);pointer-events:none}
 .vn-meta{display:flex;justify-content:space-between;margin-top:3px;font-size:11.5px;color:#667781}
-.depo-who{margin-top:12px;text-align:center;color:var(--txt2);font-size:14.5px}
-.depo-who b{color:var(--ink)}
 .zaps{display:grid;grid-auto-flow:column;grid-auto-columns:86%;align-items:start;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:44px -16px 0;padding:4px 16px 14px;scrollbar-width:none}
 .zaps::-webkit-scrollbar{display:none}
 @media(min-width:760px){.zaps{display:block;column-count:2;column-gap:18px;overflow:visible;margin:52px 0 0;padding:0}}
@@ -490,22 +488,22 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
     </div>
   </section>
 
-  <!-- DEPOIMENTO (áudio da Portal Net + prints de provedores atendidos no tráfego pago) -->
+  <!-- DEPOIMENTO (áudio de um provedor + prints de provedores atendidos no tráfego pago, rostos e nomes borrados) -->
   <section class="depo" id="depoimentos">
     <div class="wrap">
       <div class="depo-top">
         <div class="reveal">
           <p class="kicker">Quem está por trás</p>
           <h2>Feito por quem já cuida dos anúncios <span class="h-green">de vários provedores.</span></h2>
-          <p class="sub">O Consulta Cobertura foi criado pela mesma equipe que faz o tráfego pago de provedores de internet. Dá o play e ouve a Thays, da Portal Net.</p>
+          <p class="sub">O Consulta Cobertura foi criado pela mesma equipe que faz o tráfego pago de provedores de internet. Dá o play e ouve um dos provedores que a gente atende.</p>
         </div>
         <div class="reveal">
-          <div class="wa-mock" aria-label="Depoimento em áudio da Thays Freitas, da Portal Net">
-            <div class="wa-top"><span class="av" style="background-image:url('media/portal-net.webp')"></span><div><b>Thays Freitas</b><small>Portal Net</small></div></div>
+          <div class="wa-mock" aria-label="Depoimento em áudio de um provedor de internet">
+            <div class="wa-top"><span class="av"></span><div><b>Provedor de internet</b><small>mensagem de voz</small></div></div>
             <div class="wa-body">
               <div class="vn" id="vn">
-                <span class="vn-av" style="background-image:url('media/portal-net.webp')"><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z"/></svg></i></span>
-                <button type="button" class="vn-play" aria-label="Ouvir o depoimento da Thays">
+                <span class="vn-av"><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z"/></svg></i></span>
+                <button type="button" class="vn-play" aria-label="Ouvir o depoimento">
                   <svg class="play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>
                   <svg class="pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.5h4v15h-4zM13.5 4.5h4v15h-4z" fill="currentColor"/></svg>
                 </button>
@@ -513,20 +511,19 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
                   <div class="vn-wave" aria-hidden="true"><b class="vn-knob"></b></div>
                   <div class="vn-meta"><span class="vn-time">0:32</span><span>09:17</span></div>
                 </div>
-                <audio src="media/depoimento-portal-net.m4a" preload="metadata"></audio>
+                <audio src="media/depoimento-provedor.m4a" preload="metadata"></audio>
               </div>
             </div>
           </div>
-          <p class="depo-who"><b>Thays Freitas</b> · Portal Net, Aparecida de Goiânia (GO)</p>
         </div>
       </div>
       <div class="zaps">
         <figure class="zap reveal"><img src="prints/depoimento-1.webp" alt="Cliente no WhatsApp: depois das campanhas, 11 vendas num dia, antes a média era 4 a 5" loading="lazy" width="714" height="607"><figcaption><svg aria-hidden="true"><use href="#i-check"/></svg>11 vendas num dia só. Antes eram 4 a 5.</figcaption></figure>
         <figure class="zap reveal"><img src="prints/depoimento-2.webp" alt="Cliente no WhatsApp: total de 45 vendas pela etiqueta do tráfego pago" loading="lazy" width="797" height="485"><figcaption><svg aria-hidden="true"><use href="#i-check"/></svg>45 vendas fechadas pelo tráfego pago</figcaption></figure>
         <figure class="zap reveal"><img src="prints/depoimento-3.webp" alt="Planilha de canal de venda do cliente: 77 vendas fechadas pelo tráfego" loading="lazy" width="948" height="863"><figcaption><svg aria-hidden="true"><use href="#i-check"/></svg>77 vendas fechadas pelo tráfego</figcaption></figure>
-        <figure class="zap reveal"><img src="prints/depoimento-4.webp" alt="Thays, da Portal Net: muitas vendas fechadas vindo pelo Google e Instagram" loading="lazy" width="750" height="650"><figcaption><svg aria-hidden="true"><use href="#i-check"/></svg>Muitas vendas vindo do Google e do Instagram</figcaption></figure>
+        <figure class="zap reveal"><img src="prints/depoimento-4.webp" alt="Cliente no WhatsApp: os leads estão indo muito bem, muitas vendas fechadas vindo pelo Google e Instagram" loading="lazy" width="750" height="650"><figcaption><svg aria-hidden="true"><use href="#i-check"/></svg>Muitas vendas vindo do Google e do Instagram</figcaption></figure>
         <figure class="zap reveal"><img src="prints/depoimento-5.webp" alt="Cliente no WhatsApp: chegaram umas 10 pessoas no fim de semana, interessadas mesmo" loading="lazy" width="698" height="607"><figcaption><svg aria-hidden="true"><use href="#i-check"/></svg>10 pessoas certas num fim de semana</figcaption></figure>
-        <figure class="zap reveal"><img src="prints/depoimento-6.webp" alt="Thays, da Portal Net: meta de 10 instalações por dia, já estão com 8" loading="lazy" width="820" height="684"><figcaption><svg aria-hidden="true"><use href="#i-check"/></svg>8 de 10 instalações antes do meio-dia</figcaption></figure>
+        <figure class="zap reveal"><img src="prints/depoimento-6.webp" alt="Cliente no WhatsApp: meta de 10 instalações por dia, já estão com 8" loading="lazy" width="820" height="684"><figcaption><svg aria-hidden="true"><use href="#i-check"/></svg>8 de 10 instalações antes do meio-dia</figcaption></figure>
       </div>
       <p class="swipe">Arraste pro lado pra ver mais conversas →</p>
       <p class="note-d">Conversas reais com provedores que a nossa equipe atende no tráfego pago.</p>
@@ -687,7 +684,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
   audio.addEventListener('loadedmetadata', paint)
   audio.addEventListener('timeupdate', paint)
   audio.addEventListener('play', function () { vn.classList.add('on'); vbtn.setAttribute('aria-label', 'Pausar o depoimento') })
-  audio.addEventListener('pause', function () { vn.classList.remove('on'); vbtn.setAttribute('aria-label', 'Ouvir o depoimento da Thays') })
+  audio.addEventListener('pause', function () { vn.classList.remove('on'); vbtn.setAttribute('aria-label', 'Ouvir o depoimento') })
   audio.addEventListener('ended', function () { audio.currentTime = 0; paint() })
   vbtn.addEventListener('click', function () { if (audio.paused) audio.play(); else audio.pause() })
   wave.addEventListener('click', function (e) {
