@@ -119,28 +119,11 @@ section{padding:64px 0;position:relative}
   .steps::-webkit-scrollbar{display:none}
   .step{scroll-snap-align:start}
   .step .shotp{width:100%}
-  .vs{grid-template-columns:118px 1fr;gap:14px;padding:16px}
-  .vs .shotp{width:118px;padding:4px;border-radius:22px}
-  .vs .shotp img{border-radius:18px}
-  .vs-title{font-size:19px;margin-bottom:8px}
-  .vs .pts{gap:7px}.vs .pts li{font-size:14px}
 }
 .swipe{display:none;margin-top:4px;color:var(--txt3);font-size:13px}
 @media(max-width:759px){.swipe{display:block}}
 
-/* tem cobertura x não tem */
-.vs-grid{display:grid;gap:18px}
-@media(min-width:900px){.vs-grid{grid-template-columns:1fr 1fr;gap:24px}}
-.vs{display:grid;gap:18px;align-items:center;border-radius:24px;padding:22px;background:#fff;border:1px solid var(--line)}
-@media(min-width:560px){.vs{grid-template-columns:200px 1fr;padding:26px}}
-.vs .shotp{width:min(100%,220px);margin:0 auto}
-.vs.ok{border:2px solid #9fe3bb;background:#f2fcf5}
-.vs-title{font-family:var(--display);font-weight:800;font-size:22px;margin-bottom:12px;display:flex;align-items:center;gap:10px}
-.vs-title i{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:15px}
-.vs.ok .vs-title i{background:var(--green);color:var(--deep)}.vs.no .vs-title i{background:#f3b6a8;color:#8a1c0f}
-.vs .pts li{color:var(--txt2)}
-.vs.ok .pts svg{background:var(--green);color:var(--deep)}.vs.no .pts svg{background:#eef1f5;color:#5b6475}
-.try{display:grid;gap:14px;align-items:center;margin-top:24px;padding:22px;border-radius:20px;background:var(--deep);color:#eef6f1}
+.try{display:grid;gap:14px;align-items:center;margin-top:30px;padding:22px;border-radius:20px;background:var(--deep);color:#eef6f1}
 @media(min-width:760px){.try{grid-template-columns:1fr auto;padding:26px 30px}}
 .try b{font-family:var(--display);font-size:22px;color:#fff}
 .try p{color:#a9cbbb;font-size:15px;margin-top:4px}
@@ -163,23 +146,11 @@ section{padding:64px 0;position:relative}
 .panel h2{color:#fff}.panel .sub{color:#a9cbbb}
 .feat-shot{border-radius:22px;overflow:hidden;border:1px solid #1f4a3b;box-shadow:0 30px 70px -30px rgba(0,0,0,.7);background:#0e2a21}
 .feat-shot{display:block}.feat-shot img{width:100%;height:auto}
-.feat-cap{display:grid;gap:12px;margin:18px 0 34px}
+.feat-cap{display:grid;gap:12px;margin-top:18px}
 @media(min-width:900px){.feat-cap{grid-template-columns:repeat(3,1fr)}}
 .legend{display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border-radius:14px;background:var(--deep2);border:1px solid #1f4a3b;font-size:14.5px;color:#cfe3d8}
 .legend i{width:12px;height:12px;border-radius:50%;flex-shrink:0;margin-top:5px}
 .legend b{color:#fff}
-.pgrid{display:grid;grid-auto-flow:column;grid-auto-columns:78%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 16px 16px;margin:0 -16px;scrollbar-width:none}
-.pgrid::-webkit-scrollbar{display:none}
-@media(min-width:620px){.pgrid{grid-auto-columns:46%}}
-@media(min-width:1000px){.pgrid{grid-auto-flow:row;grid-template-columns:repeat(4,1fr);overflow:visible;margin:0;padding:0}}
-.pshot{scroll-snap-align:start;display:flex;flex-direction:column;gap:10px}
-.pshot a{display:block;border-radius:18px;overflow:hidden;background:#0e2a21;border:1px solid #1f4a3b;aspect-ratio:3/4}
-.pshot img{width:100%;height:100%;object-fit:cover;object-position:top}
-.pshot img.fit{object-fit:contain;object-position:center}
-.pshot b{display:block;font-family:var(--display);font-size:17px;color:#fff}
-.pshot figcaption{color:#a9cbbb;font-size:14.5px;line-height:1.45}
-.hint{margin-top:6px;color:#7fa898;font-size:13px}
-@media(min-width:1000px){.hint{display:none}}
 .note-l{margin-top:20px;color:#7fa898;font-size:13px}
 
 /* trackeamento */
@@ -232,6 +203,7 @@ section{padding:64px 0;position:relative}
 .steps4 .n{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:var(--go);color:#fff;font-family:var(--display);font-weight:800;margin-bottom:8px}
 .steps4 b{font-family:var(--display);font-size:18px;color:#fff}
 .steps4 li>span:last-child{color:#a9cbbb;font-size:14.5px}
+@media(max-width:699px){.setup5-box{padding:30px 18px}.steps4 li{display:grid;grid-template-columns:34px 1fr;column-gap:12px;padding:14px}.steps4 .n{grid-row:span 2;margin:0}}
 .setup5-foot{margin-top:22px;color:#a9cbbb;font-size:14.5px}
 
 /* planos */
@@ -381,11 +353,18 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
         </li>
       </ol>
       <p class="swipe">Arraste pro lado pra ver os 3 passos →</p>
+      <div class="try reveal" id="demo">
+        <div>
+          <b>Teste agora, como se fosse o seu cliente</b>
+          <p>Fora de Curitiba? Toque em “Prefiro digitar o CEP” e use <code>80250-020</code>, número <code>190</code>.</p>
+        </div>
+        <a class="btn btn-go" href="https://consulta-cobertura.vercel.app/c/demo?utm_source=pagina-vendas" target="_blank" rel="noopener">Abrir a demonstração ↗</a>
+      </div>
     </div>
   </section>
 
   <!-- TRACKEAMENTO -->
-  <section style="padding-bottom:0">
+  <section>
     <div class="wrap track2-grid reveal">
       <div>
         <p class="kicker">Anúncios mais baratos</p>
@@ -394,44 +373,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
       </div>
       <div class="evs" aria-label="Eventos enviados ao Meta">
         <span>PageView</span><span>CoberturaConsultada</span><span>CoberturaAprovada</span><span>Schedule · escolheu o dia</span><span class="hl">Lead · a campanha otimiza aqui</span><span>Contact · abriu o WhatsApp</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- COM X SEM COBERTURA + DEMONSTRAÇÃO -->
-  <section id="demo">
-    <div class="wrap">
-      <div class="sec-head reveal"><p class="kicker">Veja o que acontece</p><h2>Tem cobertura? Vai pro comercial. <span class="h-green">Não tem? Vira expansão.</span></h2></div>
-      <div class="vs-grid">
-        <div class="vs ok reveal">
-          <div class="shotp"><img src="prints/q4-tem-fibra.webp" alt="O pino fica verde, com confete: tem fibra na sua rua" loading="lazy" width="560" height="1212"></div>
-          <div>
-            <p class="vs-title"><i>✓</i>Tem cobertura</p>
-            <ul class="pts">
-              <li><svg aria-hidden="true"><use href="#i-check"/></svg>O cliente vê "Tem fibra na sua rua!" e a oferta liberada.</li>
-              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Seu vendedor recebe tudo pronto no WhatsApp.</li>
-              <li><svg aria-hidden="true"><use href="#i-check"/></svg>O Meta recebe o Lead e aprende quem compra.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="vs no reveal">
-          <div class="shotp"><img src="prints/q6-sem-cobertura.webp" alt="Ainda não chegamos aí: o cliente pede aviso" loading="lazy" width="560" height="1212"></div>
-          <div>
-            <p class="vs-title"><i>✕</i>Sem cobertura</p>
-            <ul class="pts">
-              <li><svg aria-hidden="true"><use href="#i-dot"/></svg>Nada chega no seu WhatsApp.</li>
-              <li><svg aria-hidden="true"><use href="#i-dot"/></svg>O cliente pede aviso pra quando a rede chegar.</li>
-              <li><svg aria-hidden="true"><use href="#i-dot"/></svg>Você vê no mapa onde vale levar a rede.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="try reveal">
-        <div>
-          <b>Teste agora, como se fosse o seu cliente</b>
-          <p>Fora de Curitiba? Toque em “Prefiro digitar o CEP” e use <code>80250-020</code>, número <code>190</code>.</p>
-        </div>
-        <a class="btn btn-go" href="https://consulta-cobertura.vercel.app/c/demo?utm_source=pagina-vendas" target="_blank" rel="noopener">Abrir a demonstração ↗</a>
       </div>
     </div>
   </section>
@@ -477,13 +418,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
         <p class="legend reveal"><i style="background:#94a3b8"></i><span><b>Cinza:</b> tem rede e saiu sem deixar contato. É o seu público de remarketing.</span></p>
         <p class="legend reveal"><i style="background:#f59e0b"></i><span><b>Laranja:</b> procurou e não tem rede. Mostra onde levar a fibra primeiro.</span></p>
       </div>
-      <div class="pgrid">
-        <figure class="pshot"><a href="prints/funil.webp" target="_blank" rel="noopener"><img src="prints/funil.webp" alt="Funil do atendimento" loading="lazy" width="760"></a><figcaption><b>Funil do atendimento</b>Quantos consultaram, quantos têm cobertura e quantos chegaram no seu WhatsApp.</figcaption></figure>
-        <figure class="pshot"><a href="prints/por-dia.webp" target="_blank" rel="noopener"><img src="prints/por-dia.webp" alt="Consultas e leads por dia" loading="lazy" width="760" class="fit"></a><figcaption><b>Dia a dia</b>Veja o efeito de cada campanha nas consultas e nos contatos.</figcaption></figure>
-        <figure class="pshot"><a href="prints/bairros.webp" target="_blank" rel="noopener"><img src="prints/bairros.webp" alt="Bairros que mais procuram" loading="lazy" width="760"></a><figcaption><b>Bairros que mais procuram</b>Onde vender mais, com alerta de bairro sem atendimento.</figcaption></figure>
-        <figure class="pshot"><a href="prints/mapa-painel.webp" target="_blank" rel="noopener"><img src="prints/mapa-painel.webp" alt="Seu mapa de cobertura no painel" loading="lazy" width="760"></a><figcaption><b>Seu mapa de cobertura</b>Sobe o KML ou KMZ e confere a área antes de publicar.</figcaption></figure>
-      </div>
-      <p class="hint">Arraste pro lado pra ver mais telas →</p>
       <p class="note-l">Telas reais do sistema, com dados de um provedor de demonstração.</p>
     </div>
   </section>
@@ -585,13 +519,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
     <div class="wrap reveal">
       <div class="center"><p class="kicker">Dúvidas de dono de provedor</p><h2>Perguntas frequentes</h2></div>
       <div class="faq">
-        <details><summary>Meu cliente precisa baixar algum aplicativo?</summary><p>Não. A página abre no navegador do celular, direto do anúncio, com a marca e a oferta do seu provedor.</p></details>
         <details><summary>E se ele não deixar usar a localização?</summary><p>Ele digita o CEP e o número, ou marca a casa no mapa. Se a rua não aparecer, o mapa chega perto e ele só ajusta o pino.</p></details>
-        <details><summary>Funciona com o mapa que eu já tenho?</summary><p>Sim. Se a área está desenhada no Google Earth (KML ou KMZ), é só subir no painel. Só tem as caixas ou a rede? O suporte monta a área com você.</p></details>
-        <details><summary>O que acontece com quem está fora da área?</summary><p>Nada chega no seu WhatsApp. A pessoa pode pedir aviso pra quando a rede chegar, e o contato fica guardado por bairro no painel.</p></details>
         <details><summary>O cliente vê o meu mapa de cobertura?</summary><p>Não. Ele só vê o próprio endereço e a resposta. A sua rede e as suas áreas ficam só no painel.</p></details>
         <details><summary>Serve só pra anúncio do Instagram e Facebook?</summary><p>Não. É um link: vale pra Google, bio do Instagram, status do WhatsApp, QR code no panfleto e site do provedor (tem botão pronto pra colar).</p></details>
-        <details><summary>Como recebo o acesso depois de assinar?</summary><p>Na hora. Entre em <a href="https://consulta-cobertura.vercel.app/ativar" style="color:var(--green-d);font-weight:600;text-decoration:underline">consulta-cobertura.vercel.app/ativar</a> com o e-mail da compra. Um passo a passo te guia em uns 5 minutos.</p></details>
       </div>
     </div>
   </section>
