@@ -553,7 +553,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
 (function () {
   var NUM = '5549999037322'
   // Links da Kiwify de cada plano. Sem link, o botão abre o WhatsApp com o plano escolhido.
-  var CHECKOUT = { 'Mensal (R$ 197/mês)': '', 'Trimestral (R$ 497 a cada 3 meses)': '' }
+  var CHECKOUT = { 'Mensal (R$ 197/mês)': 'https://pay.kiwify.com.br/m8Ybi2F', 'Trimestral (R$ 497 a cada 3 meses)': 'https://pay.kiwify.com.br/K7qnLlr' }
   var FEAT = ['Página com a sua marca e a sua oferta', 'Cobertura conferida no seu mapa', 'Cliente escolhe o dia da instalação', 'Pixel + API de Conversões prontos', 'Painel com mapa de clientes e funil', 'Lista de quem está fora da área', 'Link pros anúncios e botão no site', 'Suporte pelo WhatsApp']
   document.querySelectorAll('.js-feat').forEach(function (ul) {
     FEAT.forEach(function (f) { var li = document.createElement('li'); li.textContent = f; ul.appendChild(li) })
