@@ -207,8 +207,8 @@ section{padding:64px 0;position:relative}
 .setup5-foot{margin-top:22px;color:#a9cbbb;font-size:14.5px}
 
 /* planos */
-.plans{display:grid;gap:22px;margin:40px auto 0;max-width:780px}
-@media(min-width:700px){.plans{grid-template-columns:1fr 1fr;gap:18px}}
+.plans{display:grid;gap:22px;margin:40px auto 0;max-width:980px}
+@media(min-width:700px){.plans{grid-template-columns:repeat(3,1fr);gap:16px}}
 .plan{display:flex;flex-direction:column;background:var(--bg2);border:1px solid var(--line);border-radius:22px;padding:24px 22px 22px;position:relative}
 .plan h3{font-size:20px;margin:0}
 .plan .for{color:var(--txt3);font-size:14px}
@@ -223,15 +223,15 @@ section{padding:64px 0;position:relative}
 .plan.hl .note{color:#cfe3d8}.plan.hl .note b{color:#8ff0b4}
 .plan .tagp{position:absolute;top:-13px;right:20px;background:var(--green);color:var(--deep);font-size:12.5px;font-weight:800;padding:5px 12px;border-radius:999px;box-shadow:0 8px 18px -6px rgba(37,211,102,.7)}
 @media(max-width:699px){
-  .plan.hl{order:-1}
+  .plan.hl{order:-2}.plan.tri{order:-1}
   .plan{display:grid;grid-template-columns:1fr auto;column-gap:12px;align-items:center;padding:22px 18px 18px}
   .plan .price{grid-column:2;grid-row:1/span 2;margin:0;font-size:44px}
   .plan .price .cur{font-size:17px;margin-top:5px}
   .plan .note,.plan .btn{grid-column:1/-1}
   .plan .note{margin:12px 0 14px}
 }
-/* o que vem nos dois planos (uma lista só) */
-.incl{max-width:780px;margin:18px auto 0;padding:20px 22px;border-radius:22px;background:#fff;border:1px solid var(--line)}
+/* o que vem nos três planos (uma lista só) */
+.incl{max-width:980px;margin:18px auto 0;padding:20px 22px;border-radius:22px;background:#fff;border:1px solid var(--line)}
 .incl-t{font-family:var(--display);font-weight:800;font-size:17px;margin-bottom:12px}
 .incl ul{list-style:none;display:grid;gap:9px 26px}
 @media(min-width:620px){.incl ul{grid-template-columns:1fr 1fr}}
@@ -314,13 +314,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
         <div class="vsl-bar" aria-hidden="true"><span></span></div>
         <div class="vsl-end">
           <p>Só chega no seu WhatsApp <b>quem pode instalar.</b></p>
-          <a class="btn btn-go" href="#planos">Começar agora · R$ 47/mês</a>
+          <a class="btn btn-go" href="#planos">Começar agora</a>
           <a class="btn btn-line" style="background:#fff" href="https://consulta-cobertura.vercel.app/c/demo?utm_source=pagina-vendas&amp;utm_content=vsl-final" target="_blank" rel="noopener">Testar a demonstração ↗</a>
           <button type="button" class="vsl-again">↺ Assistir de novo</button>
         </div>
       </div>
       <div class="vsl-cta" id="vsl-cta">
-        <a class="btn btn-go" href="#planos">Começar agora · R$ 47/mês <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-go" href="#planos">Começar agora <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <a class="btn btn-line" href="https://consulta-cobertura.vercel.app/c/demo?utm_source=pagina-vendas&amp;utm_content=vsl" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-play"/></svg> Testar a demonstração</a>
       </div>
       <p class="vsl-note"><svg aria-hidden="true"><use href="#i-shield"/></svg>7 dias de garantia · ativa em 5 minutos · sem aplicativo</p>
@@ -492,21 +492,29 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
         <div class="plan">
           <h3>Mensal</h3>
           <p class="for">Sem compromisso longo.</p>
-          <p class="price"><span class="cur">R$</span>47<small>/mês</small></p>
+          <p class="price"><span class="cur">R$</span>197<small>/mês</small></p>
           <p class="note">Cobrado todo mês no cartão ou Pix.</p>
-          <a class="btn btn-line js-buy" data-plano="Mensal (R$ 47/mês)" href="#" target="_blank" rel="noopener">Assinar o mensal</a>
+          <a class="btn btn-line js-buy" data-plano="Mensal (R$ 197/mês)" href="#" target="_blank" rel="noopener">Assinar o mensal</a>
+        </div>
+        <div class="plan tri">
+          <span class="tagp">Economize R$ 94</span>
+          <h3>Trimestral</h3>
+          <p class="for">Tempo pro pixel aprender.</p>
+          <p class="price"><span class="cur">R$</span>497<small>/3 meses</small></p>
+          <p class="note"><b>Sai R$ 166 por mês</b>, 16% a menos.</p>
+          <a class="btn btn-line js-buy" data-plano="Trimestral (R$ 497 a cada 3 meses)" href="#" target="_blank" rel="noopener">Assinar o trimestral</a>
         </div>
         <div class="plan hl">
-          <span class="tagp">Economize R$ 167</span>
+          <span class="tagp">Economize R$ 767</span>
           <h3>Anual</h3>
-          <p class="for">Pra quem anuncia todo mês.</p>
-          <p class="price"><span class="cur">R$</span>397<small>/ano</small></p>
-          <p class="note"><b>Sai R$ 33 por mês</b>, 30% a menos.</p>
-          <a class="btn btn-go js-buy" data-plano="Anual (R$ 397/ano)" href="#" target="_blank" rel="noopener">Assinar o anual</a>
+          <p class="for">Pra quem anuncia o ano todo.</p>
+          <p class="price"><span class="cur">R$</span>1.597<small>/ano</small></p>
+          <p class="note"><b>Sai R$ 133 por mês</b>, 32% a menos.</p>
+          <a class="btn btn-go js-buy" data-plano="Anual (R$ 1.597/ano)" href="#" target="_blank" rel="noopener">Assinar o anual</a>
         </div>
       </div>
       <div class="incl">
-        <p class="incl-t">Tudo incluso nos dois planos</p>
+        <p class="incl-t">Tudo incluso nos três planos</p>
         <ul class="js-feat"></ul>
       </div>
       <p class="guar"><svg><use href="#i-shield"/></svg>Garantia de 7 dias. Não gostou, pede o dinheiro de volta.</p>
@@ -551,7 +559,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
 <script>
 (function () {
   var NUM = '5549999037322'
-  var CHECKOUT = { 'Mensal (R$ 47/mês)': 'https://pay.kiwify.com.br/ymii0Zb', 'Anual (R$ 397/ano)': 'https://pay.kiwify.com.br/5qq1ooG' }
+  // Links da Kiwify de cada plano. Sem link, o botão abre o WhatsApp com o plano escolhido.
+  var CHECKOUT = { 'Mensal (R$ 197/mês)': '', 'Trimestral (R$ 497 a cada 3 meses)': '', 'Anual (R$ 1.597/ano)': '' }
   var FEAT = ['Página com a sua marca e a sua oferta', 'Cobertura conferida no seu mapa', 'Cliente escolhe o dia da instalação', 'Pixel + API de Conversões prontos', 'Painel com mapa de clientes e funil', 'Lista de quem está fora da área', 'Link pros anúncios e botão no site', 'Suporte pelo WhatsApp']
   document.querySelectorAll('.js-feat').forEach(function (ul) {
     FEAT.forEach(function (f) { var li = document.createElement('li'); li.textContent = f; ul.appendChild(li) })
