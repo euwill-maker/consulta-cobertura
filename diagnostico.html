@@ -88,22 +88,13 @@ section{padding:56px 0;position:relative}
 .qtrust{display:flex;gap:8px;align-items:flex-start;margin-top:12px;color:var(--txt3);font-size:13px;line-height:1.45}
 .qtrust svg{width:16px;height:16px;flex-shrink:0;margin-top:1px;color:var(--green-d)}
 
-/* resultado */
-.diag{padding:26px 0 46px}
-.diag h1{font-size:clamp(28px,6.4vw,46px);font-weight:800;line-height:1.05;letter-spacing:-.04em;text-wrap:balance}
-.dcard{margin-top:18px;padding:22px 20px;border-radius:22px;color:#eef6f1;background:radial-gradient(120% 90% at 100% 0%,rgba(37,211,102,.28),transparent 62%),var(--deep);box-shadow:0 28px 60px -26px rgba(11,45,34,.6)}
-.dcard .lbl{margin:0 0 4px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8ff0b4}
-.dcard .big{font-family:var(--display);font-weight:800;font-size:clamp(40px,11vw,62px);line-height:1;letter-spacing:-.04em;color:#fff}
-.dcard .big small{font-size:.38em;letter-spacing:0;color:#a9cbbb;font-weight:700;margin-left:4px}
-.dcard p{margin-top:10px;color:#cfe3d8;font-size:15.5px}
-.dcard p b{color:#8ff0b4}
-.dcard .est{margin-top:12px;color:#7fa898;font-size:12.5px}
-.dlist{list-style:none;display:grid;gap:10px;margin-top:20px}
-.dlist li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;line-height:1.45;color:var(--txt2)}
-.dlist li b{color:var(--ink)}
-.dlist svg{width:22px;height:22px;flex-shrink:0;padding:4px;border-radius:50%;background:var(--green);color:var(--deep);margin-top:1px}
-.dctas{display:grid;gap:10px;margin-top:22px}
-.dctas .btn{min-height:58px;font-size:17px}
+/* resultado: topo curto e os planos logo abaixo */
+.pick{padding:22px 0 48px}
+@media(min-width:900px){.pick{padding:44px 0 64px}}
+.pick h1{font-size:clamp(26px,6vw,42px);font-weight:800;line-height:1.06;letter-spacing:-.035em;text-wrap:balance}
+.pick .sub{margin-top:10px;font-size:clamp(15px,2vw,18px)}
+.pick .sub b{color:var(--green-d)}
+.pick .plans{margin-top:28px}
 .redo{margin-top:14px;text-align:center;font-size:13.5px;color:var(--txt3)}
 .redo button{border:0;background:none;color:var(--green-d);font-weight:600;text-decoration:underline;cursor:pointer;padding:6px}
 
@@ -112,7 +103,7 @@ section{padding:56px 0;position:relative}
 .vbox{margin:22px auto 0;border-radius:22px;overflow:hidden;background:var(--deep);aspect-ratio:9/16;height:min(74svh,680px);max-width:100%;box-shadow:0 30px 70px -30px rgba(11,45,34,.6)}
 @media(min-width:768px){.vbox{aspect-ratio:16/9;height:auto;width:min(860px,100%)}}
 .vbox video{width:100%;height:100%;object-fit:cover;background:var(--deep)}
-.see .btn{display:flex;width:min(100%,380px);margin:18px auto 0}
+.see-ctas{display:grid;gap:10px;width:min(100%,380px);margin:18px auto 0}
 
 /* planos (iguais aos da página principal) */
 .plans{display:grid;gap:22px;margin:34px auto 0;max-width:760px}
@@ -247,36 +238,13 @@ fbq('init', '987704873319973'); fbq('track', 'PageView');
 
   <!-- 2) RESULTADO: diagnóstico com as respostas dele, depois o vídeo e os planos -->
   <div id="result" hidden>
-    <section class="diag">
-      <div class="wrap narrow">
-        <p class="kicker">Diagnóstico · <span class="js-company"></span></p>
-        <h1 class="js-title"></h1>
-        <div class="dcard js-card"></div>
-        <ul class="dlist js-list"></ul>
-        <div class="dctas">
-          <a class="btn btn-go" href="#planos">Ver os planos <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          <a class="btn btn-line" href="https://consulta-cobertura.vercel.app/c/demo?utm_source=pagina-vendas&amp;utm_content=diagnostico" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-play"/></svg> Testar a demonstração</a>
-        </div>
-        <p class="redo">Errou alguma resposta? <button type="button" class="js-redo">Refazer o diagnóstico</button></p>
-      </div>
-    </section>
-
-    <section class="see">
-      <div class="wrap center">
-        <p class="kicker">Veja funcionando</p>
-        <h2>O cliente confere o endereço <span class="h-green">antes de chamar o seu comercial.</span></h2>
-        <p class="sub">Um minuto e meio mostrando tudo: da página com a sua marca até o lead chegando no WhatsApp.</p>
-        <div class="vbox"><video id="vsl" controls playsinline preload="none" aria-label="Vídeo: como o Consulta Cobertura filtra os contatos pela área de cobertura antes do WhatsApp"></video></div>
-        <a class="btn btn-go" href="#planos">Quero no meu provedor</a>
-      </div>
-    </section>
-
-    <section id="planos">
+    <!-- Logo depois das perguntas: os planos pra escolher, com uma linha do que ele respondeu -->
+    <section id="planos" class="pick">
       <div class="wrap">
         <div class="center">
-          <p class="kicker">Planos</p>
-          <h2>Tudo liberado. Você só escolhe <span class="h-green">como pagar.</span></h2>
-          <p class="sub">Você mesmo sobe o mapa pelo painel e coloca o link nos anúncios. Se travar, a gente ajuda no WhatsApp.</p>
+          <p class="kicker js-company"></p>
+          <h1 class="js-title"></h1>
+          <p class="sub js-line"></p>
         </div>
         <div class="plans">
           <div class="plan">
@@ -302,6 +270,20 @@ fbq('init', '987704873319973'); fbq('track', 'PageView');
         </div>
         <p class="guar"><svg><use href="#i-shield"/></svg>Garantia de 7 dias. Não gostou, pede o dinheiro de volta.</p>
         <p class="setup">Prefere que a gente configure tudo e cuide do mapa por você? <a class="js-wa" data-plano="configuração feita pela equipe" href="#" target="_blank" rel="noopener">Fale com a gente</a></p>
+        <p class="redo">Errou alguma resposta? <button type="button" class="js-redo">Refazer as perguntas</button></p>
+      </div>
+    </section>
+
+    <section class="see">
+      <div class="wrap center">
+        <p class="kicker">Veja funcionando</p>
+        <h2>O cliente confere o endereço <span class="h-green">antes de chamar o seu comercial.</span></h2>
+        <p class="sub">Um minuto e meio mostrando tudo: da página com a sua marca até o lead chegando no WhatsApp.</p>
+        <div class="vbox"><video id="vsl" controls playsinline preload="none" aria-label="Vídeo: como o Consulta Cobertura filtra os contatos pela área de cobertura antes do WhatsApp"></video></div>
+        <div class="see-ctas">
+          <a class="btn btn-go" href="#planos">Escolher meu plano</a>
+          <a class="btn btn-line" href="https://consulta-cobertura.vercel.app/c/demo?utm_source=pagina-vendas&amp;utm_content=diagnostico" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-play"/></svg> Testar a demonstração</a>
+        </div>
       </div>
     </section>
 
@@ -322,7 +304,7 @@ fbq('init', '987704873319973'); fbq('track', 'PageView');
       <div class="wrap">
         <div class="box">
           <h2>Seu vendedor só deveria falar <span class="gg">com quem pode virar cliente.</span></h2>
-          <div class="ctas"><a class="btn btn-go" href="#planos">Ver os planos</a><a class="btn btn-ghost-l js-wa" href="#" target="_blank" rel="noopener">Tirar dúvida no WhatsApp</a></div>
+          <div class="ctas"><a class="btn btn-go" href="#planos">Escolher meu plano</a><a class="btn btn-ghost-l js-wa" href="#" target="_blank" rel="noopener">Tirar dúvida no WhatsApp</a></div>
         </div>
       </div>
     </section>
@@ -337,7 +319,7 @@ fbq('init', '987704873319973'); fbq('track', 'PageView');
   </div>
 </footer>
 
-<div class="sticky"><a class="btn btn-go" href="#planos">Ver os planos</a></div>
+<div class="sticky"><a class="btn btn-go" href="#planos">Escolher meu plano</a></div>
 
 <script>
 (function () {
@@ -450,38 +432,23 @@ fbq('init', '987704873319973'); fbq('track', 'PageView');
   })
 
   // ---------- resultado ----------
-  var esc = function (s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML }
   var money = function (n) { return 'R$ ' + n.toLocaleString('pt-BR') }
-  var check = '<svg aria-hidden="true"><use href="#i-check"/></svg>'
   function reveal(saved, fresh) {
     var a = saved.answers, who = saved.who, first = who.nome.split(' ')[0]
     var anuncia = a.anuncia && a.anuncia !== 'Ainda não'
-    var verba = VERBA[a.investe], fora = FORA[a.foraDaRede]
-    var title, card
+    var verba = VERBA[a.investe], fora = FORA[a.foraDaRede], line
     if (anuncia && verba && fora) {
       var mes = Math.max(50, Math.round((verba * fora) / 50) * 50)
-      var vezes = Math.floor(mes / 197)
-      title = first + ', esta é a parte do seu anúncio que vai pra quem não pode instalar:'
-      card = '<p class="lbl">Cerca de</p><div class="big">' + money(mes) + '<small>/mês</small></div>' +
-        '<p>São <b>' + DE10[a.foraDaRede] + ' de cada 10 contatos</b> que chegam no seu WhatsApp sem poder virar cliente. No ano, passa de <b>' + money(mes * 12) + '</b>, fora o tempo do seu comercial respondendo cada um.</p>' +
-        (vezes >= 2 ? '<p>Só esse desperdício paga a mensalidade do Consulta Cobertura <b>' + vezes + ' vezes</b>.</p>' : vezes === 1 ? '<p>Só esse desperdício já paga a mensalidade do Consulta Cobertura.</p>' : '<p>E pior: o Meta aprende com esse contato errado e traz mais gente igual.</p>') +
-        '<p class="est">Estimativa feita com as suas respostas: o meio da faixa de investimento vezes a parte dos contatos que mora fora da rede.</p>'
+      line = 'Pelas suas respostas, <b>cerca de ' + money(mes) + ' por mês</b> do seu anúncio vai pra quem não pode instalar. Com o Consulta Cobertura, só chega no seu WhatsApp quem pode.'
     } else if (anuncia) {
-      title = first + ', hoje você não sabe quantos contatos do seu anúncio moram onde não tem rede.'
-      card = '<div class="big">? <small>de cada 10</small></div><p>Sem esse número, você paga anúncio às cegas e o seu comercial responde todo mundo. Com o Consulta Cobertura, <b>quem está fora nem chega no WhatsApp</b> e você vê no painel quantos foram.</p>'
+      line = 'Com o Consulta Cobertura, quem mora fora da sua rede nem chega no WhatsApp, e você vê no painel quantos foram.'
     } else {
-      title = first + ', quando você começar a anunciar, já começa recebendo só quem pode instalar.'
-      card = '<div class="big">0 <small>contatos fora da rede</small></div><p>O mesmo link serve hoje pra <b>bio do Instagram, status do WhatsApp, QR code no panfleto e site</b>. Quem mora fora vira lista por bairro, boa pra decidir onde expandir.</p>'
+      line = 'Quando você começar a anunciar, já começa recebendo no WhatsApp só quem pode instalar.'
     }
-    var items = ['<b>O cliente confere o endereço no seu mapa</b> antes de chamar no WhatsApp, com a marca da ' + esc(who.provedor) + '.']
-    if (anuncia) items.push('<b>O pixel do Meta e do Google aprende com quem tem cobertura</b> e traz mais gente certa.')
-    items.push(a.sistema === 'IXC' ? '<b>Integra com o IXC:</b> o quadro de vendas marca sozinho quem já foi instalado.' : '<b>Quadro de vendas</b> do primeiro contato até a instalação.')
-    items.push('<b>Quem está fora vira lista pra expansão</b>, por bairro' + (who.cidade ? ', em ' + esc(who.cidade) : '') + '.')
-    items.push('<b>Ativa em 5 minutos</b> com o mapa que você já tem (KMZ/KML). 7 dias de garantia.')
-    result.querySelector('.js-company').textContent = who.provedor
-    result.querySelector('.js-title').textContent = title
-    result.querySelector('.js-card').innerHTML = card
-    result.querySelector('.js-list').innerHTML = items.map(function (t) { return '<li>' + check + '<span>' + t + '</span></li>' }).join('')
+    if (a.sistema === 'IXC') line += ' E integra com o IXC: o quadro de vendas marca sozinho quem foi instalado.'
+    result.querySelector('.js-company').textContent = who.provedor + ' · Planos'
+    result.querySelector('.js-title').textContent = first + ', pronto! Escolha seu plano.'
+    result.querySelector('.js-line').innerHTML = line
     waLinks(who)
     quiz.hidden = true
     result.hidden = false
@@ -506,7 +473,7 @@ fbq('init', '987704873319973'); fbq('track', 'PageView');
   else show('clientes')
 
   var sticky = document.querySelector('.sticky'), plans = document.getElementById('planos')
-  var onScroll = function () { sticky.classList.toggle('on', !result.hidden && window.scrollY > 500 && plans.getBoundingClientRect().top > window.innerHeight) }
+  var onScroll = function () { sticky.classList.toggle('on', !result.hidden && plans.getBoundingClientRect().bottom < 80) }
   window.addEventListener('scroll', onScroll, { passive: true })
 })()
 </script>
