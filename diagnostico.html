@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico do seu provedor — Consulta Cobertura</title>
+<meta name="description" content="Responda 5 perguntas e veja quanto do seu anúncio vai pra quem mora onde o seu provedor não tem rede.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Quanto do seu anúncio vai pra quem não pode instalar?">
+<meta property="og:description" content="Diagnóstico grátis para provedores de internet. Leva 1 minuto.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://euwill-maker.github.io/consulta-cobertura/prints/q4-tem-fibra.webp">
+<meta name="theme-color" content="#0b2d22">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23008069'/%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='8' stroke-linecap='round'%3E%3Cpath d='M28 52a34 34 0 0 1 44 0'/%3E%3Cpath d='M40 64a16 16 0 0 1 20 0'/%3E%3C/g%3E%3Ccircle cx='50' cy='74' r='6' fill='%23ffffff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fcf5eb;--bg2:#ffffff;--line:#e6ddd0;
+  --ink:#111b21;--txt2:#3b4a54;--txt3:#667781;
+  --green:#25d366;--go:#18a957;--green-d:#0f7a52;--deep:#0b2d22;--deep2:#0f3328;
+  --display:'Figtree',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden}
+img,video,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+[hidden]{display:none!important}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.03em;line-height:1.06;color:var(--ink)}
+h2{font-size:clamp(28px,5vw,44px);font-weight:800;margin-bottom:14px}
+h3{font-size:20px;font-weight:700;margin-bottom:6px}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 16px}
+.narrow{max-width:620px}
+section{padding:56px 0;position:relative}
+@media(min-width:900px){section{padding:80px 0}}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--txt2);margin-bottom:12px}
+.h-green{color:var(--green-d)}
+.sub{color:var(--txt2);font-size:clamp(16px,2.1vw,19px);max-width:640px}
+.center{text-align:center}.center .sub{margin-left:auto;margin-right:auto}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;border:0;border-radius:12px;font-weight:700;font-size:16px;cursor:pointer;transition:transform .15s,background .2s}
+.btn:active{transform:scale(.98)}
+.btn svg{width:20px;height:20px;flex-shrink:0}
+.btn-go{background:var(--go);color:#fff}.btn-go:hover{background:#12924a}
+.btn-line{border:1.5px solid #0f8a5f;color:#0b6b48;background:transparent}.btn-line:hover{background:rgba(15,138,95,.06)}
+.btn-ghost-l{border:1.5px solid #e9edef;color:#fff}
+
+/* menu */
+.nav{position:sticky;top:0;z-index:40;background:rgba(252,245,235,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:17px}
+.brand .mk{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:#0f8a5f}
+.nav-login{font-weight:600;font-size:15px;padding:10px 4px}
+
+/* perguntas */
+.quiz{padding:16px 0 40px}
+@media(min-width:900px){.quiz{padding:48px 0 64px}}
+.quiz h1{font-size:clamp(26px,6.4vw,46px);font-weight:800;line-height:1.04;letter-spacing:-.04em;text-wrap:balance}
+.quiz .lead{margin-top:8px;color:var(--txt2);font-size:clamp(15px,2vw,18px)}
+.quiz .kicker{margin-bottom:8px}
+.qcard{margin-top:16px;scroll-margin-top:72px;padding:14px 16px 16px;border-radius:22px;background:#fff;border:1px solid var(--line);box-shadow:0 24px 50px -30px rgba(11,45,34,.45)}
+@media(min-width:600px){.qcard{padding:24px}}
+.qtop{display:flex;align-items:center;justify-content:space-between;min-height:30px;font-size:13.5px;color:var(--txt3)}
+.qback{border:0;background:none;cursor:pointer;font-weight:600;color:var(--txt2);padding:6px 8px 6px 0;min-height:30px}
+.qback:disabled{visibility:hidden}
+.qbar{height:6px;margin:8px 0 16px;border-radius:99px;background:#edf1ee;overflow:hidden}
+.qbar span{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--go),var(--green));transition:width .35s ease}
+.qh{font-size:clamp(20px,4.6vw,26px);font-weight:800;letter-spacing:-.02em;line-height:1.18;margin-bottom:14px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:54px;padding:12px 16px;border-radius:14px;border:1.5px solid #e3e7ee;background:#f8faf9;text-align:left;font-weight:600;font-size:16px;cursor:pointer;transition:border-color .15s,background .15s}
+.opt::before{content:'';flex-shrink:0;width:20px;height:20px;border-radius:50%;border:2px solid #c4ccd6;background:#fff;transition:all .15s}
+@media(hover:hover){.opt:hover{border-color:#9fd8b8}}
+.opt.on{border-color:var(--go);background:#e9f9ef}
+.opt.on::before{border:6px solid var(--go)}
+.opts.two{grid-template-columns:1fr 1fr}
+.fields{display:grid;gap:10px}
+.fields label{display:grid;gap:5px;font-size:14px;font-weight:600;color:var(--txt2)}
+.fields input{height:52px;width:100%;padding:0 14px;border-radius:12px;border:1.5px solid #e3e7ee;background:#f8faf9;font:16px var(--body);color:var(--ink);outline:none}
+.fields input:focus{border-color:var(--go);background:#fff;box-shadow:0 0 0 4px rgba(24,169,87,.14)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.qerr{margin-top:10px;padding:10px 12px;border-radius:10px;background:#fff4e5;color:#8a4b00;font-size:14px}
+.qsend{width:100%;margin-top:14px;min-height:58px;font-size:17px}
+.qsend[disabled]{opacity:.7}
+.qtrust{display:flex;gap:8px;align-items:flex-start;margin-top:12px;color:var(--txt3);font-size:13px;line-height:1.45}
+.qtrust svg{width:16px;height:16px;flex-shrink:0;margin-top:1px;color:var(--green-d)}
+
+/* resultado */
+.diag{padding:26px 0 46px}
+.diag h1{font-size:clamp(28px,6.4vw,46px);font-weight:800;line-height:1.05;letter-spacing:-.04em;text-wrap:balance}
+.dcard{margin-top:18px;padding:22px 20px;border-radius:22px;color:#eef6f1;background:radial-gradient(120% 90% at 100% 0%,rgba(37,211,102,.28),transparent 62%),var(--deep);box-shadow:0 28px 60px -26px rgba(11,45,34,.6)}
+.dcard .lbl{margin:0 0 4px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8ff0b4}
+.dcard .big{font-family:var(--display);font-weight:800;font-size:clamp(40px,11vw,62px);line-height:1;letter-spacing:-.04em;color:#fff}
+.dcard .big small{font-size:.38em;letter-spacing:0;color:#a9cbbb;font-weight:700;margin-left:4px}
+.dcard p{margin-top:10px;color:#cfe3d8;font-size:15.5px}
+.dcard p b{color:#8ff0b4}
+.dcard .est{margin-top:12px;color:#7fa898;font-size:12.5px}
+.dlist{list-style:none;display:grid;gap:10px;margin-top:20px}
+.dlist li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;line-height:1.45;color:var(--txt2)}
+.dlist li b{color:var(--ink)}
+.dlist svg{width:22px;height:22px;flex-shrink:0;padding:4px;border-radius:50%;background:var(--green);color:var(--deep);margin-top:1px}
+.dctas{display:grid;gap:10px;margin-top:22px}
+.dctas .btn{min-height:58px;font-size:17px}
+.redo{margin-top:14px;text-align:center;font-size:13.5px;color:var(--txt3)}
+.redo button{border:0;background:none;color:var(--green-d);font-weight:600;text-decoration:underline;cursor:pointer;padding:6px}
+
+/* vídeo */
+.see{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.vbox{margin:22px auto 0;border-radius:22px;overflow:hidden;background:var(--deep);aspect-ratio:9/16;height:min(74svh,680px);max-width:100%;box-shadow:0 30px 70px -30px rgba(11,45,34,.6)}
+@media(min-width:768px){.vbox{aspect-ratio:16/9;height:auto;width:min(860px,100%)}}
+.vbox video{width:100%;height:100%;object-fit:cover;background:var(--deep)}
+.see .btn{display:flex;width:min(100%,380px);margin:18px auto 0}
+
+/* planos (iguais aos da página principal) */
+.plans{display:grid;gap:22px;margin:34px auto 0;max-width:760px}
+@media(min-width:700px){.plans{grid-template-columns:repeat(2,1fr);gap:16px}}
+.plan{display:flex;flex-direction:column;background:var(--bg2);border:1px solid var(--line);border-radius:22px;padding:24px 22px 22px;position:relative}
+.plan h3{font-size:20px;margin:0}
+.plan .for{color:var(--txt3);font-size:14px}
+.price{display:flex;align-items:flex-start;margin:16px 0 4px;font-family:var(--display);font-weight:800;font-size:54px;line-height:1;letter-spacing:-.04em}
+.price .cur{font-size:20px;letter-spacing:0;margin:7px 5px 0 0}
+.price small{align-self:flex-end;margin:0 0 7px 4px;font-family:var(--body);font-size:15px;font-weight:600;letter-spacing:0;color:var(--txt3)}
+.note{color:var(--txt2);font-size:14px;margin-bottom:20px}.note b{color:var(--ink)}
+.plan .btn{width:100%;margin-top:auto}
+.plan.hl{border:0;color:#eef6f1;background:radial-gradient(120% 90% at 100% 0%,rgba(37,211,102,.3),transparent 62%),var(--deep);box-shadow:0 28px 60px -22px rgba(11,45,34,.6)}
+.plan.hl h3,.plan.hl .price{color:#fff}
+.plan.hl .for,.plan.hl .price small{color:#a9cbbb}
+.plan.hl .note{color:#cfe3d8}.plan.hl .note b{color:#8ff0b4}
+.plan .tagp{position:absolute;top:-13px;right:20px;background:var(--green);color:var(--deep);font-size:12.5px;font-weight:800;padding:5px 12px;border-radius:999px;box-shadow:0 8px 18px -6px rgba(37,211,102,.7)}
+@media(max-width:699px){
+  .plan.hl{order:-1}
+  .plan{display:grid;grid-template-columns:1fr auto;column-gap:12px;align-items:center;padding:22px 18px 18px}
+  .plan .price{grid-column:2;grid-row:1/span 2;margin:0;font-size:44px}
+  .plan .price .cur{font-size:17px;margin-top:5px}
+  .plan .note,.plan .btn{grid-column:1/-1}
+  .plan .note{margin:12px 0 14px}
+}
+.incl{max-width:760px;margin:18px auto 0;padding:20px 22px;border-radius:22px;background:#fff;border:1px solid var(--line)}
+.incl-t{font-family:var(--display);font-weight:800;font-size:17px;margin-bottom:12px}
+.incl ul{list-style:none;display:grid;gap:9px 26px}
+@media(min-width:620px){.incl ul{grid-template-columns:1fr 1fr}}
+.incl li{display:flex;gap:9px;align-items:flex-start;color:var(--txt2);font-size:14.5px;line-height:1.4}
+.incl li::before{content:'';flex-shrink:0;width:18px;height:18px;margin-top:1px;border-radius:50%;background:#d9fdd3 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23008069' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5L20 7'/%3E%3C/svg%3E") center/11px no-repeat}
+.guar{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:20px;color:var(--txt2);font-size:14px;text-align:center}
+.guar svg{width:18px;height:18px;color:var(--green-d);flex-shrink:0}
+.setup{margin-top:10px;text-align:center;color:var(--txt2);font-size:15px}
+.setup a{color:var(--green-d);text-decoration:underline;text-underline-offset:3px;font-weight:600}
+
+/* dúvidas */
+.faq{max-width:780px;margin:26px auto 0;display:grid;gap:10px}
+details{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:0 18px}
+summary{cursor:pointer;list-style:none;min-height:58px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-weight:600}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';font-size:24px;color:var(--green-d);transition:transform .2s;flex-shrink:0}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--txt2);padding-bottom:18px;font-size:15px}
+
+.final .box{border-radius:28px;padding:40px 20px;text-align:center;background:var(--deep);color:#e9edef}
+.final .box h2{color:#fff}.final .box .gg{color:var(--green)}
+.final .ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:24px}
+footer{border-top:1px solid var(--line);padding:28px 0 100px;color:var(--txt3);font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+@media(min-width:760px){footer{padding-bottom:28px}}
+.sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:50;display:flex;transform:translateY(150%);transition:transform .3s ease}
+.sticky.on{transform:none}
+.sticky .btn{flex:1;box-shadow:0 10px 30px rgba(11,45,34,.25)}
+@media(min-width:760px){.sticky{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.qbar span{transition:none}}
+</style>
+<!-- Pixel do Meta: o mesmo da página principal. Aqui o formulário enviado vira Lead (a campanha desta página otimiza por ele). -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '987704873319973'); fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=987704873319973&ev=PageView&noscript=1"></noscript>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 12.5 4 4 8-9"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6l-8-3z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <span class="brand">
+      <span class="mk"><svg viewBox="0 0 100 100" width="22" height="22" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"><path d="M22 50a40 40 0 0 1 56 0"/><path d="M36 64a20 20 0 0 1 28 0"/></g><circle cx="50" cy="78" r="7" fill="#fff"/></svg></span>
+      <span>Consulta Cobertura</span>
+    </span>
+    <a class="nav-login" href="https://consulta-cobertura.vercel.app/admin/login">Entrar</a>
+  </div>
+</header>
+
+<main>
+  <!-- 1) PERGUNTAS: uma por vez; o preço só aparece depois -->
+  <section class="quiz" id="quiz">
+    <div class="wrap narrow">
+      <p class="kicker">Diagnóstico grátis · 1 minuto</p>
+      <h1>Quanto do seu anúncio vai pra <span class="h-green">quem não pode instalar?</span></h1>
+      <p class="lead">5 perguntas rápidas. No fim, o diagnóstico do seu provedor.</p>
+      <div class="qcard">
+        <div class="qtop"><button type="button" class="qback" disabled>← Voltar</button><span class="qcount"></span></div>
+        <div class="qbar" aria-hidden="true"><span></span></div>
+
+        <div class="qstep" data-k="clientes">
+          <h2 class="qh">Quantos clientes o seu provedor tem hoje?</h2>
+          <div class="opts"><button type="button" class="opt">Até 500</button><button type="button" class="opt">500 a 2 mil</button><button type="button" class="opt">2 mil a 10 mil</button><button type="button" class="opt">Mais de 10 mil</button></div>
+        </div>
+        <div class="qstep" data-k="anuncia" hidden>
+          <h2 class="qh">Você anuncia no Facebook, Instagram ou Google?</h2>
+          <div class="opts"><button type="button" class="opt">Sim, todo mês</button><button type="button" class="opt">Às vezes</button><button type="button" class="opt">Ainda não</button></div>
+        </div>
+        <div class="qstep" data-k="investe" hidden>
+          <h2 class="qh">Quanto você investe por mês em anúncios?</h2>
+          <div class="opts"><button type="button" class="opt">Até R$ 1 mil</button><button type="button" class="opt">R$ 1 a 3 mil</button><button type="button" class="opt">R$ 3 a 10 mil</button><button type="button" class="opt">Mais de R$ 10 mil</button></div>
+        </div>
+        <div class="qstep" data-k="foraDaRede" hidden>
+          <h2 class="qh">De cada 10 pessoas que chamam no seu WhatsApp, quantas moram onde você não tem rede?</h2>
+          <div class="opts"><button type="button" class="opt">1 ou 2</button><button type="button" class="opt">3 ou 4</button><button type="button" class="opt">5 ou mais</button><button type="button" class="opt">Não sei dizer</button></div>
+        </div>
+        <div class="qstep" data-k="sistema" hidden>
+          <h2 class="qh">Qual sistema de gestão você usa?</h2>
+          <div class="opts two"><button type="button" class="opt">IXC</button><button type="button" class="opt">SGP</button><button type="button" class="opt">Hubsoft</button><button type="button" class="opt">MK Solutions</button><button type="button" class="opt">Outro</button></div>
+        </div>
+        <form class="qstep" data-k="contato" hidden novalidate>
+          <h2 class="qh">Pronto! Pra quem é o diagnóstico?</h2>
+          <div class="fields">
+            <label>Seu nome<input name="nome" autocomplete="name" maxlength="80" required></label>
+            <label>Nome do provedor<input name="provedor" autocomplete="organization" maxlength="80" required></label>
+            <label>Cidade<input name="cidade" autocomplete="address-level2" maxlength="80" placeholder="Ex.: Cascavel - PR" required></label>
+            <label>WhatsApp com DDD<input name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" maxlength="16" placeholder="(00) 00000-0000" required></label>
+            <label class="hp" aria-hidden="true">Site<input name="site" tabindex="-1" autocomplete="off"></label>
+          </div>
+          <p class="qerr" role="alert" hidden></p>
+          <button class="btn btn-go qsend" type="submit">Ver meu diagnóstico <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <p class="qtrust"><svg aria-hidden="true"><use href="#i-lock"/></svg>Seus dados ficam só com a gente. Usamos só pra falar com você sobre o Consulta Cobertura.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2) RESULTADO: diagnóstico com as respostas dele, depois o vídeo e os planos -->
+  <div id="result" hidden>
+    <section class="diag">
+      <div class="wrap narrow">
+        <p class="kicker">Diagnóstico · <span class="js-company"></span></p>
+        <h1 class="js-title"></h1>
+        <div class="dcard js-card"></div>
+        <ul class="dlist js-list"></ul>
+        <div class="dctas">
+          <a class="btn btn-go" href="#planos">Ver os planos <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-line" href="https://consulta-cobertura.vercel.app/c/demo?utm_source=pagina-vendas&amp;utm_content=diagnostico" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-play"/></svg> Testar a demonstração</a>
+        </div>
+        <p class="redo">Errou alguma resposta? <button type="button" class="js-redo">Refazer o diagnóstico</button></p>
+      </div>
+    </section>
+
+    <section class="see">
+      <div class="wrap center">
+        <p class="kicker">Veja funcionando</p>
+        <h2>O cliente confere o endereço <span class="h-green">antes de chamar o seu comercial.</span></h2>
+        <p class="sub">Um minuto e meio mostrando tudo: da página com a sua marca até o lead chegando no WhatsApp.</p>
+        <div class="vbox"><video id="vsl" controls playsinline preload="none" aria-label="Vídeo: como o Consulta Cobertura filtra os contatos pela área de cobertura antes do WhatsApp"></video></div>
+        <a class="btn btn-go" href="#planos">Quero no meu provedor</a>
+      </div>
+    </section>
+
+    <section id="planos">
+      <div class="wrap">
+        <div class="center">
+          <p class="kicker">Planos</p>
+          <h2>Tudo liberado. Você só escolhe <span class="h-green">como pagar.</span></h2>
+          <p class="sub">Você mesmo sobe o mapa pelo painel e coloca o link nos anúncios. Se travar, a gente ajuda no WhatsApp.</p>
+        </div>
+        <div class="plans">
+          <div class="plan">
+            <h3>Mensal</h3>
+            <p class="for">Sem compromisso longo.</p>
+            <p class="price"><span class="cur">R$</span>197<small>/mês</small></p>
+            <p class="note">Cobrado todo mês no cartão ou Pix.</p>
+            <a class="btn btn-line js-buy" data-plano="Mensal (R$ 197/mês)" href="#" target="_blank" rel="noopener">Assinar o mensal</a>
+          </div>
+          <!-- O anual (R$ 1.597) não aparece aqui: é oferta só dentro do painel, pra quem já assina. -->
+          <div class="plan hl">
+            <span class="tagp">Economize R$ 94</span>
+            <h3>Trimestral</h3>
+            <p class="for">Tempo pro pixel aprender.</p>
+            <p class="price"><span class="cur">R$</span>497<small>/3 meses</small></p>
+            <p class="note"><b>Sai R$ 166 por mês</b>, 16% a menos.</p>
+            <a class="btn btn-go js-buy" data-plano="Trimestral (R$ 497 a cada 3 meses)" href="#" target="_blank" rel="noopener">Assinar o trimestral</a>
+          </div>
+        </div>
+        <div class="incl">
+          <p class="incl-t">Tudo incluso nos dois planos</p>
+          <ul class="js-feat"></ul>
+        </div>
+        <p class="guar"><svg><use href="#i-shield"/></svg>Garantia de 7 dias. Não gostou, pede o dinheiro de volta.</p>
+        <p class="setup">Prefere que a gente configure tudo e cuide do mapa por você? <a class="js-wa" data-plano="configuração feita pela equipe" href="#" target="_blank" rel="noopener">Fale com a gente</a></p>
+      </div>
+    </section>
+
+    <section style="padding-top:0">
+      <div class="wrap">
+        <div class="center"><p class="kicker">Dúvidas de dono de provedor</p><h2>Perguntas frequentes</h2></div>
+        <div class="faq">
+          <details><summary>Preciso de técnico ou de instalar alguma coisa?</summary><p>Não. Você sobe o mapa que já tem (KMZ ou KML) pelo painel, coloca o seu WhatsApp e pronto: o link já pode ir pros anúncios.</p></details>
+          <details><summary>E se ele não deixar usar a localização?</summary><p>Ele digita o CEP e o número, ou marca a casa no mapa. Se a rua não aparecer, o mapa chega perto e ele só ajusta o pino.</p></details>
+          <details><summary>O cliente vê o meu mapa de cobertura?</summary><p>Não. Ele só vê o próprio endereço e a resposta. A sua rede e as suas áreas ficam só no painel.</p></details>
+          <details><summary>E quem mora fora da minha rede?</summary><p>Ele nunca ouve "não atendemos": deixa o contato e o seu vendedor confere. Esses contatos viram uma lista por bairro, boa pra decidir onde expandir.</p></details>
+          <details><summary>Serve só pra anúncio do Instagram e Facebook?</summary><p>Não. É um link: vale pra Google, bio do Instagram, status do WhatsApp, QR code no panfleto e site do provedor (tem botão pronto pra colar).</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final" style="padding-top:0">
+      <div class="wrap">
+        <div class="box">
+          <h2>Seu vendedor só deveria falar <span class="gg">com quem pode virar cliente.</span></h2>
+          <div class="ctas"><a class="btn btn-go" href="#planos">Ver os planos</a><a class="btn btn-ghost-l js-wa" href="#" target="_blank" rel="noopener">Tirar dúvida no WhatsApp</a></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Consulta Cobertura · só chega no WhatsApp do provedor quem pode instalar</span>
+    <a href="https://consulta-cobertura.vercel.app/ativar" style="color:inherit;font-weight:600;text-decoration:underline">Já assinou? Ative sua conta</a>
+    <span>(49) 99903-7322</span>
+  </div>
+</footer>
+
+<div class="sticky"><a class="btn btn-go" href="#planos">Ver os planos</a></div>
+
+<script>
+(function () {
+  var NUM = '5549999037322'
+  var API = location.hostname === 'euwill-maker.github.io' ? 'https://consulta-cobertura.vercel.app/api/vendas/interessado' : '/api/vendas/interessado'
+  var SAVED = 'cc-diagnostico'
+  var CHECKOUT = { 'Mensal (R$ 197/mês)': 'https://pay.kiwify.com.br/m8Ybi2F', 'Trimestral (R$ 497 a cada 3 meses)': 'https://pay.kiwify.com.br/K7qnLlr' }
+  var VALOR = { 'Mensal (R$ 197/mês)': 197, 'Trimestral (R$ 497 a cada 3 meses)': 497 }
+  var FEAT = ['Página com a sua marca e a sua oferta', 'Cobertura conferida no seu mapa', 'Cliente escolhe o dia da instalação', 'Pixel + API de Conversões prontos', 'Painel com mapa de clientes e funil', 'Lista de quem está fora da área', 'Link pros anúncios e botão no site', 'Suporte pelo WhatsApp']
+  // Meio de cada faixa: base da estimativa mostrada no diagnóstico (sempre dita como estimativa pelas respostas).
+  var VERBA = { 'Até R$ 1 mil': 600, 'R$ 1 a 3 mil': 2000, 'R$ 3 a 10 mil': 6000, 'Mais de R$ 10 mil': 12000 }
+  var FORA = { '1 ou 2': 0.15, '3 ou 4': 0.35, '5 ou mais': 0.55 }
+  var DE10 = { '1 ou 2': '1 ou 2', '3 ou 4': '3 ou 4', '5 ou mais': '5 ou mais' }
+
+  var utm = {}
+  new URLSearchParams(location.search).forEach(function (v, k) { if (/^utm_/.test(k)) utm[k] = v })
+  var store = {
+    get: function () { try { return JSON.parse(localStorage.getItem(SAVED) || 'null') } catch (e) { return null } },
+    set: function (v) { try { localStorage.setItem(SAVED, JSON.stringify(v)) } catch (e) {} },
+    clear: function () { try { localStorage.removeItem(SAVED) } catch (e) {} },
+  }
+  var track = function () { if (window.fbq) fbq.apply(null, arguments) }
+
+  // Links de compra e do WhatsApp (iguais aos da página principal; os utm do anúncio seguem pro checkout).
+  document.querySelectorAll('.js-feat').forEach(function (ul) { FEAT.forEach(function (f) { var li = document.createElement('li'); li.textContent = f; ul.appendChild(li) }) })
+  var qs = new URLSearchParams(utm).toString()
+  document.querySelectorAll('.js-buy').forEach(function (a) {
+    var plano = a.getAttribute('data-plano')
+    a.href = CHECKOUT[plano] ? CHECKOUT[plano] + (qs ? '?' + qs : '') : 'https://wa.me/' + NUM + '?text=' + encodeURIComponent('Olá! Quero assinar o Consulta Cobertura, plano ' + plano + '.')
+    a.addEventListener('click', function () { track('trackCustom', 'CliqueAssinar', { content_name: 'Consulta Cobertura', plano: plano, value: VALOR[plano] || 0, currency: 'BRL', pagina: 'diagnostico' }) })
+  })
+  function waLinks(who) {
+    document.querySelectorAll('.js-wa').forEach(function (a) {
+      var plano = a.getAttribute('data-plano')
+      var msg = 'Olá! Fiz o diagnóstico' + (who ? ' da ' + who.provedor : '') + ' e quero que só chegue no meu WhatsApp quem pode instalar.' + (plano ? ' Tenho interesse em: ' + plano + '.' : '')
+      a.href = 'https://wa.me/' + NUM + '?text=' + encodeURIComponent(msg)
+    })
+  }
+  waLinks(null)
+
+  // ---------- perguntas ----------
+  var quiz = document.getElementById('quiz'), result = document.getElementById('result')
+  var steps = Array.prototype.slice.call(quiz.querySelectorAll('.qstep'))
+  var back = quiz.querySelector('.qback'), count = quiz.querySelector('.qcount'), bar = quiz.querySelector('.qbar span')
+  var answers = {}, trail = [], started = false, pending = null
+  var stepEl = function (k) { return steps.filter(function (s) { return s.getAttribute('data-k') === k })[0] }
+  function order() { return ['clientes', 'anuncia'].concat(answers.anuncia === 'Ainda não' ? [] : ['investe']).concat(['foraDaRede', 'sistema', 'contato']) }
+  function show(k) {
+    steps.forEach(function (s) { s.hidden = s.getAttribute('data-k') !== k })
+    var list = order(), i = list.indexOf(k)
+    count.textContent = k === 'contato' ? 'Último passo' : 'Pergunta ' + (i + 1) + ' de ' + (list.length - 1)
+    bar.style.width = Math.round((i / list.length) * 100) + '%'
+    back.disabled = !trail.length
+    var first = stepEl(k).querySelector(k === 'contato' ? 'input' : '.opt.on, .opt')
+    if (k === 'contato' && first && window.matchMedia('(min-width: 760px)').matches) first.focus()
+    // Depois da 1ª resposta, a pergunta inteira fica à vista (no celular o título de cima sai da tela).
+    var card = quiz.querySelector('.qcard')
+    if (trail.length && card.getBoundingClientRect().bottom > window.innerHeight) card.scrollIntoView({ block: 'start', behavior: 'smooth' })
+  }
+  steps.forEach(function (s) {
+    var k = s.getAttribute('data-k')
+    s.querySelectorAll('.opt').forEach(function (b) {
+      b.addEventListener('click', function () {
+        s.querySelectorAll('.opt').forEach(function (o) { o.classList.toggle('on', o === b) })
+        answers[k] = b.textContent.trim()
+        if (k === 'anuncia' && answers.anuncia === 'Ainda não') delete answers.investe
+        if (!started) { started = true; track('trackCustom', 'DiagnosticoInicio', { content_name: 'Diagnóstico Consulta Cobertura' }) }
+        // Pausa curta pra ver a escolha marcada; tocar de novo ou em Voltar antes disso cancela o avanço.
+        clearTimeout(pending)
+        pending = setTimeout(function () { pending = null; var list = order(); trail.push(k); show(list[list.indexOf(k) + 1]) }, 180)
+      })
+    })
+  })
+  back.addEventListener('click', function () { clearTimeout(pending); pending = null; if (trail.length) show(trail.pop()) })
+
+  // ---------- contato ----------
+  var form = stepEl('contato'), err = form.querySelector('.qerr'), send = form.querySelector('.qsend'), phone = form.elements.whatsapp
+  phone.addEventListener('input', function () {
+    var d = phone.value.replace(/\D/g, '').slice(0, 11)
+    phone.value = d.length > 6 ? '(' + d.slice(0, 2) + ') ' + d.slice(2, d.length - 4) + '-' + d.slice(-4) : d.length > 2 ? '(' + d.slice(0, 2) + ') ' + d.slice(2) : d
+  })
+  function fail(msg) { err.textContent = msg; err.hidden = false }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault()
+    err.hidden = true
+    var f = form.elements
+    var who = { nome: f.nome.value.trim(), provedor: f.provedor.value.trim(), cidade: f.cidade.value.trim() }
+    var digits = f.whatsapp.value.replace(/\D/g, '')
+    if (who.nome.length < 2) return fail('Escreva o seu nome.')
+    if (who.provedor.length < 2) return fail('Escreva o nome do provedor.')
+    if (who.cidade.length < 2) return fail('Escreva a cidade do provedor.')
+    if (digits.length < 10 || digits.length > 11) return fail('Informe o WhatsApp com DDD, por exemplo (41) 99999-8888.')
+    send.disabled = true
+    send.firstChild.textContent = 'Gerando o diagnóstico… '
+    var body = { nome: who.nome, provedor: who.provedor, cidade: who.cidade, whatsapp: digits, respostas: answers, utm: utm, site: f.site.value }
+    var ctrl = window.AbortController ? new AbortController() : null
+    var timer = setTimeout(function () { if (ctrl) ctrl.abort() }, 8000)
+    fetch(API, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body), signal: ctrl ? ctrl.signal : undefined })
+      .then(function (r) { return r.json().catch(function () { return {} }).then(function (j) { return { status: r.status, j: j } }) })
+      .catch(function () { return { status: 0, j: {} } })
+      .then(function (res) {
+        clearTimeout(timer)
+        // Telefone recusado pelo servidor: pede pra corrigir. Qualquer outra falha não segura a pessoa: o diagnóstico aparece igual.
+        if (res.status === 400 && res.j && res.j.error) { send.disabled = false; send.firstChild.textContent = 'Ver meu diagnóstico '; return fail(res.j.error) }
+        track('track', 'Lead', { content_name: 'Diagnóstico Consulta Cobertura', content_category: answers.sistema || '' })
+        var saved = { who: who, answers: answers }
+        store.set(saved)
+        reveal(saved, true)
+      })
+  })
+
+  // ---------- resultado ----------
+  var esc = function (s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML }
+  var money = function (n) { return 'R$ ' + n.toLocaleString('pt-BR') }
+  var check = '<svg aria-hidden="true"><use href="#i-check"/></svg>'
+  function reveal(saved, fresh) {
+    var a = saved.answers, who = saved.who, first = who.nome.split(' ')[0]
+    var anuncia = a.anuncia && a.anuncia !== 'Ainda não'
+    var verba = VERBA[a.investe], fora = FORA[a.foraDaRede]
+    var title, card
+    if (anuncia && verba && fora) {
+      var mes = Math.max(50, Math.round((verba * fora) / 50) * 50)
+      var vezes = Math.floor(mes / 197)
+      title = first + ', esta é a parte do seu anúncio que vai pra quem não pode instalar:'
+      card = '<p class="lbl">Cerca de</p><div class="big">' + money(mes) + '<small>/mês</small></div>' +
+        '<p>São <b>' + DE10[a.foraDaRede] + ' de cada 10 contatos</b> que chegam no seu WhatsApp sem poder virar cliente. No ano, passa de <b>' + money(mes * 12) + '</b>, fora o tempo do seu comercial respondendo cada um.</p>' +
+        (vezes >= 2 ? '<p>Só esse desperdício paga a mensalidade do Consulta Cobertura <b>' + vezes + ' vezes</b>.</p>' : vezes === 1 ? '<p>Só esse desperdício já paga a mensalidade do Consulta Cobertura.</p>' : '<p>E pior: o Meta aprende com esse contato errado e traz mais gente igual.</p>') +
+        '<p class="est">Estimativa feita com as suas respostas: o meio da faixa de investimento vezes a parte dos contatos que mora fora da rede.</p>'
+    } else if (anuncia) {
+      title = first + ', hoje você não sabe quantos contatos do seu anúncio moram onde não tem rede.'
+      card = '<div class="big">? <small>de cada 10</small></div><p>Sem esse número, você paga anúncio às cegas e o seu comercial responde todo mundo. Com o Consulta Cobertura, <b>quem está fora nem chega no WhatsApp</b> e você vê no painel quantos foram.</p>'
+    } else {
+      title = first + ', quando você começar a anunciar, já começa recebendo só quem pode instalar.'
+      card = '<div class="big">0 <small>contatos fora da rede</small></div><p>O mesmo link serve hoje pra <b>bio do Instagram, status do WhatsApp, QR code no panfleto e site</b>. Quem mora fora vira lista por bairro, boa pra decidir onde expandir.</p>'
+    }
+    var items = ['<b>O cliente confere o endereço no seu mapa</b> antes de chamar no WhatsApp, com a marca da ' + esc(who.provedor) + '.']
+    if (anuncia) items.push('<b>O pixel do Meta e do Google aprende com quem tem cobertura</b> e traz mais gente certa.')
+    items.push(a.sistema === 'IXC' ? '<b>Integra com o IXC:</b> o quadro de vendas marca sozinho quem já foi instalado.' : '<b>Quadro de vendas</b> do primeiro contato até a instalação.')
+    items.push('<b>Quem está fora vira lista pra expansão</b>, por bairro' + (who.cidade ? ', em ' + esc(who.cidade) : '') + '.')
+    items.push('<b>Ativa em 5 minutos</b> com o mapa que você já tem (KMZ/KML). 7 dias de garantia.')
+    result.querySelector('.js-company').textContent = who.provedor
+    result.querySelector('.js-title').textContent = title
+    result.querySelector('.js-card').innerHTML = card
+    result.querySelector('.js-list').innerHTML = items.map(function (t) { return '<li>' + check + '<span>' + t + '</span></li>' }).join('')
+    waLinks(who)
+    quiz.hidden = true
+    result.hidden = false
+    track('track', 'ViewContent', { content_name: 'Consulta Cobertura', content_category: 'Assinatura' })
+    var v = document.getElementById('vsl'), wide = window.matchMedia('(min-width: 768px)').matches
+    if (!v.src) { v.poster = 'media/vsl-' + (wide ? 'computador' : 'celular') + '.webp'; v.src = 'media/vsl-' + (wide ? 'computador' : 'celular') + '.mp4' }
+    window.scrollTo(0, 0)
+    if (fresh && window.history.replaceState) window.history.replaceState(null, '', location.pathname + location.search + '#diagnostico')
+  }
+  result.querySelector('.js-redo').addEventListener('click', function () {
+    store.clear()
+    clearTimeout(pending); answers = {}; trail = []; started = false
+    steps.forEach(function (s) { s.querySelectorAll('.opt').forEach(function (o) { o.classList.remove('on') }) })
+    result.hidden = true; quiz.hidden = false
+    show('clientes')
+    window.scrollTo(0, 0)
+  })
+
+  // Quem já fez o diagnóstico (voltou por um anúncio de remarketing) vai direto pro resultado.
+  var before = store.get()
+  if (before && before.who && before.answers) reveal(before, false)
+  else show('clientes')
+
+  var sticky = document.querySelector('.sticky'), plans = document.getElementById('planos')
+  var onScroll = function () { sticky.classList.toggle('on', !result.hidden && window.scrollY > 500 && plans.getBoundingClientRect().top > window.innerHeight) }
+  window.addEventListener('scroll', onScroll, { passive: true })
+})()
+</script>
+</body>
+</html>
