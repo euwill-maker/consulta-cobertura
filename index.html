@@ -266,6 +266,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.vsl-sound,.vsl-cta.hot .btn-go{animation:none}html{scroll-behavior:auto}}
 </style>
+<!-- Pixel do Meta: o mesmo da Maleta do Provedor (o público de donos de provedor já está treinado nele). A compra quem conta é a Kiwify. -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '987704873319973'); fbq('track', 'PageView'); fbq('track', 'ViewContent', { content_name: 'Consulta Cobertura', content_category: 'Assinatura' });
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=987704873319973&ev=PageView&noscript=1"></noscript>
 </head>
 <body>
 
@@ -558,9 +564,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
   document.querySelectorAll('.js-feat').forEach(function (ul) {
     FEAT.forEach(function (f) { var li = document.createElement('li'); li.textContent = f; ul.appendChild(li) })
   })
+  var VALOR = { 'Mensal (R$ 197/mês)': 197, 'Trimestral (R$ 497 a cada 3 meses)': 497 }
   document.querySelectorAll('.js-buy').forEach(function (a) {
     var plano = a.getAttribute('data-plano')
     a.href = CHECKOUT[plano] || 'https://wa.me/' + NUM + '?text=' + encodeURIComponent('Olá! Quero assinar o Consulta Cobertura, plano ' + plano + '.')
+    // Clique no plano vira evento próprio no pixel (o InitiateCheckout e a compra vêm da Kiwify, sem contar em dobro).
+    a.addEventListener('click', function () { if (window.fbq) fbq('trackCustom', 'CliqueAssinar', { content_name: 'Consulta Cobertura', plano: plano, value: VALOR[plano] || 0, currency: 'BRL' }) })
   })
   document.querySelectorAll('.js-wa').forEach(function (a) {
     var plano = a.getAttribute('data-plano')
